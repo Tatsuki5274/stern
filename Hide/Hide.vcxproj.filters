@@ -138,9 +138,6 @@
     <ClCompile Include="GameTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
-    <ClCompile Include="Resource.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>ソース ファイル\Chara\Camera</Filter>
     </ClCompile>
@@ -154,6 +151,9 @@
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
     <ClCompile Include="StageSelectTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicResource.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -218,9 +218,6 @@
     <ClInclude Include="GameTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>ヘッダー ファイル\Chara\Camera</Filter>
     </ClInclude>
@@ -234,6 +231,9 @@
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
     <ClInclude Include="StageSelectTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicResource.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
   </ItemGroup>
