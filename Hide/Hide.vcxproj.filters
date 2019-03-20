@@ -153,8 +153,8 @@
     <ClCompile Include="StageSelectTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicResource.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
+    <ClCompile Include="Resource.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,8 +233,8 @@
     <ClInclude Include="StageSelectTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicResource.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    <ClInclude Include="Resource.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
