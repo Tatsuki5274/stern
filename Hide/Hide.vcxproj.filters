@@ -85,6 +85,12 @@
     <Filter Include="ソース ファイル\TaskSystem\StageSelectTask">
       <UniqueIdentifier>{17a6a756-f80a-46ed-8ebb-bc33b9552788}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem\TitleTask">
+      <UniqueIdentifier>{d34b3777-6ac5-427b-8906-56e733bed5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TaskSystem\TitleTask">
+      <UniqueIdentifier>{d98a6920-6e1d-4f46-8352-f2aa92dc5425}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -153,9 +159,6 @@
     <ClCompile Include="CoreTask.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
-    <ClCompile Include="TitleTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
     <ClCompile Include="ClearTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
@@ -170,6 +173,21 @@
     </ClCompile>
     <ClCompile Include="StageselectTaskTextBox.cpp">
       <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleStartButton.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleTaskBasicUI.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleExitButton.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleSelecter.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +260,6 @@
     <ClInclude Include="CoreTask.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
-    <ClInclude Include="TitleTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
     <ClInclude Include="ClearTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
@@ -259,6 +274,21 @@
     </ClInclude>
     <ClInclude Include="StageselectTaskTextBox.h">
       <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleTaskBasicUI.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleStartButton.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleExitButton.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleSelecter.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

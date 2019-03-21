@@ -1,26 +1,17 @@
 #pragma once
+#include"TitleStartButton.h"
+#include"TitleSelecter.h"
+#include"TitleExitButton.h"
 #include<memory>
 
 class TitleTaskSystem {
 private:
-	class TitleStar {
-	private:
-		int graph;
-		int x;
-		int y;
-		//輝度を変更する
-		bool switchbright;
-		int bright;//RGB全て同じ値で動かす
-	public:
-		TitleStar();
-		void draw();
-		void update();
-		void bright_switch();
-	};
-	int graph;
+	int backgraph;
 public:
 	TitleTaskSystem();
 	void update();
 	void draw();
-	std::unique_ptr<TitleStar> titlestar;
+	std::unique_ptr<TitleSelecter> selecter;
+	std::unique_ptr<TitleStartButton> startbutton;
+	std::unique_ptr<TitleExitButton> exitbutton;
 };
