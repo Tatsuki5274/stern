@@ -1,6 +1,6 @@
 #pragma once
 #include"Physic.h"
-
+#include"CoreTask.h"
 //---------------------------------
 //¯‘S”Ê
 //---------------------------------
@@ -21,4 +21,9 @@ protected:
 	bool contact;
 	int power;
 	int life;
+	Point Enemy_point;
+	struct p {
+		int x = 0, y = 0;
+	}
+	p[4];
 };
