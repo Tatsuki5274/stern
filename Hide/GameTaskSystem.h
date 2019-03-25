@@ -4,6 +4,7 @@
 #include<memory>
 #include"BasicList.h"
 #include"NormalStar.h"
+#include"Enemy.h"
 
 class GameTaskSystem
 {
@@ -17,5 +18,6 @@ public:
 	std::unique_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::shared_ptr<BasicList<NormalStar>> normalstar;
+	std::shared_ptr<BasicList<Enemy>> enemy;
 };
 
