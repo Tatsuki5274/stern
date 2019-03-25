@@ -19,7 +19,8 @@ public:
 		graph = LoadGraph("img/star.png");
 	};
 	void update();
-	void inhale(int, int, float);
+	void inhale(/*int, int, float*/);
 
 private:
+	Point gravity_point;
 };
