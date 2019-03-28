@@ -1,6 +1,7 @@
 #include"Map.h"
 #include"DxLib.h"
 #include<fstream>
+#include<sstream>
 //1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
 #define chipsize 30
 
@@ -23,7 +24,15 @@ void Map::init(char* mapfp, char* chipfp)
 	std::ifstream mapdata(mapfp);
 	if (!mapdata) { return; }
 	for (int y = 0; y < mapsizey / chipsize; ++y) {
+		std::string lineText;
+		std::getline(mapdata, lineText);
+		std::istringstream  ss_lt(lineText);
 		for (int x = 0; x < mapsizex / chipsize; ++x) {
+			std::string  tc;
+			std::getline(ss_lt, tc, ',');
+			std::stringstream ss;
+			ss << tc;
+			ss >> data[y][x];
 			mapdata >> data[y][x];
 		}
 	}
