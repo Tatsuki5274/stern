@@ -113,17 +113,22 @@ void Player::draw_interface(int)
 
 void Player::move()
 {
-	//固定数値ではなくvelocityを入れる
-	//Keyboardに変更する
-	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
-		point.x += 2;
-	}
+	//左右移動
 	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
-		point.x -= 2;
+		velocityX -= 2;
 	}
-	if (ct->keyboard->key_press(KEY_INPUT_UP)) {
-		point.y -= 2;
+	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
+		velocityX += 2;
 	}
+	//ジャンプ
+	if (ct->keyboard->key_down(KEY_INPUT_X)) {
+		velocityY -= 10;
+	}
+	//ダッシュ
+	
+	//
+	point.x += velocityX;
+	point.y += velocityY;
 }
 
 bool Player::knockback(int)
