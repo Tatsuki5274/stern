@@ -60,6 +60,7 @@ protected:
 	int invincible;//無敵時間
 	int hp;//HP
 	int interval;//星の発射間隔
+	int preY; //前のフレームのvelocityYの数値を記録
 	bool knockback_status;//ノックバック中か
 	std::unique_ptr<StarManager> starmanager;
 	std::unique_ptr<PlayerInterface> playerinterface;

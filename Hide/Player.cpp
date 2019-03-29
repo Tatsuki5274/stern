@@ -115,20 +115,19 @@ void Player::move()
 {
 	//左右移動
 	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
-		velocityX -= 2;
+		velocityX = -2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
-		velocityX += 2;
+		velocityX = +2;
 	}
 	//ジャンプ
 	if (ct->keyboard->key_down(KEY_INPUT_X)) {
-		velocityY -= 10;
+		if (velocityY == 0 && velocityY == preY) {
+			velocityY -= 10;
+		}
 	}
 	//ダッシュ
-	
-	//
-	point.x += velocityX;
-	point.y += velocityY;
+	preY = velocityY;
 }
 
 bool Player::knockback(int)
