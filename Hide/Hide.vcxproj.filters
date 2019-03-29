@@ -73,9 +73,6 @@
     <Filter Include="ヘッダー ファイル\List">
       <UniqueIdentifier>{58557f4d-7373-4063-bc0e-94854bb8bc4b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Effect">
-      <UniqueIdentifier>{1acbfc11-b36e-4c33-9d58-5c67ce676283}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Rendering">
       <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
     </Filter>
@@ -96,6 +93,9 @@
     </Filter>
     <Filter Include="ソース ファイル\Star">
       <UniqueIdentifier>{19f03915-6e16-43f9-9ef6-2a56844f0732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Effect">
+      <UniqueIdentifier>{1acbfc11-b36e-4c33-9d58-5c67ce676283}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +207,9 @@
     <ClCompile Include="SpawnEnemy.cpp">
       <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
+    <ClCompile Include="Goal.cpp">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -234,7 +237,7 @@
       <Filter>ヘッダー ファイル\List</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
-      <Filter>ヘッダー ファイル\Effect</Filter>
+      <Filter>ヘッダー ファイル\Chara\Effect</Filter>
     </ClInclude>
     <ClInclude Include="FlyingEnemy.h">
       <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="SpawnEnemy.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="Goal.h">
+      <Filter>ヘッダー ファイル\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

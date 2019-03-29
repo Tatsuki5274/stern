@@ -25,9 +25,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	ct = new CoreTask;
 	ct->graph->load("player");	//resource.jsonのscopeにplayerが含まれている画像を全てロード
+	ct->graph->load("goal"); //scope:gimmickの画像をすべて読み込む
 	ct->graph->load("walking");   //scope:enemyの画像をすべて読み込む
 	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
 	ct->gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
+	ct->gts->goal->init();
 	//-------------------------------------------------
 	SetDrawScreen(DX_SCREEN_BACK);//裏画面設定
 

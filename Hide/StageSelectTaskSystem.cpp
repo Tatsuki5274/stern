@@ -19,16 +19,16 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-
-	if (ct->keyboard->key_down(KEY_INPUT_Z)&& chara->get_velocity() == 0) {
+	spawnenemy->destroy();//‚±‚±‚Å“G‚ğ‚·‚×‚Äíœ‚·‚é
+	if (ct->keyboard->key_down(KEY_INPUT_Z) && chara->get_velocity() == 0) {
 		switch (stage)
 		{
 		case 1:
-			ct->gts->map->init((char*)"img/data.txt", (char*)"img/chip.png");
+			ct->gts->map->init((char*)"data/stage1.txt", (char*)"img/chip.png");
 			spawnenemy->create("1");
 			break;
 		case 2:
-			ct->gts->map->init((char*)"", (char*)"");
+			ct->gts->map->init((char*)"data/stage1.txt", (char*)"img/chip.png");
 			break;
 		case 3:
 			ct->gts->map->init((char*)"", (char*)"");
@@ -37,6 +37,7 @@ void StageSelectTaskSystem::update()
 			ct->gts->map->init((char*)"", (char*)"");
 			break;
 		}
+		ct->gts->init();
 		ct->scene = Scene::game;//ƒQ[ƒ€ƒV[ƒ“‚É‘JˆÚ
 	}
 	draw();

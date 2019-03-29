@@ -44,7 +44,7 @@ void WalkingEnemy::move()
 		}
 		break;*/
 	}
-	point.x += (int)velocityX;
+	//point.x += (int)velocityX;
 }
 
 void WalkingEnemy::check_left()

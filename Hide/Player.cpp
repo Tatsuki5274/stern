@@ -78,6 +78,11 @@ void Player::init()
 	init_render("player");	//resource.jsonのnameが"player"のものをセットする
 }
 
+void Player::initialize(Point point_)
+{
+	point = point_;
+}
+
 double Player::get_angle()
 {
 	return angle;
