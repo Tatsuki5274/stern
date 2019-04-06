@@ -51,6 +51,7 @@ void ThrowingEnemy::update()
 	exercise();
 	move();
 	DrawFormatString(400, 0, GetColor(0, 0, 0), "%d",cnt);
+	attack();
 	draw(true);
 }
 

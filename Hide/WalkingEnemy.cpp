@@ -7,6 +7,8 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
 	anglestate = AngleState::right;
 	walkingstate = WalkingState::walk;
 	init_render("walking");
+	enemy_state_.life = 1;//仮設定
+	enemy_state_.damage = 1; //ダメージを与える処理？
 }
 
 void WalkingEnemy::move()
@@ -78,5 +80,18 @@ void WalkingEnemy::update()
 	check_left();
 	check_right();
 	attack();
-	draw(true);
+	if (attack() == true) { //プレイヤと当たった時の判定
+		if (damage(1) == true) { //Enemyが受けるダメージ
+			draw(false);
+			destroyenemy = true;//仮設定
+		}
+	}
+	else if(destroyenemy == false)
+	{
+		draw(true);
+	}
+	else
+	{
+		draw(false);
+	}
 }

@@ -23,6 +23,7 @@ void BulletEnemy::move()
 void BulletEnemy::update()
 {
 	move();
+	attack();
 	exercise();
 	draw(true);
 }

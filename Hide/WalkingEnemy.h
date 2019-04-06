@@ -20,5 +20,6 @@ public:
 	void check_right();
 		
 private:
+	bool destroyenemy = false; //仮設定
 protected:
 };
