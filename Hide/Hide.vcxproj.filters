@@ -103,6 +103,12 @@
     <Filter Include="ソース ファイル\Audio">
       <UniqueIdentifier>{4b1475a2-3c06-4f30-ac5a-7b5d1c79b39e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Chara\Item">
+      <UniqueIdentifier>{df13e793-5bf4-4e1d-82f8-5b855d661723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Item">
+      <UniqueIdentifier>{76e2aa6b-fe50-405c-be5e-8a3a24380356}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -218,6 +224,12 @@
     </ClCompile>
     <ClCompile Include="Audio.cpp">
       <Filter>ソース ファイル\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>ソース ファイル\Chara\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnItem.cpp">
+      <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +349,12 @@
     </ClInclude>
     <ClInclude Include="Audio.h">
       <Filter>ヘッダー ファイル\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>ヘッダー ファイル\Chara\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnItem.h">
+      <Filter>ヘッダー ファイル\Spawn</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

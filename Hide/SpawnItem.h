@@ -1,13 +1,12 @@
-﻿#pragma once
+#pragma once
 #include"json11.hpp"
 #include <iostream>
 #include<memory>
 
-class SpawnEnemy {
+class SpawnItem {
 public:
-	SpawnEnemy();
-	void create(std::string stg);
+	SpawnItem();
+	void create(std::string);
 private:
 	json11::Json data;
-
 };

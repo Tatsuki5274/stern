@@ -10,7 +10,7 @@
 SpawnEnemy::SpawnEnemy()
 {
 	std::ifstream epath("img/epath.json");
-	if (epath.fail()) throw "resource.json is not found.";//例外処理
+	if (epath.fail()) throw "epath.json is not found.";//例外処理
 	std::istreambuf_iterator<char> it(epath);
 	std::istreambuf_iterator<char> last;
 	std::string str_json(it, last);		//string形式のjson
