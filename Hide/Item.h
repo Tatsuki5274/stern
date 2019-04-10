@@ -6,12 +6,12 @@ enum class Kind {
 	powerup
 };
 
-class Item : Rendering {
-private:
+class Item : public Rendering {
+protected:
 	Kind kind;
-	void efficacy(Point, int&,int&);
+	virtual void efficacy();
 	bool checkhit(Point);
 public:
-	Item(Point,Kind);
-	void update(Point,int&,int&);
+	void update();
+	Item(Point);
 };

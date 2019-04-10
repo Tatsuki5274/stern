@@ -42,6 +42,18 @@
     <Filter Include="ソース ファイル\TaskSystem\TitleTask">
       <UniqueIdentifier>{25bbd419-8e80-4fbb-865e-ae0b313feee3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Spawn">
+      <UniqueIdentifier>{329d85d2-f570-4f2f-8f6b-91226b9c1f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Star">
+      <UniqueIdentifier>{19f03915-6e16-43f9-9ef6-2a56844f0732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Chara\Player">
+      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Chara\Item">
+      <UniqueIdentifier>{df13e793-5bf4-4e1d-82f8-5b855d661723}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ヘッダー ファイル">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -60,6 +72,9 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\Chara\Camera">
       <UniqueIdentifier>{0e8a579f-3904-456c-b3e5-95fcd657e408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Item">
+      <UniqueIdentifier>{76e2aa6b-fe50-405c-be5e-8a3a24380356}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\Star">
       <UniqueIdentifier>{f12f1ca8-b0e5-49ed-b4d5-79571ce3fcf0}</UniqueIdentifier>
@@ -231,6 +246,9 @@
     <ClCompile Include="SpawnItem.cpp">
       <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
+    <ClCompile Include="RecoveryItem.cpp">
+      <Filter>ソース ファイル\Chara\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -355,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="SpawnItem.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="RecoveryItem.h">
+      <Filter>ヘッダー ファイル\Chara\Item</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

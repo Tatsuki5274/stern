@@ -12,6 +12,7 @@
 #include"BossEnemy.h"
 #include"Goal.h"
 #include"Camera.h"
+#include"RecoveryItem.h"
 
 class GameTaskSystem
 {
@@ -34,5 +35,6 @@ public:
 	std::shared_ptr<std::vector<std::unique_ptr<Enemy>>> enemys;
 	std::shared_ptr<std::vector<std::unique_ptr<Enemy>>> enemy_transaction;
 
+	std::vector<RecoveryItem> recovery;
 };
 

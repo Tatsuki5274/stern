@@ -6,7 +6,7 @@
 class SpawnItem {
 public:
 	SpawnItem();
-	void create(std::string);
+	void create(std::string stg);
 private:
-	json11::Json data;
+	json11::Json item_data;
 };

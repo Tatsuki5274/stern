@@ -45,6 +45,11 @@ void GameTaskSystem::update()
 		(*itr)->update();
 	}
 	//--------------------------------
+	//アイテム-------------------------------------------
+	for (auto itr = recovery.begin(); itr != recovery.end(); ++itr) {
+		itr->update();
+	}
+
 	player->update();
 	camera->update();
 
@@ -59,4 +64,5 @@ void GameTaskSystem::finalize()
 {
 	normalstar.clear();
 	enemys->clear();
+	recovery.clear();
 }
