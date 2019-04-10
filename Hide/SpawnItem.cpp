@@ -1,4 +1,4 @@
-#include "SpawnItem.h"
+ï»¿#include "SpawnItem.h"
 #include"DxLib.h" 
 #include"CoreTask.h"
 #include <fstream>
@@ -9,26 +9,24 @@
 SpawnItem::SpawnItem()
 {
 	std::ifstream itempath("img/item.json");
-	if (itempath.fail()) throw "item.json is not found.";//—áŠOˆ—
+	if (itempath.fail()) throw "item.json is not found.";//ä¾‹å¤–å‡¦ç†
 	std::istreambuf_iterator<char> it(itempath);
 	std::istreambuf_iterator<char> last;
-	std::string str_json(it, last);		//stringŒ`®‚Ìjson
+	std::string str_json(it, last);		//stringå½¢å¼ã®json
 	std::string err;
-	item_data = json11::Json::parse(str_json, err);//Json‚Åg‚¦‚é‚æ‚¤‚É‚·‚é
+	item_data = json11::Json::parse(str_json, err);//Jsonã§ä½¿ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
 }
 
 void SpawnItem::create(std::string stg)
 {
-	//enemyƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉKind,X,Y‚ª•K—v‚È‰Â”\«
-	//enemyƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉKind,X,Y‚ª•K—v‚È‰Â”\«
 	for (auto &item : item_data[stg].array_items())
 	{
-		//‰Šú’l§Œä---------------------------------------------------------------------------------------------------------
+		//åˆæœŸå€¤åˆ¶å¾¡---------------------------------------------------------------------------------------------------------
 		class Point i_point = { item["x"].int_value(),item["y"].int_value(), item["w"].int_value(), item["h"].int_value() };
 		//---------------------------------------------------------------------------------------------------------
-		//‰ñ•œ
+		//å›å¾©
 		if (item["kind"].string_value() == "recovery") {
-			//¶¬‚µ‚ÄŒ»İ‚ÌÅŒã”ö‚É“o˜^
+			//ç”Ÿæˆã—ã¦ç¾åœ¨ã®æœ€å¾Œå°¾ã«ç™»éŒ²
 			ct->gts->recovery.push_back(RecoveryItem{i_point});
 		}
 	}

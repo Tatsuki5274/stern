@@ -3,7 +3,7 @@
 
 RecoveryItem::RecoveryItem(Point point_) : Item(point_)
 {
-	init_render("recovery");//‰æ‘œ
+	init_render("recovery");//ç”»åƒ
 }
 
 void RecoveryItem::update()
@@ -16,5 +16,5 @@ void RecoveryItem::update()
 
 void RecoveryItem::efficacy()
 {
-	//‰ñ•œ
+	//å›å¾©
 }
