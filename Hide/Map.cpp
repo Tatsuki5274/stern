@@ -18,7 +18,7 @@ Map::Map()
 	std::ifstream mappath("img/mappath.json");
 	if (mappath.fail())
 	{
-		throw std::runtime_error("resource.json is not found.");	//ファイルが読み込めないと例外を返す
+		throw std::runtime_error("mappath.json is not found.");	//ファイルが読み込めないと例外を返す
 	}
 	std::istreambuf_iterator<char> it(mappath);
 	std::istreambuf_iterator<char> last;
@@ -45,7 +45,7 @@ void Map::init(char* mapfp, char* chipfp)
 
 void Map::draw()
 {
-	for (int y = 0; y < mapsizey / (mapsizey/chipsize); ++y) {
+	for (int y = 0; y < mapsizey / (mapsizey / chipsize); ++y) {
 		for (int x = 0; x < mapsizex / (mapsizex / chipsize); ++x) {
 			DrawRectGraph(x * chipsize, y *chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
 		}
@@ -124,13 +124,13 @@ int Map::get_left(Point chara_)
 	int sx = chara_.x / chipsize;
 	int sy = chara_.y / chipsize;
 	int ex = chara_.x / chipsize;
-	int ey = (chara_.y + chara_.h-1) / chipsize;
+	int ey = (chara_.y + chara_.h - 1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
 				return 1;
 			}
-			
+
 		}
 	}
 	return 0;
@@ -138,10 +138,10 @@ int Map::get_left(Point chara_)
 
 int Map::get_right(Point chara_)
 {
-	int sx = (chara_.x + chara_.w-1) / chipsize;
+	int sx = (chara_.x + chara_.w - 1) / chipsize;
 	int sy = chara_.y / chipsize;
-	int ex = (chara_.x + chara_.w-1) / chipsize;
-	int ey = (chara_.y + chara_.h-1) / chipsize;
+	int ex = (chara_.x + chara_.w - 1) / chipsize;
+	int ey = (chara_.y + chara_.h - 1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
@@ -157,7 +157,7 @@ int Map::get_top(Point chara_)
 {
 	int sx = chara_.x / chipsize;
 	int sy = chara_.y / chipsize;
-	int ex = (chara_.x + chara_.w-1) / chipsize;
+	int ex = (chara_.x + chara_.w - 1) / chipsize;
 	int ey = chara_.y / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
@@ -173,9 +173,9 @@ int Map::get_top(Point chara_)
 int Map::get_bottom(Point chara_)
 {
 	int sx = chara_.x / chipsize;
-	int sy = (chara_.y + chara_.h-1) / chipsize;
-	int ex = (chara_.x + chara_.w-1) / chipsize;
-	int ey = (chara_.y + chara_.h-1) / chipsize;
+	int sy = (chara_.y + chara_.h - 1) / chipsize;
+	int ex = (chara_.x + chara_.w - 1) / chipsize;
+	int ey = (chara_.y + chara_.h - 1) / chipsize;
 	//範囲内の障害物を探す
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
@@ -186,16 +186,16 @@ int Map::get_bottom(Point chara_)
 	}
 	return 0;
 }
-int Map::get_circle(Point star_,int r_)
+int Map::get_circle(Point star_, int r_)
 {
 	/*int sx = (star_.x-r_) / chipsize;//本来はこのはずだが描画と当たり判定がずれている
 	int sy = (star_.y-r_) / chipsize;
 	int ex = (star_.x + r_ ) / chipsize;
 	int ey = (star_.y + r_ ) / chipsize;*/
-	int sx = (star_.x-1 ) / chipsize;
-	int sy = (star_.y-1 ) / chipsize;
-	int ex = (star_.x + r_*3) / chipsize;
-	int ey = (star_.y + r_*3) / chipsize;
+	int sx = (star_.x - 1) / chipsize;
+	int sy = (star_.y - 1) / chipsize;
+	int ex = (star_.x + r_ * 3) / chipsize;
+	int ey = (star_.y + r_ * 3) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
