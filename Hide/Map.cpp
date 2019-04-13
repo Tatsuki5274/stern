@@ -1,5 +1,6 @@
 ﻿#include"Map.h"
 #include"DxLib.h"
+#include"CoreTask.h"
 #include<fstream>
 #include<algorithm>
 #include "json11.hpp"
@@ -71,7 +72,7 @@ void Map::draw()
 
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			DrawRectGraph(x * chipsize, y * chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
+			DrawRectGraph((x * chipsize) - ct->gts->camera->get_range().x, y * chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
 		}
 	}
 }
