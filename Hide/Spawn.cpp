@@ -1,13 +1,13 @@
-#include "Spawn.h"
+ï»¿#include "Spawn.h"
 
 
 Spawn::Spawn(std::string fpath)
 {
 	std::ifstream path(fpath);
-	if (path.fail()) throw "json file is not found.";//—áŠOˆ—
+	if (path.fail()) throw "json file is not found.";//ä¾‹å¤–å‡¦ç†
 	std::istreambuf_iterator<char> it(path);
 	std::istreambuf_iterator<char> last;
-	std::string str_json(it, last);		//stringŒ`®‚Ìjson
+	std::string str_json(it, last);		//stringå½¢å¼ã®json
 	std::string err;
-	data = json11::Json::parse(str_json, err);//Json‚Åg‚¦‚é‚æ‚¤‚É‚·‚é
+	data = json11::Json::parse(str_json, err);//Jsonã§ä½¿ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
 }
