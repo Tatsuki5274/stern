@@ -4,11 +4,11 @@
 
 class Item : public BasicObject {
 private:
-	virtual void work() = 0;//抽象となる
+	virtual void affect() = 0;//抽象となる
 protected:
-	friend class CoreTask;
+	friend class CoreTask;	//CoreTask::init が利用するため
 	static std::shared_ptr<Player> player;
-	bool checkhit(Point);
+	virtual bool check_hit(Point) final;
 public:
 	void update() final;//これ以上の継承をさせない
 	Item(Point);
