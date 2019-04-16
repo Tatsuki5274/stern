@@ -44,6 +44,7 @@ void CoreTask::init()
 	//静的メンバの初期化
 	Rendering::camera = gts->camera;
 	Rendering::resource = graph;
+	Item::player = gts->player;
 
 	//音
 	audio->load("action");
