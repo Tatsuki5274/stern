@@ -1,6 +1,8 @@
 #include "Item.h"
 #include"CoreTask.h"
 
+std::shared_ptr<Player> player;
+
 Item::Item(Point point_) : BasicObject(point_)
 {
 }
