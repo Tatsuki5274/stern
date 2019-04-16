@@ -13,7 +13,7 @@ GameTaskSystem::GameTaskSystem()
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	camera = std::make_shared<Camera>();
-	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
+	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::unique_ptr<Item>>>();
