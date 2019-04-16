@@ -7,10 +7,20 @@
 
 class Boss : public Enemy {
 public:
+	enum class BossState
+	{
+		walk,
+		jump,
+		stay
+	};
+	BossState bossstate;
 	Boss(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
-	//メソッド
 	void move() override;
-
+	void change_angle();
+	void change_state();
+	AngleState get_anglestate();
 protected:
 private:
+	int movecnt;
+	float preY; //前のフレームのvelocityYを保持
 };
