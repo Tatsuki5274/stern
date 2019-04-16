@@ -8,5 +8,6 @@ RecoveryItem::RecoveryItem(Point point_) : Item(point_)
 
 void RecoveryItem::affect()
 {
+	player->hp++;
 	//回復
 }
