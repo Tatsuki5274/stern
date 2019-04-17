@@ -6,13 +6,6 @@
 #include <iterator>
 #include "json11.hpp"
 
-GraphicObject::GraphicObject() {
-	exist = false;
-	loop = false;
-	max = 1;
-	rate = 0;
-}
-
 void GraphicObject::set_default_to_empty()
 {
 	//未定義の項目に対していデフォルト値を設定する
@@ -23,7 +16,26 @@ void GraphicObject::set_default_to_empty()
 	//if (speed == 0) speed = 0;
 	//if (loop == false) loop = false;
 	if (sheets == 0) sheets = line * column;
+}
 
+bool GraphicObject::exits_scope(std::string _scope)
+{
+	bool ret = false;
+	for (auto&& scope : scopes) {
+		if (scope == _scope) {
+			ret = true;
+			break;
+		}
+	}
+	return ret;
+}
+
+GraphicObject::~GraphicObject()
+{
+	for (int i = 0; i < sheets; i++) {
+		DeleteGraph(*(handle + i));
+	}
+	delete handle;
 }
 
 GraphicResource::GraphicResource()
@@ -33,32 +45,47 @@ GraphicResource::GraphicResource()
 	{
 		throw std::runtime_error("resource.json is not found.");	//ファイルが読み込めないと例外を返す
 	}
+	json11::Json json;
 	std::istreambuf_iterator<char> it(ifs);
 	std::istreambuf_iterator<char> last;
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
 	json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
-	for (auto &item : json["graph"].array_items()) {
+
+	for (auto &item : json["graph"].array_items()) {	//名前登録とfalse初期化
 		GraphicObject obj;
 		obj.exist = false;
 		obj.name = item["name"].string_value();
+		obj.path = item["path"].string_value();
+		obj.column = item["column"].int_value();
+		obj.line = item["line"].int_value();
+		obj.width = item["width"].int_value();
+		obj.height = item["height"].int_value();
+		obj.loop = item["loop"].bool_value();
+		obj.speed = item["speed"].int_value();
+		obj.sheets = item["sheets"].int_value();
+		for (auto &scope : item["scope"].array_items()) {
+			obj.scopes.push_back(scope.string_value());
+		}
+		obj.set_default_to_empty();
 		graph.push_back(obj);
 	}
-	graph = std::make_unique<GraphicObject[]>(count_of_graph);	//画像の枚数分の領域を確保する
-	for (int i = 0; i < count_of_graph; i++) graph[i].exist = false;
 }
 //デストラクタ
 GraphicResource::~GraphicResource()
 {
-	for (int i = 0; i < count_of_graph; i++) {
-		delete graph[i].handle;	//画像は消さずにハンドル領域を削除する
-	}
+	graph.clear();
 }
-bool GraphicResource::load(std::string _scope)
+int GraphicResource::load(std::string _scope)
 {
 	//scopeの文字列の画像をjsonから検索し、読み込む
-	//失敗すれば0、成功すれば0以外を返す
-	bool ret = false;
+	//読み込んだ枚数を返す
+	bool ret = 0;
+	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
+		if (itr->exist == false) {
+
+		}
+	}
 	for (auto &item : json["graph"].array_items()) {
 		//scopeの配列をitemに格納する
 		for(auto &scope : item["scope"].array_items()) {
@@ -86,32 +113,18 @@ GraphicObject GraphicResource::get(std::string name)
 
 void GraphicResource::register_graph(json11::Json item)
 {
-	for (int i = 0; i < count_of_graph; i++) {
-		if (graph[i].exist == false) {
-			struct datum dat;
-			dat.name = item["name"].string_value();
-			dat.path = item["path"].string_value();
-			dat.column = item["column"].int_value();
-			dat.line = item["line"].int_value();
-			dat.width = item["width"].int_value();
-			dat.height = item["height"].int_value();
-			dat.loop = item["loop"].bool_value();
-			dat.speed = item["speed"].int_value();
-			dat.sheets = item["sheets"].int_value();
-			dat.set_default_to_empty();
-
-			graph[i].handle = new int[dat.sheets];	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
-			graph[i].exist = true;	//存在フラグを立てる
-			graph[i].name = dat.name;
-			graph[i].max = dat.sheets;	//最大枚数を求める
+	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
+		if(itr->exist == false){
+			itr->handle = new int(itr->sheets);	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
+			itr->exist = true;
 			LoadDivGraph(
-				dat.path.c_str() ,
-				dat.sheets,
-				dat.column,
-				dat.line,
-				dat.width,
-				dat.height,
-				graph[i].handle
+				itr->path.c_str(),
+				itr->sheets,
+				itr->column,
+				itr->line,
+				itr->width,
+				itr->height,
+				itr->handle
 			);		//JSONに書かれた情報をLoadDivGraphから読み込む
 			break;
 		}
@@ -123,20 +136,11 @@ bool GraphicResource::exist_name(std::string name)
 {
 	//nameが存在しているか調べるメソッド
 	bool ret = false;
-	for (int i = 0; i < count_of_graph; i++) {
-		if (graph[i].name == name) {
-			//存在していたら
+	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
+		if (itr->name == name) {
 			ret = true;
 			break;
 		}
 	}
 	return ret;
-}
-
-int GraphicResource::get_index(std::string name)
-{
-	for (int i = 0; i < count_of_graph; i++) {
-		if (graph[i].name == name) return i;
-	}
-	return -1;
 }
