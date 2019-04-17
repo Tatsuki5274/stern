@@ -6,7 +6,14 @@
 #include <iterator>
 #include "json11.hpp"
 
-void GraphicResource::datum::set_default_to_empty()
+GraphicObject::GraphicObject() {
+	exist = false;
+	loop = false;
+	max = 1;
+	rate = 0;
+}
+
+void GraphicObject::set_default_to_empty()
 {
 	//未定義の項目に対していデフォルト値を設定する
 	if (column == 0) column = 1;
@@ -31,10 +38,11 @@ GraphicResource::GraphicResource()
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
 	json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
-	count_of_graph = 0;
 	for (auto &item : json["graph"].array_items()) {
-		//画像の枚数を数える
-		count_of_graph++;
+		GraphicObject obj;
+		obj.exist = false;
+		obj.name = item["name"].string_value();
+		graph.push_back(obj);
 	}
 	graph = std::make_unique<GraphicObject[]>(count_of_graph);	//画像の枚数分の領域を確保する
 	for (int i = 0; i < count_of_graph; i++) graph[i].exist = false;

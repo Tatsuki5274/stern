@@ -6,18 +6,15 @@
 
 struct GraphicObject {
 	//画像の実体を管理する
-	GraphicObject() {
-		exist = false;
-		loop = false;
-		max = 1;
-		rate = 0;
-	}
+	GraphicObject();
 	bool exist;
 	bool loop;	//ループの有無
-	std::string name;
+	std::string name, path;
 	int* handle;
+	int width, height, line, column, speed, sheets;
 	int max;	//最大枚数
 	int rate;	//切替速度
+	void set_default_to_empty();
 };
 
 class GraphicResource
@@ -33,17 +30,9 @@ private:
 	int get_index(std::string);
 	bool exist_name(std::string);
 	void register_graph(json11::Json);
-	//構造体
-	struct datum{
-		std::string name, path;
-		int width, height, line, column, speed, sheets;
-		bool loop;
-		//scopeは下層で利用するためなし。
-		void set_default_to_empty();
-	};
 
 	//プロパティ
 	json11::Json json;
-	int count_of_graph;	//画像枚数
-	std::unique_ptr<GraphicObject[]> graph;
+	//std::unique_ptr<GraphicObject[]> graph;
+	std::vector<GraphicObject> graph;
 };
