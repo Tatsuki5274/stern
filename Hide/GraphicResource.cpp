@@ -82,21 +82,10 @@ int GraphicResource::load(std::string _scope)
 	//読み込んだ枚数を返す
 	bool ret = 0;
 	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
-		if (itr->exist == false) {
-
-		}
-	}
-	for (auto &item : json["graph"].array_items()) {
-		//scopeの配列をitemに格納する
-		for(auto &scope : item["scope"].array_items()) {
-			//scopeの文字列を順に比較する
-			if ( _scope == scope.string_value()) {
-				if (exist_name(item["name"].string_value()) == false) {
-					//同一の名前のファイルが読み込まれていない場合
-					register_graph(item);	//graphにitemを登録する
-					ret = true;
-					break;
-				}
+		if (itr->exist == false) {	//オブジェクトが未登録
+			if (itr->exits_scope(_scope)) {		//scopeが存在している
+				register_graph(itr);
+				break;
 			}
 		}
 	}
@@ -111,24 +100,24 @@ GraphicObject GraphicResource::get(std::string name)
 	return ret;
 }
 
-void GraphicResource::register_graph(json11::Json item)
+bool GraphicResource::register_graph(std::vector<GraphicObject>::iterator itr)
 {
-	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
-		if(itr->exist == false){
-			itr->handle = new int(itr->sheets);	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
-			itr->exist = true;
-			LoadDivGraph(
-				itr->path.c_str(),
-				itr->sheets,
-				itr->column,
-				itr->line,
-				itr->width,
-				itr->height,
-				itr->handle
-			);		//JSONに書かれた情報をLoadDivGraphから読み込む
-			break;
-		}
+	bool ret = false;
+	if(itr->exist == false){
+		ret = true;
+		itr->handle = new int(itr->sheets);	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
+		itr->exist = true;
+		LoadDivGraph(
+			itr->path.c_str(),
+			itr->sheets,
+			itr->column,
+			itr->line,
+			itr->width,
+			itr->height,
+			itr->handle
+		);		//JSONに書かれた情報をLoadDivGraphから読み込む
 	}
+	return ret;
 }
 
 

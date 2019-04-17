@@ -30,10 +30,8 @@ public:
 	int load(std::string _scope);
 	GraphicObject get(std::string name);
 private:
-	//メソッド
-	bool exist_name(std::string);
-	void register_graph(json11::Json);
+	bool exist_name(std::string);		//名前が存在しているか調べる
+	bool register_graph(std::vector<GraphicObject>::iterator);	//画像を登録する
 
-	//プロパティ
-	std::vector<GraphicObject> graph;
+	std::vector<GraphicObject> graph;	//画像データなどを保持するオブジェクト
 };
