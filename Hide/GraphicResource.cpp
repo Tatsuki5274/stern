@@ -53,22 +53,22 @@ GraphicResource::GraphicResource()
 	json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
 
 	for (auto &item : json["graph"].array_items()) {	//名前登録とfalse初期化
-		GraphicObject obj;
-		obj.exist = false;
-		obj.name = item["name"].string_value();
-		obj.path = item["path"].string_value();
-		obj.column = item["column"].int_value();
-		obj.line = item["line"].int_value();
-		obj.width = item["width"].int_value();
-		obj.height = item["height"].int_value();
-		obj.loop = item["loop"].bool_value();
-		obj.speed = item["speed"].int_value();
-		obj.sheets = item["sheets"].int_value();
+		std::shared_ptr<GraphicObject> obj = std::make_shared<GraphicObject>();
+		obj->exist = false;
+		obj->name = item["name"].string_value();
+		obj->path = item["path"].string_value();
+		obj->column = item["column"].int_value();
+		obj->line = item["line"].int_value();
+		obj->width = item["width"].int_value();
+		obj->height = item["height"].int_value();
+		obj->loop = item["loop"].bool_value();
+		obj->speed = item["speed"].int_value();
+		obj->sheets = item["sheets"].int_value();
 		for (auto &scope : item["scope"].array_items()) {
-			obj.scopes.push_back(scope.string_value());
+			obj->scopes.push_back(scope.string_value());
 		}
-		obj.set_default_to_empty();
-		graph.push_back(obj);
+		obj->set_default_to_empty();
+		graph.push_back(std::move(obj));
 	}
 }
 //デストラクタ
@@ -82,8 +82,8 @@ int GraphicResource::load(std::string _scope)
 	//読み込んだ枚数を返す
 	bool ret = 0;
 	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
-		if (itr->exist == false) {	//オブジェクトが未登録
-			if (itr->exits_scope(_scope)) {		//scopeが存在している
+		if ((*itr)->exist == false) {	//オブジェクトが未登録
+			if ((*itr)->exits_scope(_scope)) {		//scopeが存在している
 				register_graph(itr);
 				break;
 			}
@@ -92,15 +92,18 @@ int GraphicResource::load(std::string _scope)
 	return ret;
 }
 
-GraphicObject GraphicResource::get(std::string name)
+std::shared_ptr<GraphicObject> GraphicResource::get(std::string name)
 {
-	int index = get_index(name);
-	GraphicObject ret;
-	if (index != -1) ret = graph[index];
+	std::shared_ptr<GraphicObject> ret = nullptr;
+	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
+		if ((*itr)->name == name) {
+			ret = (*itr);
+		}
+	}
 	return ret;
 }
 
-bool GraphicResource::register_graph(std::vector<GraphicObject>::iterator itr)
+bool GraphicResource::register_graph(std::vector<std::shared_ptr<GraphicObject>>::iterator itr)
 {
 	bool ret = false;
 	if(itr->exist == false){

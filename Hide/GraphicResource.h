@@ -28,10 +28,10 @@ public:
 	GraphicResource();
 	~GraphicResource();
 	int load(std::string _scope);
-	GraphicObject get(std::string name);
+	std::shared_ptr<GraphicObject> get(std::string name);	//nameを持つオブジェクトポインタを返す
 private:
 	bool exist_name(std::string);		//名前が存在しているか調べる
-	bool register_graph(std::vector<GraphicObject>::iterator);	//画像を登録する
+	bool register_graph(std::vector<std::shared_ptr<GraphicObject>>::iterator);	//画像を登録する
 
-	std::vector<GraphicObject> graph;	//画像データなどを保持するオブジェクト
+	std::vector<std::shared_ptr<GraphicObject>> graph;	//画像データなどを保持するオブジェクト
 };
