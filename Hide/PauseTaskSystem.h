@@ -15,6 +15,7 @@ private:
 	int feedcnt;//フェードアウトのカウント
 	void draw();//背景、UIの描画
 	void change_scene();//シーンを切り替えるメソッド
+	bool deg_flag;
 public:
 	PauseTask();
 	void update();
