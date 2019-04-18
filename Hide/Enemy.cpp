@@ -25,7 +25,7 @@ bool Enemy::attack()
 void Enemy::update()
 {
 	move();
-	exercise();
+	//exercise();
 	attack();
 	shape->draw(point);
 }

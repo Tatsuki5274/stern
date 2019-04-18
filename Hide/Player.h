@@ -24,6 +24,7 @@ public:
 	void draw_interface(int);//UI描画
 	void move();//移動処理
 	bool knockback(int);//ノックバック
+	void jump(int);
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {
@@ -39,6 +40,7 @@ public:
 		int hpgraph;
 		int hpfreamgraph;
 		int lifegraph;
+
 	
 	};
 
@@ -65,4 +67,7 @@ protected:
 	bool knockback_status;//ノックバック中か
 	std::unique_ptr<StarManager> starmanager;
 	std::unique_ptr<PlayerInterface> playerinterface;
+
+private:
+	int jumpCnt;
 };
