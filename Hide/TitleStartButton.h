@@ -1,7 +1,7 @@
 #pragma once
-#include"TitleTaskBasicUI.h"
+#include"BasicUI.h"
 
-class TitleStartButton : public TitleTaskBasicUI {
+class TitleStartButton : public BasicUI {
 public:
 	TitleStartButton();
 	void update();

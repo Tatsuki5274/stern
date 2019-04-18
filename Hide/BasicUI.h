@@ -1,12 +1,12 @@
-ï»¿#pragma once
+#pragma once
 
-class TitleTaskBasicUI {
+class BasicUI {
 protected:
 	int x;
 	int y;
-	int strwidth;//æ–‡å­—åˆ—ã®å¹…ã‚’æ ¼ç´
+	int strwidth;//•¶š—ñ‚Ì•‚ğŠi”[
 public:
-	TitleTaskBasicUI();
+	BasicUI();
 	void get_width(const char*);
 	void update_txt(const char*);
 	void draw_txt(const char*);

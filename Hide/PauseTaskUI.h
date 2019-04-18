@@ -1,9 +1,9 @@
 #pragma once
 #include"BasicUI.h"
 
-class TitleExitButton : public BasicUI {
+class PauseUI : public BasicUI {
 private:
+	void draw();
 public:
-	TitleExitButton();
 	void update();
 };
