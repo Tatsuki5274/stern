@@ -32,10 +32,6 @@ bool GraphicObject::exits_scope(std::string _scope)
 
 GraphicObject::~GraphicObject()
 {
-	for (int i = 0; i < sheets; i++) {
-		DeleteGraph(*(handle + i));
-	}
-	delete handle;
 }
 
 GraphicResource::GraphicResource()
@@ -71,11 +67,7 @@ GraphicResource::GraphicResource()
 		graph.push_back(std::move(obj));
 	}
 }
-//デストラクタ
-GraphicResource::~GraphicResource()
-{
-	graph.clear();
-}
+
 int GraphicResource::load(std::string _scope)
 {
 	//scopeの文字列の画像をjsonから検索し、読み込む
@@ -84,8 +76,7 @@ int GraphicResource::load(std::string _scope)
 	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
 		if ((*itr)->exist == false) {	//オブジェクトが未登録
 			if ((*itr)->exits_scope(_scope)) {		//scopeが存在している
-				register_graph(itr);
-				break;
+				//register_graph(itr);
 			}
 		}
 	}
@@ -106,18 +97,18 @@ std::shared_ptr<GraphicObject> GraphicResource::get(std::string name)
 bool GraphicResource::register_graph(std::vector<std::shared_ptr<GraphicObject>>::iterator itr)
 {
 	bool ret = false;
-	if(itr->exist == false){
+	if((*itr)->exist == false){
 		ret = true;
-		itr->handle = new int(itr->sheets);	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
-		itr->exist = true;
+		(*itr)->handle = new int((*itr)->sheets);	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
+		(*itr)->exist = true;
 		LoadDivGraph(
-			itr->path.c_str(),
-			itr->sheets,
-			itr->column,
-			itr->line,
-			itr->width,
-			itr->height,
-			itr->handle
+			(*itr)->path.c_str(),
+			(*itr)->sheets,
+			(*itr)->column,
+			(*itr)->line,
+			(*itr)->width,
+			(*itr)->height,
+			(*itr)->handle
 		);		//JSONに書かれた情報をLoadDivGraphから読み込む
 	}
 	return ret;
@@ -129,7 +120,7 @@ bool GraphicResource::exist_name(std::string name)
 	//nameが存在しているか調べるメソッド
 	bool ret = false;
 	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
-		if (itr->name == name) {
+		if ((*itr)->name == name) {
 			ret = true;
 			break;
 		}

@@ -10,6 +10,7 @@ private:
 	bool exist;
 	std::string path;	//ファイルパス
 	std::vector<std::string> scopes;
+	int line, column;
 	void set_default_to_empty();	//オブジェクトにデフォルト値を設定する
 	bool exits_scope(std::string);	//スコープが存在しているか調べる
 public:
@@ -17,8 +18,8 @@ public:
 	bool loop;	//ループの有無
 	std::string name;
 	int *handle;
-	int width, height, line, column, speed, sheets;
-	int max;	//最大枚数
+	int width, height,  speed, sheets;
+	//int max;	//最大枚数
 };
 
 class GraphicResource
@@ -26,7 +27,6 @@ class GraphicResource
 public:
 	//メソッド
 	GraphicResource();
-	~GraphicResource();
 	int load(std::string _scope);
 	std::shared_ptr<GraphicObject> get(std::string name);	//nameを持つオブジェクトポインタを返す
 private:
