@@ -50,7 +50,7 @@ void Player::StarManager::update(double ang, int x_)
 	draw(ang, x_);
 	if (Keyboard::key_down(KEY_INPUT_Z)) {
 		class Point point = { x_,0,0,0 };
-		struct PhysicState physic_state = { 0,30,0 };//	float gravity; float repulsion;int weight;
+		struct PhysicState physic_state = { 1};//	float gravity;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
 		ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
@@ -65,6 +65,7 @@ Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state
 	hp = player_state.life;
 	angle = 0;
 	invincible = 0;
+	jumpCnt = 0;
 	interval = 0;
 	//graph = LoadGraph("img/player.png");
 	starmanager = std::make_unique<StarManager>();
@@ -98,7 +99,9 @@ void Player::update()
 	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
 	shape->draw(point);
-	exercise();
+	if (jumpCnt <= 0) {
+		point.y += fall(point);
+	}
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T
 }
@@ -118,10 +121,10 @@ void Player::move()
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
-			velocityX = -4.0f;
+			point.x+=Check_X(point, -4);
 		}
 		else {
-			velocityX = -2.0f;
+			point.x += Check_X(point, -2);
 		}
 	}
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
@@ -129,19 +132,27 @@ void Player::move()
 			/*if (velocityX <= +6) {
 				velocityX++;
 			}*/
-			velocityX = 4.0f;
+			point.x += Check_X(point, 4);
 		}
 		else {
-			velocityX = 2.0f;
+			point.x += Check_X(point, 2);
 		}
 	}
 	//ジャンプ
-	if (Keyboard::key_down(KEY_INPUT_X)) {
-		if (velocityY == 0 && velocityY == preY) {
-			Audio::play("jump");
-			velocityY -= 18.0f;
+	if (ct->keyboard->key_press(KEY_INPUT_X)) {
+		if (velocityY == 0 && velocityY == preY) {//phisic内での共通の落下にかかわる変数がない為、処理が複雑化してしまう
+
+			if (ct->keyboard->key_down(KEY_INPUT_X)) {
+				jumpCnt = 10;
+			}
+			if (jumpCnt > 0) {
+				point.y += Check_Y(point, -10);//jumpCntを設けないと空中浮遊する
+
+
+			}
 		}
 	}
+	jumpCnt--;
 	//前のvelocityYを保持
 	preY = velocityY;
 }
@@ -149,6 +160,13 @@ void Player::move()
 bool Player::knockback(int)
 {
 	return false;
+}
+
+void Player::jump(int pow) {
+	while (pow > 0) {
+		point.y += Check_Y(point, -pow);
+		pow--;
+	}
 }
 
 

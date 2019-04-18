@@ -43,7 +43,7 @@ void NormalStar::update()
 		}
 	}
 	else {
-		exercise();
+		//exercise();
 	}
 	attack();
 	shape->draw(point);

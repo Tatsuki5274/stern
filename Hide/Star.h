@@ -31,9 +31,9 @@ protected:
 	int power;
 	int life;
 
-	void exercise();
+	//void exercise();
 	bool check_hit(Point);
 private:
-	void rebound_X();
-	void rebound_Y();
+	/*void rebound_X();
+	void rebound_Y();*/
 };
