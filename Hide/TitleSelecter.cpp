@@ -40,11 +40,11 @@ void TitleSelecter::move(int start_x, int exit_x)
 	switch (button) {
 	case Button::start:
 		x = start_x;
-		y = 390;
+		y = 340 - 10;
 		break;
 	case Button::exit:
 		x = exit_x;
-		y = 440;
+		y = 390 - 10;
 		break;
 	}
 }

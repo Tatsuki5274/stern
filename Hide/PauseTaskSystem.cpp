@@ -7,19 +7,17 @@ PauseTask::PauseTask()
 	p_selecter = std::make_unique<PauseSelecter>();
 	p_ui = std::make_unique<PauseUI>();
 	feedcnt = 255;
-	backgraph = LoadGraph("img/pause.png");
+	backgraph = LoadGraph("img/pause/pause.png");
 	deg_flag = false;
 }
 
 void PauseTask::update()
 {
-	p_selecter->update(1, 1, 1);
-	p_ui->update();
 	if (ct->keyboard->key_down(KEY_INPUT_X)) {
 		deg_flag = true;
 	}
 	if (deg_flag) {
-		feedcnt -= 15;
+		feedcnt -= 12;
 		SetDrawBright(feedcnt, feedcnt, feedcnt);
 		if (feedcnt <= 0) {
 			feedcnt = 255;
@@ -29,6 +27,10 @@ void PauseTask::update()
 		}
 	}
 	draw();
+	p_selecter->update(p_ui->get_lextx(p_ui->text[0]) - 50,
+					   p_ui->get_lextx(p_ui->text[1]) - 50,
+					   p_ui->get_lextx(p_ui->text[2]) - 50);
+	p_ui->update();
 }
 
 void PauseTask::draw()

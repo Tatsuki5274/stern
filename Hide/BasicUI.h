@@ -1,15 +1,19 @@
 #pragma once
+#include<iostream>
 
 class BasicUI {
 protected:
-	int x;
-	int y;
-	int strwidth;//•¶š—ñ‚Ì•‚ğŠi”[
+	struct Text {
+		const char* str;
+		int text_width;
+		int x;
+		int y;
+	};
+	int get_width(Text);
+	void update_txt(Text);
+	void draw_txt(Text);
 public:
 	BasicUI();
-	void get_width(const char*);
-	void update_txt(const char*);
-	void draw_txt(const char*);
-	int get_lextx();
-	int get_y();
+	int get_lextx(Text);
+	int get_y(Text);
 };

@@ -3,32 +3,29 @@
 
 BasicUI::BasicUI()
 {
-	x = 0;
-	y = 0;
-	strwidth = 0;
 }
 //コンストラクタで呼ぶ----------------------------------------------
-void BasicUI::get_width(const char* str)
+int BasicUI::get_width(Text _txt)
 {
-	strwidth = (int)(GetDrawStringWidth(str, strlen(str)));
+	return (int)(GetDrawStringWidth(_txt.str, strlen(_txt.str)));
 }
 //以下Updateで呼ぶ---------------------------------------------------
-void BasicUI::update_txt(const char* str)
+void BasicUI::update_txt(Text _txt)
 {
-	draw_txt(str);
+	draw_txt(_txt);
 }
-void BasicUI::draw_txt(const char* str)
+void BasicUI::draw_txt(Text _txt)
 {
 	//         300は画面サイズの半分
-	DrawString(300 - strwidth / 2, y, str, GetColor(0, 0, 0));
+	DrawString(_txt.x, _txt.y, _txt.str, GetColor(0, 0, 0));
 }
-int BasicUI::get_lextx()
+int BasicUI::get_lextx(Text _txt)
 {
-	//文字の始点を返す
-	return 300 - strwidth / 2;
+	//文字の始点を返す(画面半分から文字列の半分を引いた値)
+	return 300 - _txt.text_width / 2;
 }
-int BasicUI::get_y()
+int BasicUI::get_y(Text _txt)
 {
-	return y;
+	return _txt.y;
 }
 //-------------------------------------------------------------------

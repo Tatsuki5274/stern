@@ -13,7 +13,7 @@ CoreTask::CoreTask()
 	gots = std::make_shared<GameOverTaskSystem>();
 	audio = std::make_shared<Audio>();
 	pts = std::make_shared<PauseTask>();
-	scene = Scene::pause;
+	scene = Scene::title;
 }
 
 void CoreTask::update()

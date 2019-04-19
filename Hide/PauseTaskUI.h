@@ -3,7 +3,8 @@
 
 class PauseUI : public BasicUI {
 private:
-	void draw();
 public:
+	Text text[3];
+	PauseUI();
 	void update();
 };
