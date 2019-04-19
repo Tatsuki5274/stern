@@ -1,4 +1,4 @@
-#include "PauseTaskSystem.h"
+ï»¿#include "PauseTaskSystem.h"
 #include"DxLib.h"
 #include"CoreTask.h"
 
@@ -35,18 +35,18 @@ void PauseTask::update()
 
 void PauseTask::draw()
 {
-	DrawGraph(0, 0, backgraph, FALSE);//”wŒi
+	DrawGraph(0, 0, backgraph, FALSE);//èƒŒæ™¯
 }
 
 void PauseTask::change_scene()
 {
-	//ƒQ[ƒ€‚É–ß‚é
+	//ã‚²ãƒ¼ãƒ ã«æˆ»ã‚‹
 	switch (p_selecter->button) {
 	case PauseButton::returngame:
-		ct->scene = Scene::game;//ƒQ[ƒ€ƒV[ƒ“‚É‘JˆÚ
+		ct->scene = Scene::game;//ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã«é·ç§»
 		break;
 	case PauseButton::exit:
-		//ƒAƒvƒŠƒP[ƒVƒ‡ƒ“I—¹
+		//ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 		break;
 	case PauseButton::backssts:
 		ct->scene = Scene::stageselect;

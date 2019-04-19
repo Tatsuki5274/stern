@@ -1,11 +1,11 @@
-#include "PauseTaskUI.h"
+ï»¿#include "PauseTaskUI.h"
 #include"DxLib.h"
 
 PauseUI::PauseUI()
 {
-	text[0].str = "ƒQ[ƒ€‚É–ß‚é";
-	text[1].str = "ƒXƒe[ƒWƒZƒŒƒNƒg‚É–ß‚é";
-	text[2].str = "ƒQ[ƒ€I—¹";
+	text[0].str = "ã‚²ãƒ¼ãƒ ã«æˆ»ã‚‹";
+	text[1].str = "ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã«æˆ»ã‚‹";
+	text[2].str = "ã‚²ãƒ¼ãƒ çµ‚äº†";
 	for (int i = 0; i < 3; ++i) {
 		text[i].text_width = get_width(text[i]);
 		text[i].x = 300 - (text[i].text_width / 2);

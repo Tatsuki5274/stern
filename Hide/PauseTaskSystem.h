@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<iostream>
 #include"PauseTaskUI.h"
 #include"PauseTaskSelecter.h"
@@ -6,15 +6,15 @@
 
 class PauseTask{
 private:
-	//ƒZƒŒƒNƒ^[ƒNƒ‰ƒX
+	//ã‚»ãƒ¬ã‚¯ã‚¿ãƒ¼ã‚¯ãƒ©ã‚¹
 	std::unique_ptr<PauseSelecter> p_selecter;
-	//UIƒNƒ‰ƒX
+	//UIã‚¯ãƒ©ã‚¹
 	std::unique_ptr<PauseUI> p_ui;
 
-	int backgraph;//”wŒi
-	int feedcnt;//ƒtƒF[ƒhƒAƒEƒg‚ÌƒJƒEƒ“ƒg
-	void draw();//”wŒiAUI‚Ì•`‰æ
-	void change_scene();//ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚éƒƒ\ƒbƒh
+	int backgraph;//èƒŒæ™¯
+	int feedcnt;//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã®ã‚«ã‚¦ãƒ³ãƒˆ
+	void draw();//èƒŒæ™¯ã€UIã®æç”»
+	void change_scene();//ã‚·ãƒ¼ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	bool deg_flag;
 public:
 	PauseTask();

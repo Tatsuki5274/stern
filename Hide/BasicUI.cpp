@@ -1,27 +1,27 @@
-#include "BasicUI.h"
+ï»¿#include "BasicUI.h"
 #include"DxLib.h"
 
 BasicUI::BasicUI()
 {
 }
-//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅŒÄ‚Ô----------------------------------------------
+//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‘¼ã¶----------------------------------------------
 int BasicUI::get_width(Text _txt)
 {
 	return (int)(GetDrawStringWidth(_txt.str, strlen(_txt.str)));
 }
-//ˆÈ‰ºUpdate‚ÅŒÄ‚Ô---------------------------------------------------
+//ä»¥ä¸‹Updateã§å‘¼ã¶---------------------------------------------------
 void BasicUI::update_txt(Text _txt)
 {
 	draw_txt(_txt);
 }
 void BasicUI::draw_txt(Text _txt)
 {
-	//         300‚Í‰æ–ÊƒTƒCƒY‚Ì”¼•ª
+	//         300ã¯ç”»é¢ã‚µã‚¤ã‚ºã®åŠåˆ†
 	DrawString(_txt.x, _txt.y, _txt.str, GetColor(0, 0, 0));
 }
 int BasicUI::get_lextx(Text _txt)
 {
-	//•¶š‚Ìn“_‚ğ•Ô‚·(‰æ–Ê”¼•ª‚©‚ç•¶š—ñ‚Ì”¼•ª‚ğˆø‚¢‚½’l)
+	//æ–‡å­—ã®å§‹ç‚¹ã‚’è¿”ã™(ç”»é¢åŠåˆ†ã‹ã‚‰æ–‡å­—åˆ—ã®åŠåˆ†ã‚’å¼•ã„ãŸå€¤)
 	return 300 - _txt.text_width / 2;
 }
 int BasicUI::get_y(Text _txt)

@@ -1,4 +1,4 @@
-#include "PauseTaskSelecter.h"
+ï»¿#include "PauseTaskSelecter.h"
 #include "CoreTask.h"
 
 PauseSelecter::PauseSelecter()
@@ -23,7 +23,7 @@ void PauseSelecter::draw()
 
 void PauseSelecter::switch_button()
 {
-	//W¬•K—v‚È‹C‚ª‚·‚é-----------------------------------
+	//é›†æˆå¿…è¦ãªæ°—ãŒã™ã‚‹-----------------------------------
 	if (ct->keyboard->key_down(KEY_INPUT_DOWN)) {
 		if (button == PauseButton::returngame) button = PauseButton::backssts;
 		else if (button == PauseButton::exit) button = PauseButton::returngame;
