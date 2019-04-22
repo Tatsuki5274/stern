@@ -1,13 +1,14 @@
 ﻿#pragma once
-#include"Spawn.h"
+#include"json11.hpp"
+#include"BasicList.h"
+#include <iostream>
 #include<memory>
-#include<vector>
-#include"Enemy.h"
 
-class SpawnEnemy : public Spawn {
+class SpawnEnemy {
 public:
-	SpawnEnemy(std::string path_, std::shared_ptr<std::vector<std::shared_ptr<Enemy>>>);
-	void create(std::string stg) override;
+	SpawnEnemy();
+	void create(std::string stg);
 private:
-	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
+	json11::Json data;
+
 };
