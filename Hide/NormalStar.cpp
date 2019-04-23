@@ -19,7 +19,9 @@ void NormalStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", angle);
 	if (!contact) {
-		int prevelX = int(-sin(angle) * velocityX);
+		point.x += Check_X(point, -sin(angle) * 20);
+		point.y += Check_Y(point, cos(angle) * 20);
+		/*int prevelX = int(-sin(angle) * velocityX);
 		int prevelY = int(cos(angle) * velocityY);
 		while (prevelX != 0) {
 			int preX = point.x;
@@ -40,7 +42,7 @@ void NormalStar::update()
 				contact = true;
 				break;
 			}
-		}
+		}*/
 	}
 	else {
 		//exercise();

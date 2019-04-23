@@ -146,11 +146,14 @@ void Player::move()
 				jumpCnt = 10;
 			}
 			if (jumpCnt > 0) {
-				point.y += Check_Y(point, -10);//jumpCntを設けないと空中浮遊する
+				point.y += Check_Y(point, -jumpCnt-8);//jumpCntを設けないと空中浮遊する
 
 
 			}
 		}
+	}
+	if (ct->keyboard->key_up(KEY_INPUT_X)) {
+		jumpCnt = 0;
 	}
 	jumpCnt--;
 	//前のvelocityYを保持
