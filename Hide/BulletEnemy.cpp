@@ -16,6 +16,5 @@ BulletEnemy::BulletEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 
 void BulletEnemy::move()
 {
-	velocityX = (float)angle;
-	point.x += (int)velocityX;
+	point.x += Check_X(point, angle);
 }
