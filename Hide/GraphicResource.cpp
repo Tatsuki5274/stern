@@ -6,6 +6,8 @@
 #include <iterator>
 #include "json11.hpp"
 
+std::vector<std::shared_ptr<GraphicObject>> GraphicResource::graph;
+
 void GraphicObject::set_default_to_empty()
 {
 	//未定義の項目に対していデフォルト値を設定する
@@ -30,11 +32,7 @@ bool GraphicObject::exits_scope(std::string _scope)
 	return ret;
 }
 
-GraphicObject::~GraphicObject()
-{
-}
-
-GraphicResource::GraphicResource()
+void GraphicResource::init()
 {
 	std::ifstream ifs("img/resource.json");
 	if (ifs.fail())
@@ -47,7 +45,6 @@ GraphicResource::GraphicResource()
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
 	json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
-
 	for (auto &item : json["graph"].array_items()) {	//名前登録とfalse初期化
 		std::shared_ptr<GraphicObject> obj = std::make_shared<GraphicObject>();
 		obj->exist = false;
@@ -127,3 +124,5 @@ bool GraphicResource::exist_name(std::string name)
 	}
 	return ret;
 }
+
+

@@ -2,7 +2,6 @@
 #include"DxLib.h"
 #include "CoreTask.h"
 
-std::shared_ptr<GraphicResource> Rendering::resource;
 std::shared_ptr<Camera> Rendering::camera;
 
 Rendering::Rendering()
@@ -31,7 +30,7 @@ void Rendering::draw(Point dist)
 
 void Rendering::set(std::string name)
 {
-	object = resource->get(name);	//GraphicObjectを共有
+	object = GraphicResource::get(name);
 	//if (object == nullptr) throw std::runtime_error("The scope is not exist.");
 	current_rate = 0;
 }

@@ -7,7 +7,6 @@
 class Rendering {
 private:
 	friend class CoreTask;
-	static  std::shared_ptr<GraphicResource> resource;
 	static std::shared_ptr<Camera> camera;
 	std::shared_ptr<GraphicObject> object;
 

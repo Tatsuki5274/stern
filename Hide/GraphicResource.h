@@ -14,7 +14,6 @@ private:
 	void set_default_to_empty();	//オブジェクトにデフォルト値を設定する
 	bool exits_scope(std::string);	//スコープが存在しているか調べる
 public:
-	~GraphicObject();
 	bool loop;	//ループの有無
 	std::string name;
 	int *handle;
@@ -25,13 +24,13 @@ public:
 class GraphicResource
 {
 public:
-	//メソッド
-	GraphicResource();
-	int load(std::string _scope);
-	std::shared_ptr<GraphicObject> get(std::string name);	//nameを持つオブジェクトポインタを返す
+	static int load(std::string _scope);
+	static void init();
+	static std::shared_ptr<GraphicObject> get(std::string name);	//nameを持つオブジェクトポインタを返す
 private:
-	bool exist_name(std::string);		//名前が存在しているか調べる
-	bool register_graph(std::vector<std::shared_ptr<GraphicObject>>::iterator);	//画像を登録する
+	GraphicResource();
+	static bool exist_name(std::string);		//名前が存在しているか調べる
+	static bool register_graph(std::vector<std::shared_ptr<GraphicObject>>::iterator);	//画像を登録する
 
-	std::vector<std::shared_ptr<GraphicObject>> graph;	//画像データなどを保持するオブジェクト
+	static std::vector<std::shared_ptr<GraphicObject>> graph;	//画像データなどを保持するオブジェクト
 };

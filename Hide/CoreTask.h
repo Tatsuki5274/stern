@@ -30,7 +30,6 @@ public:
 	std::shared_ptr<StageSelectTaskSystem> ssts;
 	std::shared_ptr<Keyboard> keyboard;
 	std::shared_ptr<ClearTaskSystem> cts;
-	std::shared_ptr<GraphicResource> graph;
 	std::shared_ptr<GameOverTaskSystem> gots;
 	std::shared_ptr<Audio> audio;
 };
