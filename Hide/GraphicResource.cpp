@@ -95,7 +95,7 @@ void GraphicResource::register_graph(GraphicObject& obj)
 {
 	
 	if(obj.exist == false){
-		obj.handle = new int(obj.sheets);	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
+		obj.handle = new int[obj.sheets];	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
 		obj.exist = true;
 		LoadDivGraph(
 			obj.path.c_str(),
