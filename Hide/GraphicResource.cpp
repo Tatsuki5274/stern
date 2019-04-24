@@ -84,13 +84,24 @@ int GraphicResource::load(std::string _scope)
 int GraphicResource::unload(std::string _scope)
 {
 	int ret = 0;
-
+	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
+		if ((*itr)->exist == true) {	//オブジェクトが登録済み
+			if ((*itr)->exits_scope(_scope)) {		//scopeが存在している
+				unregister_graph(*(*itr));
+				ret++;
+			}
+		}
+	}
 	return ret;
 }
 
-void GraphicResource::unregister_graph(GraphicObject&)
+void GraphicResource::unregister_graph(GraphicObject& obj)
 {
-
+	obj.exist = false;
+	for(int i = 0; i < obj.sheets; i++) {
+		DeleteGraph(*(obj.handle + i));
+	}
+	delete obj.handle;
 }
 
 std::shared_ptr<GraphicObject> GraphicResource::get(std::string name)

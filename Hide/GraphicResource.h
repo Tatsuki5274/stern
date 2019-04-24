@@ -32,6 +32,6 @@ private:
 	GraphicResource();
 	static bool exist_name(std::string);		//名前が存在しているか調べる
 	static void register_graph(GraphicObject&);	//画像を登録する
-	static void unregister_graph(GraphicObject&);
+	static void unregister_graph(GraphicObject&);	//画像を未登録にする
 	static std::vector<std::shared_ptr<GraphicObject>> graph;	//画像データなどを保持するオブジェクト
 };
