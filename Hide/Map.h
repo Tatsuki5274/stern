@@ -18,9 +18,12 @@ public:
 	int get_bottom(Point);
 	int get_circle(Point, int);
 private:
+	std::string chipmap;
 	int data[20][20];//仮の数値
 	int graph;//絵
 	int mapsizex;
 	int mapsizey;
 	json11::Json mapdata;
+	json11::Json map;
+	json11::Json chipdata;
 };
