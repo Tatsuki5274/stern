@@ -4,7 +4,7 @@
 //ï®óùâ^ìÆ
 //----------------------------------
 
-Physic::Physic(Point point, PhysicState physic_state) : BasicObject(point)
+Physic::Physic(Point point, PhysicState physic_state) 
 {
 	gravity = physic_state.gravity;
 	velocity = 0;

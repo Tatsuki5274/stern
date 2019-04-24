@@ -3,7 +3,7 @@
 //----------------------------------
 //“G‘S”Ê
 //----------------------------------
-Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state) : Physic(point,physic_state)
+Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state):BasicObject(point)
 {
 	life = enemy_state.life;
 	damaged = enemy_state.damage;

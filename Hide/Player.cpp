@@ -59,7 +59,7 @@ void Player::StarManager::update(double ang, int x_)
 	}
 }
 
-Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state):Physic(point_,physic_state_)
+Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state):BasicObject(point)
 {
 	life = player_state.life;
 	hp = player_state.life;

@@ -4,7 +4,7 @@
 
 //---------------------------------
 
-Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Physic(point_, physic_state_)
+Star::Star(Point point_, PhysicState physic_state_, StarState star_state) :BasicObject(point)
 {
 	bright = star_state.bright;
 	radius = star_state.radius;
