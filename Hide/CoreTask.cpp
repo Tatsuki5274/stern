@@ -53,6 +53,8 @@ void CoreTask::init()
 
 	//音
 	audio->load("action");
+	audio->load("system");
+	audio->load("stage");
 	//画像
 	graph->load("item");
 	graph->load("goal");

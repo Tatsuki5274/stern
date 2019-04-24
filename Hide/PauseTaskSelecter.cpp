@@ -25,11 +25,13 @@ void PauseSelecter::switch_button()
 {
 	//集成必要な気がする-----------------------------------
 	if (ct->keyboard->key_down(KEY_INPUT_DOWN)) {
+		ct->audio->play("cursol");
 		if (button == PauseButton::returngame) button = PauseButton::backssts;
 		else if (button == PauseButton::exit) button = PauseButton::returngame;
 		else button = PauseButton::exit;
 	}
 	if (ct->keyboard->key_down(KEY_INPUT_UP)) {
+		ct->audio->play("cursol");
 		if (button == PauseButton::returngame) button = PauseButton::exit;
 		else if (button == PauseButton::exit) button = PauseButton::backssts;
 		else button = PauseButton::returngame;

@@ -1,6 +1,7 @@
 ﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
+#include"CoreTask.h"
 
 GameTaskSystem::GameTaskSystem()
 {
@@ -25,6 +26,12 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::init()
 {
+	//ステージごとに音楽を入れ替える
+	switch (ct->ssts->get_stage()) {
+	case 1:
+		ct->audio->play("stage1");
+		break;
+	}
 	camera->init();
 	player->init();
 	goal->init();
@@ -62,6 +69,7 @@ void GameTaskSystem::update()
 
 void GameTaskSystem::finalize()
 {
+	ct->audio->stop("stage1");
 	normalstar.clear();
 	enemys->clear();
 	item->clear();
