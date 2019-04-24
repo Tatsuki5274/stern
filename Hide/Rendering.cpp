@@ -21,10 +21,12 @@ void Rendering::switch_anime()
 
 void Rendering::draw(Point dist)
 {
-	DrawGraph(dist.x - camera->get_range().x , dist.y , *(object->handle + current_anime), 1);
-	current_rate++;	//毎フレーム増える
-	if (object->speed != 0 && object->speed % current_rate == 0) {
-		switch_anime();
+	if (object != nullptr) {
+		DrawGraph(dist.x - camera->get_range().x, dist.y, *(object->handle + current_anime), 1);
+		current_rate++;	//毎フレーム増える
+		if (object->speed != 0 && object->speed % current_rate == 0) {
+			switch_anime();
+		}
 	}
 }
 
