@@ -234,6 +234,9 @@
     <ClCompile Include="Spawn.cpp">
       <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
+    <ClCompile Include="function.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
     <ClCompile Include="BasicUI.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
