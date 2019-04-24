@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include"BasicObject.h"
+#include"Point.h"
 
 //---------------------------------
 //物理運動
@@ -10,7 +10,7 @@ struct PhysicState {
 
 };
 
-class Physic : public BasicObject {
+class Physic {
 public:
 	Physic(Point point,PhysicState physic_state);
 	//メソッド

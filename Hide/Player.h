@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include"BasicObject.h"
 #include"Physic.h"
 #include"DxLib.h"
 #include<memory>
@@ -13,7 +14,7 @@ struct PlayerState {
 	int hp;
 };
 
-class Player :public Physic {
+class Player :public BasicObject {
 public:
 	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();
