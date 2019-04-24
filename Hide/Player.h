@@ -4,6 +4,7 @@
 #include<memory>
 //#include "Item.h"
 //#include "RecoveryItem.h"
+#include"Function.h"
 
 
 //---------------------------------
@@ -23,16 +24,17 @@ public:
 	//メソッド
 	double get_angle();//星の移動のために角度情報が必要
 	void update();//更新処理
-	bool damage(void);//ダメージを受ける処理
+	bool damage();//ダメージを受ける処理
 	void draw_interface(int);//UI描画
 	void move();//移動処理
 	bool knockback(int);//ノックバック
+	Function func;
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {
 	public:
 		PlayerInterface();
-		
+
 		//メソッド
 		void draw();
 		void update(int ,int);
@@ -56,13 +58,13 @@ public:
 		int life;
 		int graph;
 	};
-
+	int hp;//HP
 protected:
 	//変数
 	int life;//残機
 	double angle;//カーソルの傾き
 	int invincible;//無敵時間
-	int hp;//HP
+
 	float preY; //前のフレームのvelocityYを保持
 	int interval;//星の発射間隔
 	bool knockback_status;//ノックバック中か
