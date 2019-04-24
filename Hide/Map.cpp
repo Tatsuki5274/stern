@@ -1,11 +1,11 @@
 ﻿#include"Map.h"
 #include"DxLib.h"
-#include"CoreTask.h"
-#include<fstream>
-#include<algorithm>
+#include <fstream>
+#include <string>
+#include <sstream>
 #include "json11.hpp"
 //1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
-#define chipsize 30
+#define chipsize 64
 
 //----------------------------------
 //マップデータ
@@ -13,10 +13,11 @@
 
 Map::Map()
 {
-	//可変
-	mapsizex = 600;
-	mapsizey = 600;
+	
+}
 
+void Map::init(char* map_, char* chipdata_)
+{
 	std::ifstream mappath("img/mappath.json");
 	if (mappath.fail())
 	{
@@ -27,36 +28,58 @@ Map::Map()
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
 	mapdata = json11::Json::parse(json_str, err);	//json11で利用できる形式に変換
-}
 
-void Map::init(char* mapfp, char* chipfp)
-{
+	map = mapdata[map_]["chip"];
+	chipdata = mapdata[chipdata_];
+
+
+	//可変
+	mapsizex = map["width"].int_value();
+	mapsizey = map["height"].int_value();
+
 	//使う画像決定
-	graph = LoadGraph(chipfp);
-	//ファイル読み込み
-	std::ifstream mapdata(mapfp);
-	if (!mapdata) { return; }
+	graph = LoadGraph(chipdata["chipdata"].string_value().c_str());
+
+	//csvを読み込む
+	chipmap = map["data"].string_value().c_str(); 
+
+	std::ifstream fin(chipmap);
+	
 	for (int y = 0; y < mapsizey / chipsize; ++y) {
+		std::string lineText;
+		getline(fin, lineText);
+		std::istringstream ss_lt(lineText);
 		for (int x = 0; x < mapsizex / chipsize; ++x) {
-			mapdata >> data[y][x];
+			std::string  tc;
+			getline(ss_lt, tc, ',');
+			std::stringstream ss;
+			ss << tc;
+			ss >> data[y][x]; //データを入れる
 		}
 	}
-	//ファイル閉じ
-	mapdata.close();
+	mappath.close();	//ファイルを閉じる
+	fin.close();
+
+	////使う画像決定
+	//graph = LoadGraph(chipfp);
+	////ファイル読み込み
+	//std::ifstream mapdata(mapfp);
+	//if (!mapdata) { return; }
+	//for (int y = 0; y < mapsizey / chipsize; ++y) {
+	//	for (int x = 0; x < mapsizex / chipsize; ++x) {
+	//		mapdata >> data[y][x];
+	//	}
+	//}
+	////ファイル閉じ
+	//mapdata.close();
 }
 
 void Map::draw()
 {
-	for (int y = 0; y < mapsizey / (mapsizey / chipsize); ++y) {
-		for (int x = 0; x < mapsizex / (mapsizex / chipsize); ++x) {
-			DrawRectGraph(x * chipsize, y *chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
-	/*for (int y = 0; y < mapsizey / (mapsizey / chipsize); ++y) {
-	for (int x = 0; x < mapsizex / (mapsizex / chipsize); ++x) {
-		if (ct->gts->camera->get_range().x > x * chipsize ||
-			ct->gts->camera->get_range().x + ct->gts->camera->get_range().w < x * chipsize + chipsize ||
-			ct->gts->camera->get_range().y > y * chipsize ||
-			ct->gts->camera->get_range().y + ct->gts->camera->get_range().h < y * chipsize + chipsize) {
-			return;
+	for (int y = 0; y < mapsizey / chipsize; ++y) {
+		for (int x = 0; x < mapsizex / chipsize; ++x) {
+			DrawRectGraph(x * chipsize, y *chipsize, data[y][x] * chipsize % chipdata["width"].int_value(),
+				data[y][x] * chipsize / chipdata["height"].int_value(), chipsize, chipsize, graph, FALSE);
 		}
 	}
 }*/
@@ -155,7 +178,7 @@ int Map::get_left(Point chara_)
 	int ey = (chara_.y + chara_.h - 1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -172,7 +195,7 @@ int Map::get_right(Point chara_)
 	int ey = (chara_.y + chara_.h - 1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -189,7 +212,7 @@ int Map::get_top(Point chara_)
 	int ey = chara_.y / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -207,7 +230,7 @@ int Map::get_bottom(Point chara_)
 	//範囲内の障害物を探す
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 		}
@@ -226,7 +249,7 @@ int Map::get_circle(Point star_, int r_)
 	int ey = (star_.y + r_ * 3) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
