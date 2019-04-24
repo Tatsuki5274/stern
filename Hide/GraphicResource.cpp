@@ -55,7 +55,7 @@ void GraphicResource::init()
 		obj->width = item["width"].int_value();
 		obj->height = item["height"].int_value();
 		obj->loop = item["loop"].bool_value();
-		obj->speed = item["speed"].int_value();
+		obj->interval = item["interval"].int_value();
 		obj->sheets = item["sheets"].int_value();
 		for (auto &scope : item["scope"].array_items()) {
 			obj->scopes.push_back(scope.string_value());
@@ -69,15 +69,28 @@ int GraphicResource::load(std::string _scope)
 {
 	//scopeの文字列の画像をjsonから検索し、読み込む
 	//読み込んだ枚数を返す
-	bool ret = 0;
+	int ret = 0;
 	for (auto itr = graph.begin(); itr != graph.end(); ++itr) {
 		if ((*itr)->exist == false) {	//オブジェクトが未登録
 			if ((*itr)->exits_scope(_scope)) {		//scopeが存在している
 				register_graph(*(*itr));
+				ret++;
 			}
 		}
 	}
 	return ret;
+}
+
+int GraphicResource::unload(std::string _scope)
+{
+	int ret = 0;
+
+	return ret;
+}
+
+void GraphicResource::unregister_graph(GraphicObject&)
+{
+
 }
 
 std::shared_ptr<GraphicObject> GraphicResource::get(std::string name)
