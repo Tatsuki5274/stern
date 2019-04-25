@@ -12,7 +12,7 @@ struct PhysicState {
 
 class Physic {
 public:
-	Physic() {};
+	Physic() ;
 	//メソッド
 	int fall(Point);//物理運動を行うものだけ処理を行う
 	int Movement_X(Point, int);

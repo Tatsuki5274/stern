@@ -4,11 +4,11 @@
 //ï®óùâ^ìÆ
 //----------------------------------
 
-/*Physic::Physic(Point point, PhysicState physic_state) 
+Physic::Physic() 
 {
-	gravity = physic_state.gravity;
+	gravity = 1;
 	velocity = 0;
-}*/
+}
 
 
 int Physic::fall(Point p_)

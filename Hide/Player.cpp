@@ -139,14 +139,15 @@ void Player::move()
 		}
 	}
 	//ジャンプ
-	if (ct->keyboard->key_press(KEY_INPUT_X)) {
-		if (velocityY == 0 && velocityY == preY) {//phisic内での共通の落下にかかわる変数がない為、処理が複雑化してしまう
+	if (point.y==preY) {
+		if (ct->keyboard->key_press(KEY_INPUT_X)) {
+
 
 			if (ct->keyboard->key_down(KEY_INPUT_X)) {
 				jumpCnt = 10;
 			}
 			if (jumpCnt > 0) {
-				point.y += physicshape->Movement_Y(point, -jumpCnt-8);//jumpCntを設けないと空中浮遊する
+				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
 
 
 			}
@@ -156,8 +157,7 @@ void Player::move()
 		jumpCnt = 0;
 	}
 	jumpCnt--;
-	//前のvelocityYを保持
-	preY = velocityY;
+	preY = point.y;
 }
 
 bool Player::knockback(int)
