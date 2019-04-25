@@ -10,12 +10,13 @@
 
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
+	point = point_;
 	shape->set("star");
 }
 
 void NormalStar::update()
 {
-	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", angle);
+	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, -sin(angle) * 20);
 		point.y += physicshape->Movement_Y(point, cos(angle) * 20);
