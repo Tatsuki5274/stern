@@ -12,7 +12,7 @@ TitleTaskSystem::TitleTaskSystem()
 
 void TitleTaskSystem::update()
 {
-	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
+	if (Keyboard::key_down(KEY_INPUT_Z)) {
 		switch (selecter->button) {
 		case Button::start:
 			ct->scene = Scene::stageselect;
