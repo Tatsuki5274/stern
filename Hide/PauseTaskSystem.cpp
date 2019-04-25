@@ -16,7 +16,9 @@ PauseTask::PauseTask()
 void PauseTask::update()
 {
 	if (Keyboard::key_down(KEY_INPUT_X)) {
+
 		Audio::play("decision");
+
 		deg_flag = true;
 	}
 	if (deg_flag) {
