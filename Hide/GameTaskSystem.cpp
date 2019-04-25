@@ -83,6 +83,3 @@ void GameTaskSystem::finalize()
 
 
 
-	//auto itr = enemy_transaction->begin();
-	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
-		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
