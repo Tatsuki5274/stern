@@ -6,7 +6,7 @@
 
 Physic::Physic() 
 {
-	gravity = 1;
+	gravity = 1;//gravity‚ªƒLƒƒƒ‰‚É‚æ‚Á‚Ä‚¢‚¶‚é•K—v‚È‚¢‚Æ”»’f‚µ‚½
 	velocity = 0;
 }
 

@@ -26,7 +26,7 @@ void FlyingEnemy::move()
 		point.y += physicshape->Movement_Y(point, -1);
 		break;
 	case FlyingState::stay:
-		velocityY = 0;
+		point.y += physicshape->Movement_Y(point, 0);
 		break;
 	}
 
