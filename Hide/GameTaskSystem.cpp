@@ -62,6 +62,10 @@ void GameTaskSystem::update()
 	camera->update();
 
 	//トランザクションの実行
+	//for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
+	//	enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
+	//}
+	//トランザクションの実行
 	//auto itr = enemy_transaction->begin();
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
 		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
@@ -78,3 +82,7 @@ void GameTaskSystem::finalize()
 }
 
 
+
+	//auto itr = enemy_transaction->begin();
+	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
+		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する

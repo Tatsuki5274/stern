@@ -102,11 +102,20 @@ void Player::update()
 	exercise();
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T
+	if (invincible > 0) {
+		invincible--;
+	}
 }
 
 bool Player::damage()
 {
-	hp -= 1;
+	if (invincible <= 0) {
+		invincible = 180;
+		hp -= 1;
+		if (hp <= 0) {
+			return true;
+		}
+	}
 	return false;
 }
 

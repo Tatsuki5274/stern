@@ -27,7 +27,9 @@ void Enemy::update()
 	move();
 	exercise();
 	if (attack()) {
-		player->damage();
+		if (player->damage()) {
+			//ここに死んだときの処理かきたい
+		}
 	}
 	shape->draw(point);
 }

@@ -47,7 +47,7 @@ void CoreTask::init()
 	Keyboard::initialize();
 	Audio::init();
 	Item::player = gts->player;
-
+	Enemy::player = gts->player;
 	//メンバ生成
 	ssts = std::make_shared<StageSelectTaskSystem>();
 
