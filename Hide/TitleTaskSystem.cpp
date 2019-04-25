@@ -4,8 +4,7 @@
 
 TitleTaskSystem::TitleTaskSystem()
 {
-	startbutton = std::make_unique<TitleStartButton>();
-	exitbutton = std::make_unique<TitleExitButton>();
+	title_ui = std::make_unique<TitleUI>();
 	selecter = std::make_unique<TitleSelecter>();
 	backgraph = LoadGraph("img/title/title.png");
 }
@@ -13,22 +12,22 @@ TitleTaskSystem::TitleTaskSystem()
 void TitleTaskSystem::update()
 {
 	if (Keyboard::key_down(KEY_INPUT_Z)) {
+		ct->audio->play("decision");
 		switch (selecter->button) {
 		case Button::start:
 			ct->scene = Scene::stageselect;
 			break;
 		case Button::exit:
-			//exe‚ğ•Â‚¶‚é
+			//exeã‚’é–‰ã˜ã‚‹
 			break;
 		}
 	}
 
 	draw();
-	startbutton->update();
-	exitbutton->update();
-	//ƒJ[ƒ\ƒ‹‚Ì‘å‚«‚³‚ª40‚Ì‚½‚ß—]—T‚ğ‚à‚Á‚Ä‚ ‚¯‚Ä‚¨‚­
-	selecter->update(startbutton->get_lextx() - 50, exitbutton->get_lextx() - 50);
-	DrawString(0, 0, "Œ»İƒ^ƒCƒgƒ‹ƒ^ƒXƒN‚Å‚·", GetColor(255, 0, 0));
+	title_ui->update();
+	//ã‚«ãƒ¼ã‚½ãƒ«ã®å¤§ãã•ãŒ40ã®ãŸã‚ä½™è£•ã‚’ã‚‚ã£ã¦ã‚ã‘ã¦ãŠã
+	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50, title_ui->get_lextx(title_ui->text[1]) - 50);
+	DrawString(0, 0, "ç¾åœ¨ã‚¿ã‚¤ãƒˆãƒ«ã‚¿ã‚¹ã‚¯ã§ã™", GetColor(255, 0, 0));
 }
 
 void TitleTaskSystem::draw()

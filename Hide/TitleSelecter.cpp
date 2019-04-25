@@ -29,6 +29,7 @@ void TitleSelecter::switch_button()
 		else button = Button::start;
 	}
 	if (Keyboard::key_down(KEY_INPUT_UP)) {
+		ct->audio->play("cursol");
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
 	}
@@ -40,11 +41,11 @@ void TitleSelecter::move(int start_x, int exit_x)
 	switch (button) {
 	case Button::start:
 		x = start_x;
-		y = 390;
+		y = 340 - 10;
 		break;
 	case Button::exit:
 		x = exit_x;
-		y = 440;
+		y = 390 - 10;
 		break;
 	}
 }
