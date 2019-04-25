@@ -21,6 +21,6 @@ protected:
 	std::shared_ptr<Physic> physicshape;
 	Point point;
 	//移動量
-	float velocityX;
-	float velocityY;
+	/*float velocityX;//多分いらない
+	float velocityY*/
 };

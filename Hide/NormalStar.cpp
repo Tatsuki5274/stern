@@ -10,8 +10,6 @@
 
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
-	velocityX = 20;
-	velocityY = 20;
 	shape->set("star");
 }
 

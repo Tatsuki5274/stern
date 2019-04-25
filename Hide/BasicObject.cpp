@@ -7,8 +7,8 @@
 BasicObject::BasicObject(Point point_) {
 	shape = std::make_unique<Rendering>();
 	physicshape= std::make_shared<Physic>();
-	velocityX = 0;
-	velocityY = 0;
+	/*velocityX = 0;
+	velocityY = 0;*/
 	point.x = point_.x;
 	point.y = point_.y;
 	point.w = point_.w;

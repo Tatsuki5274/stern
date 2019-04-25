@@ -32,7 +32,7 @@ void WalkingEnemy::move()
 		break;
 	//待機
 	case WalkingState::stay:
-		velocityX = 0;
+		point.x += physicshape->Movement_X(point, 0);//
 		break;
 	//走行
 	/*case WalkingState::run:
