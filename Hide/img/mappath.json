@@ -1,25 +1,19 @@
 {
-  "map": [
-    {
-      "name": "background",
-      "number": 0,
-      "path": "img/",
-      "width": 32,
-      "height": 32,
-      "scope": [
-        "background"
-      ]
+  "chip1": {
+    "chipdata": "img/mapchip1.png",
+    "width": 6,
+    "height": 4
+  },
+  "1": {
+    "chip": {
+      "data": "img/stage1.csv",
+      "name": "stage1",
+      "width": 1280,
+      "height": 1280
     },
-    {
-      "name": "brock",
-      "number": 1,
-      "path": "img/",
-      "width": 32,
-      "height": 32,
-      "scope": [
-        "brock"
-      ]
+    "background": {
+      "name": "str"
     }
-  ]
-} 
+  }
+}
 
