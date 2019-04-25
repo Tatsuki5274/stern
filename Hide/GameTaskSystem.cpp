@@ -1,4 +1,4 @@
-﻿#include "GameTaskSystem.h"
+#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
 #include"CoreTask.h"
@@ -14,9 +14,9 @@ GameTaskSystem::GameTaskSystem()
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	camera = std::make_shared<Camera>();
-	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
+	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
-	enemy_transaction = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
+	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
 }
 
@@ -26,7 +26,7 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::init()
 {
-	//ステージごとに音楽を入れ替える
+  	//ステージごとに音楽を入れ替える
 	switch (ct->ssts->get_stage()) {
 	case 1:
 		ct->audio->play("stage1");
@@ -61,6 +61,7 @@ void GameTaskSystem::update()
 	camera->update();
 
 	//トランザクションの実行
+	//auto itr = enemy_transaction->begin();
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
 		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
 	}
@@ -74,3 +75,5 @@ void GameTaskSystem::finalize()
 	enemys->clear();
 	item->clear();
 }
+
+

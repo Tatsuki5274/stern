@@ -25,7 +25,7 @@ public:
 	void update();
 	void finalize();
 	//~GameTaskSystem();
-	std::unique_ptr<Player> player;
+	std::shared_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
 	std::shared_ptr<Camera> camera;
@@ -33,7 +33,7 @@ public:
 	std::vector<NormalStar> normalstar;
 	//敵
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
-	std::shared_ptr<std::vector<std::unique_ptr<Enemy>>> enemy_transaction;
+	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;
 	//アイテム
 	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
 };
