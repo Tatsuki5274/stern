@@ -4,17 +4,17 @@
 //物理運動
 //----------------------------------
 
-Physic::Physic(Point point, PhysicState physic_state) 
+/*Physic::Physic(Point point, PhysicState physic_state) 
 {
 	gravity = physic_state.gravity;
 	velocity = 0;
-}
+}*/
 
 
 int Physic::fall(Point p_)
 {
 	//重力による落下
-	velocity += gravity;  //gravityの分だけ加速させていく
+	velocity += int(gravity);  //gravityの分だけ加速させていく
 
 	int prevel = velocity;//計算用かつ、velocityを不変のものであるために仮の値を用意
 	while (prevel != 0) {//めり込まない移動処理の簡略化バージョン
@@ -29,7 +29,7 @@ int Physic::fall(Point p_)
 	return velocity;
 
 }
-int Physic::Check_X(Point p_,int velocity_)
+int Physic::Movement_X(Point p_,int velocity_)
 {
 
 	int prevel = velocity_;//計算用かつ、velocityを不変のものであるために仮の値を用意
@@ -52,7 +52,7 @@ int Physic::Check_X(Point p_,int velocity_)
 
 }
 
-int Physic::Check_Y(Point p_, int velocity_)
+int Physic::Movement_Y(Point p_, int velocity_)
 {
 
 	int prevel = velocity_;//計算用かつ、velocityを不変のものであるために仮の値を用意

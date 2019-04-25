@@ -100,7 +100,7 @@ void Player::update()
 	playerinterface->update(hp,life);
 	shape->draw(point);
 	if (jumpCnt <= 0) {
-		point.y += fall(point);
+		point.y += physicshape->fall(point);
 	}
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T
@@ -121,10 +121,10 @@ void Player::move()
 	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
 		if (ct->keyboard->key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
-			point.x+=Check_X(point, -4);
+			point.x+= physicshape->Movement_X(point, -4);
 		}
 		else {
-			point.x += Check_X(point, -2);
+			point.x += physicshape->Movement_X(point, -2);
 		}
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
@@ -132,10 +132,10 @@ void Player::move()
 			/*if (velocityX <= +6) {
 				velocityX++;
 			}*/
-			point.x += Check_X(point, 4);
+			point.x += physicshape->Movement_X(point, 4);
 		}
 		else {
-			point.x += Check_X(point, 2);
+			point.x += physicshape->Movement_X(point, 2);
 		}
 	}
 	//ジャンプ
@@ -146,7 +146,7 @@ void Player::move()
 				jumpCnt = 10;
 			}
 			if (jumpCnt > 0) {
-				point.y += Check_Y(point, -jumpCnt-8);//jumpCntを設けないと空中浮遊する
+				point.y += physicshape->Movement_Y(point, -jumpCnt-8);//jumpCntを設けないと空中浮遊する
 
 
 			}
@@ -167,7 +167,7 @@ bool Player::knockback(int)
 
 void Player::jump(int pow) {
 	while (pow > 0) {
-		point.y += Check_Y(point, -pow);
+		point.y += physicshape->Movement_Y(point, -pow);
 		pow--;
 	}
 }

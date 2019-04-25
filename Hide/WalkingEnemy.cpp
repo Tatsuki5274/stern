@@ -11,7 +11,7 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
 
 void WalkingEnemy::move()
 {
-	point.y += fall(point);
+	point.y += physicshape->fall(point);
 	check_left();
 	check_right();
 
@@ -22,11 +22,11 @@ void WalkingEnemy::move()
 		switch (anglestate) {
 		case AngleState::right:
 			//init_renderで右向きにする
-			point.x += Check_X(point, 1);
+			point.x += physicshape->Movement_X(point, 1);
 			break;
 		case AngleState::left:
 			//init_renderで左向きにする
-			point.x += Check_X(point, -1);
+			point.x += physicshape->Movement_X(point, -1);
 			break;
 		}
 		break;
