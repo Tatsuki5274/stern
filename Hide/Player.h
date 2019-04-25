@@ -18,6 +18,7 @@ struct PlayerState {
 
 class Player :public Physic {
 	friend class RecoveryItem;
+	friend class Enemy;
 public:
 	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();
