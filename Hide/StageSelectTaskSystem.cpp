@@ -24,7 +24,7 @@ void StageSelectTaskSystem::update()
 		switch (stage)
 		{
 		case 1:
-			ct->gts->map->init((char*)"img/data.txt", (char*)"img/chip.png");
+			ct->gts->map->init((char*)"1", (char*)"chip1");
 			spawnenemy->create("1");
 			spawnitem->create("1");
 			break;
