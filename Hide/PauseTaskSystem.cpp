@@ -1,6 +1,8 @@
 ﻿#include "PauseTaskSystem.h"
 #include"DxLib.h"
+#include"Keyboard.h"
 #include"CoreTask.h"
+#include"Audio.h"
 
 PauseTask::PauseTask()
 {
@@ -14,7 +16,9 @@ PauseTask::PauseTask()
 void PauseTask::update()
 {
 	if (Keyboard::key_down(KEY_INPUT_X)) {
-		ct->audio->play("decision");
+
+		Audio::play("decision");
+
 		deg_flag = true;
 	}
 	if (deg_flag) {
