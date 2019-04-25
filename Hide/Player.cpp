@@ -140,10 +140,10 @@ void Player::move()
 	}
 	//ジャンプ
 	if (point.y==preY) {
-		if (ct->keyboard->key_press(KEY_INPUT_X)) {
+		if (Keyboard::key_press(KEY_INPUT_X)) {
 
 
-			if (ct->keyboard->key_down(KEY_INPUT_X)) {
+			if (Keyboard::key_down(KEY_INPUT_X)) {
 				jumpCnt = 10;
 			}
 			if (jumpCnt > 0) {
@@ -153,7 +153,7 @@ void Player::move()
 			}
 		}
 	}
-	if (ct->keyboard->key_up(KEY_INPUT_X)) {
+	if (Keyboard::key_up(KEY_INPUT_X)) {
 		jumpCnt = 0;
 	}
 	jumpCnt--;

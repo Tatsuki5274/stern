@@ -17,10 +17,9 @@ struct PlayerState {
 };
 
 class Player :public BasicObject {
-<<<<<<< HEAD
+
 	friend class RecoveryItem;
-=======
->>>>>>> PhisicNewUpdate
+
 public:
 	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();
