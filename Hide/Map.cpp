@@ -1,4 +1,4 @@
-﻿#include"Map.h"
+#include"Map.h"
 #include"DxLib.h"
 #include <fstream>
 #include <string>
