@@ -14,7 +14,7 @@ void ThrowingEnemy::move()
 {
 	cnt++;
 	change_angle();
-	point.y+=fall(point);
+	point.y+= physicshape->fall(point);
 	appear_shot();
 }
 

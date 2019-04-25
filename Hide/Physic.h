@@ -12,11 +12,11 @@ struct PhysicState {
 
 class Physic {
 public:
-	Physic(Point point,PhysicState physic_state);
+	Physic() {};
 	//メソッド
 	int fall(Point);//物理運動を行うものだけ処理を行う
-	int Check_X(Point, int);
-	int Check_Y(Point, int);
+	int Movement_X(Point, int);
+	int Movement_Y(Point, int);
 protected:
 	//変数
 	float gravity;//重力

@@ -19,8 +19,8 @@ void NormalStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", angle);
 	if (!contact) {
-		point.x += Check_X(point, -sin(angle) * 20);
-		point.y += Check_Y(point, cos(angle) * 20);
+		point.x += physicshape->Movement_X(point, -sin(angle) * 20);
+		point.y += physicshape->Movement_Y(point, cos(angle) * 20);
 		/*int prevelX = int(-sin(angle) * velocityX);
 		int prevelY = int(cos(angle) * velocityY);
 		while (prevelX != 0) {

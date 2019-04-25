@@ -20,10 +20,10 @@ void FlyingEnemy::move()
 	{
 		//飛行
 	case FlyingState::down:
-		point.y += Check_Y(point,1);
+		point.y += physicshape->Movement_Y(point,1);
 		break;
 	case FlyingState::up:
-		point.y += Check_Y(point, -1);
+		point.y += physicshape->Movement_Y(point, -1);
 		break;
 	case FlyingState::stay:
 		velocityY = 0;
