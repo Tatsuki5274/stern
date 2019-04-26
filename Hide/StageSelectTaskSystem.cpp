@@ -1,4 +1,4 @@
-#include "StageSelectTaskSystem.h"
+ï»¿#include "StageSelectTaskSystem.h"
 #include"CoreTask.h"
 
 StageSelectTaskSystem::StageSelectTaskSystem()
@@ -44,7 +44,7 @@ void StageSelectTaskSystem::update()
 			}
 			ct->gts->init();
 			ct->cts->init();
-			ct->scene = Scene::game;//ƒQ[ƒ€ƒV[ƒ“‚É‘JˆÚ
+			ct->scene = Scene::game;//ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã«é·ç§»
 		}
 	}
 	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0) {
