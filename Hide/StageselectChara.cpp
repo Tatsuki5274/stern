@@ -1,4 +1,4 @@
-#include"StageselectChara.h"
+Ôªø#include"StageselectChara.h"
 #include"CoreTask.h"
 #include"Dxlib.h"
 
@@ -14,7 +14,7 @@ void StageSelectChara::update(int& stage_,bool deg)
 	select_stage(stage_,deg);
 	move();
 	draw();
-	DrawFormatString(0, 50, GetColor(255, 0, 0), "xç¿ïW : %d", point.x);
+	DrawFormatString(0, 50, GetColor(255, 0, 0), "xÂ∫ßÊ®ô : %d", point.x);
 }
 
 void StageSelectChara::draw()
@@ -27,7 +27,7 @@ void StageSelectChara::select_stage(int& stage_,bool deg)
 	if (!deg) {
 		if (Keyboard::key_down(KEY_INPUT_RIGHT) && stage_ < 4 && velocityX == 0) {
 			velocityX = 18;
-			stage_++;//ÉXÉeÅ[ÉWÉZÉåÉNÉgÉ^ÉXÉNÇÃï˚ÇÃÉXÉeÅ[ÉWî‘çÜÇÕâ¡éZÇ≥ÇÍÇƒÇ¢Ç»Ç¢
+			stage_++;//„Çπ„ÉÜ„Éº„Ç∏„Çª„É¨„ÇØ„Éà„Çø„Çπ„ÇØ„ÅÆÊñπ„ÅÆ„Çπ„ÉÜ„Éº„Ç∏Áï™Âè∑„ÅØÂä†ÁÆó„Åï„Çå„Å¶„ÅÑ„Å™„ÅÑ
 		}
 		if (Keyboard::key_down(KEY_INPUT_LEFT) && stage_ > 1 && velocityX == 0) {
 			velocityX = -18;
