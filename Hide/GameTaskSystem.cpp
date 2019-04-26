@@ -19,6 +19,8 @@ GameTaskSystem::GameTaskSystem()
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
+	feedcnt = 0;
+	deg_flag = false;
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -27,7 +29,7 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::init()
 {
-  	//ステージごとに音楽を入れ替える
+	//ステージごとに音楽を入れ替える
 	switch (ct->ssts->get_stage()) {
 	case 1:
 		Audio::play("stage1");
@@ -41,10 +43,16 @@ void GameTaskSystem::init()
 
 void GameTaskSystem::update()
 {
+	ScreenFunc::FeedIn(deg_flag, feedcnt);
 	//ポーズへの遷移
 	if (Keyboard::key_down(KEY_INPUT_BACK)) {
 		Audio::play("decision");
-		ct->scene = Scene::pause;
+		deg_flag = true;
+	}
+	if (deg_flag) {
+		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+			ct->scene = Scene::pause;
+		}
 	}
 	map->update();
 	goal->update();
@@ -54,7 +62,7 @@ void GameTaskSystem::update()
 	}
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
-	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr){
+	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
 		(*itr)->update();
 	}
 	//--------------------------------
