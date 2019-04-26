@@ -16,7 +16,7 @@ bool Enemy::attack()
 {
 
 	Point player_point = ct->gts->player->get_point();
-	if(func.CheckHit(point,player_point)){
+	if(CheckHit(point,player_point)){
 			return true;
 	}
 	return false;

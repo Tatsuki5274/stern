@@ -29,7 +29,6 @@ public:
 	void draw_interface(int);//UI描画
 	void move();//移動処理
 	bool knockback(int);//ノックバック
-	Function func;
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {

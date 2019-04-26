@@ -24,7 +24,6 @@ private:
 	int life;
 	int damaged;
 	int gravity;
-	Function func;
 
 
 public :
