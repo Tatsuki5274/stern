@@ -21,7 +21,6 @@ Map::Map()
 	//マップのサイズ
 	mapsizex = 1280;
 	mapsizey = 1280;
-	
 }
 
 void Map::init(char* map_)
@@ -85,7 +84,12 @@ void Map::draw()
 			}
 		}
 	}*/
-	
+	//カメラが完全にマップ外を指しているか調べる
+	Point maphitbase = { 0,0,mapsizex,mapsizey };
+	if (false == CheckHit(maphitbase, Camera::get_range())){
+		return;//完全に外に出ていたらその時点で描画処理を取りやめる
+	}
+
 	//カメラとマップが重なっている範囲だけの矩形を作る
 	RECT c = {
 		Camera::get_range().x,
@@ -115,7 +119,7 @@ void Map::draw()
 
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			DrawRectGraph((x * chipsize) - Camera::get_range().x, (y * chipsize),
+			DrawRectGraph((x * chipsize) - Camera::get_range().x, (y * chipsize) /*- Camera::get_range().y*/,
 				data[y][x] * chipsize % chipwidth,data[y][x] * chipsize / chipwidth,
 				chipsize, chipsize ,
 				graph,FALSE, FALSE);
