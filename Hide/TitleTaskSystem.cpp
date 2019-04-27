@@ -1,4 +1,5 @@
-﻿#include "TitleTaskSystem.h"
+
+#include "TitleTaskSystem.h"
 #include"CoreTask.h"
 
 TitleTaskSystem::TitleTaskSystem()
@@ -33,9 +34,11 @@ void TitleTaskSystem::update()
 	draw();
 	title_ui->update();
 	//カーソルの大きさが40のため余裕をもってあけておく
+
 	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50,
 		title_ui->get_lextx(title_ui->text[1]) - 50,
 		deg_flag);
+
 }
 
 void TitleTaskSystem::draw()
