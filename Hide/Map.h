@@ -9,7 +9,7 @@
 class Map {
 public:
 	Map();
-	void init(char*, char*);
+	void init(char*);
 	void draw();
 	void update();
 	int get_left(Point);
@@ -21,9 +21,10 @@ private:
 	std::string chipmap;
 	int data[20][20];//仮の数値
 	int graph;//絵
+	int chipsize;
+	int chipwidth;
 	int mapsizex;
 	int mapsizey;
-	Point isr;  //重なっている範囲
 	int sx, sy, ex, ey;  //ループ範囲
 	json11::Json mapdata;
 	json11::Json map;

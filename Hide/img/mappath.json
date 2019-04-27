@@ -1,19 +1,8 @@
 {
-  "chip1": {
-    "chipdata": "img/mapchip1.png",
-    "width": 6,
-    "height": 4
-  },
   "1": {
-    "chip": {
-      "data": "img/stage1.csv",
-      "name": "stage1",
-      "width": 1280,
-      "height": 1280
-    },
-    "background": {
-      "name": "str"
-    }
+    "txtpath": "img/stage1.txt",
+    "chippath": "img/mapchip1.png",
+    "background": "img/background"
   }
 }
 

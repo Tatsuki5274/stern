@@ -7,7 +7,6 @@
 #include<algorithm>
 #include "json11.hpp"
 //1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
-#define chipsize 64
 
 //----------------------------------
 //マップデータ
@@ -15,11 +14,19 @@
 
 Map::Map()
 {
+	//可変
+	//チップファイル一つの大きさと縦のマス
+	chipsize = 64;
+	chipwidth = 6;
+	//マップのサイズ
+	mapsizex = 1280;
+	mapsizey = 1280;
 	
 }
 
-void Map::init(char* map_, char* chipdata_)
+void Map::init(char* map_)
 {
+	//jsonの読み込み
 	std::ifstream mappath("img/mappath.json");
 	if (mappath.fail())
 	{
@@ -30,50 +37,40 @@ void Map::init(char* map_, char* chipdata_)
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
 	mapdata = json11::Json::parse(json_str, err);	//json11で利用できる形式に変換
+	map = mapdata[map_];
 
-	map = mapdata[map_]["chip"];
-	chipdata = mapdata[chipdata_];
+	//画像の読み込み
+	graph = LoadGraph(map["chippath"].string_value().c_str());
 
-
-	//可変
-	mapsizex = map["width"].int_value();
-	mapsizey = map["height"].int_value();
-
-	//使う画像決定
-	graph = LoadGraph(chipdata["chipdata"].string_value().c_str());
-
-	//csvを読み込む
-	chipmap = map["data"].string_value().c_str();
-
-	std::ifstream fin(chipmap);
-
+	//txtの読み込み
+	std::ifstream fin(map["txtpath"].string_value().c_str());
+	if (!fin) { return; }
 	for (int y = 0; y < mapsizey / chipsize; ++y) {
-		std::string lineText;
-		getline(fin, lineText);
-		std::istringstream ss_lt(lineText);
 		for (int x = 0; x < mapsizex / chipsize; ++x) {
-			std::string  tc;
-			getline(ss_lt, tc, ',');
-			std::stringstream ss;
-			ss << tc;
-			ss >> data[y][x]; //データを入れる
+			fin >> data[y][x];
 		}
 	}
-	mappath.close();	//ファイルを閉じる
-	fin.close();
 
-	////使う画像決定
-	//graph = LoadGraph(chipfp);
-	////ファイル読み込み
-	//std::ifstream mapdata(mapfp);
-	//if (!mapdata) { return; }
+	//csvの読み込む
+	//chipmap = map["csvpath"].string_value().c_str();
+
+	//std::ifstream fin(chipmap);
+
 	//for (int y = 0; y < mapsizey / chipsize; ++y) {
+	//	std::string lineText;
+	//	getline(fin, lineText);
+	//	std::istringstream ss_lt(lineText);
 	//	for (int x = 0; x < mapsizex / chipsize; ++x) {
-	//		mapdata >> data[y][x];
+	//		std::string  tc;
+	//		getline(ss_lt, tc, ',');
+	//		std::stringstream ss;
+	//		ss << tc;
+	//		ss >> data[y][x]; //データを入れる
 	//	}
 	//}
-	////ファイル閉じ
-	//mapdata.close();
+	//ファイルを閉じる
+	mappath.close();	
+	fin.close();
 }
 
 void Map::draw()
@@ -89,23 +86,39 @@ void Map::draw()
 		}
 	}*/
 	
+	//カメラとマップが重なっている範囲だけの矩形を作る
+	RECT c = {
+		Camera::get_range().x,
+		Camera::get_range().y,
+		Camera::get_range().x + Camera::get_range().w,
+		Camera::get_range().y + Camera::get_range().h
+	};
+	RECT m = {
+			0,
+			0,
+			0 + mapsizex,
+			0 + mapsizey 
+	};
 
+	//2つの矩形の重なっている範囲だけの矩形を求める
+	RECT isr;
+	isr.left = max(c.left, m.left);
+	isr.top = max(c.top, m.top);
+	isr.right = min(c.right, m.right);
+	isr.bottom = min(c.bottom, m.bottom);
 
-	isr.x = max(Camera::get_range().x, 0);
-	isr.y = max(Camera::get_range().y, 0);
-	isr.w = min(Camera::get_range().x + Camera::get_range().w, mapsizex);
-	isr.h = min(Camera::get_range().y + Camera::get_range().h, mapsizey);
-
-	sx = isr.x / chipsize;
-	sy = isr.y / chipsize;
-	ex = (isr.w - 1) / chipsize;
-	ey = (isr.h - 1) / chipsize;
+	//ループの範囲を決定
+	sx = isr.left / chipsize;
+	sy = isr.top / chipsize;
+	ex = (isr.right - 1) / chipsize;
+	ey = (isr.bottom - 1) / chipsize;
 
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			DrawRectGraph((x * chipsize) - ct->gts->camera->get_range().x, y * chipsize, data[y][x] * chipsize % chipdata["width"].int_value(),
-				data[y][x] * chipsize / chipdata["height"].int_value(), chipsize, chipsize, graph, FALSE);
-			DrawRectGraph((x * chipsize) - Camera::get_range().x, y * chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
+			DrawRectGraph((x * chipsize) - Camera::get_range().x, (y * chipsize),
+				data[y][x] * chipsize % chipwidth,data[y][x] * chipsize / chipwidth,
+				chipsize, chipsize ,
+				graph,FALSE, FALSE);
 		}
 	}
 }
@@ -185,7 +198,7 @@ int Map::get_left(Point chara_)
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 6) {//今回の場合は１のチップのみに当たり判定を持たせる
 				return 1;
 			}
 			
@@ -202,7 +215,7 @@ int Map::get_right(Point chara_)
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -219,7 +232,7 @@ int Map::get_top(Point chara_)
 	int ey = chara_.y / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -237,7 +250,7 @@ int Map::get_bottom(Point chara_)
 	//範囲内の障害物を探す
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 		}
@@ -256,7 +269,7 @@ int Map::get_circle(Point star_,int r_)
 	int ey = (star_.y + r_*3) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 7) {//今回の場合は7のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
 				return 1;
 			}
 

@@ -29,8 +29,8 @@ void Camera::update()
 	int px = range.w / 2;
 	int py = range.h / 2;
 	//プレイヤを画面中央に置いた時カメラの左上座標を求める
-	int cpx = int(ct->gts->player->get_point().x) - px + (int)ct->gts->player->get_point().w / 2;
-	int cpy = int(ct->gts->player->get_point().y) - py + (int)ct->gts->player->get_point().h / 2;
+	int cpx = range.x - px;
+	int cpy = range.y - py;
 	//カメラ座標を更新
 	range.x = cpx;
 	range.y = cpy;
