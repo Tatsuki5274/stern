@@ -1,4 +1,4 @@
-#include "GameTaskSystem.h"
+﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
 #include"CoreTask.h"
@@ -14,11 +14,12 @@ GameTaskSystem::GameTaskSystem()
 
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
-	camera = std::make_shared<Camera>();
 	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
+	feedcnt = 0;
+	deg_flag = false;
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -27,13 +28,13 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::init()
 {
-  	//ステージごとに音楽を入れ替える
+	//ステージごとに音楽を入れ替える
 	switch (ct->ssts->get_stage()) {
 	case 1:
 		Audio::play("stage1");
 		break;
 	}
-	camera->init();
+	Camera::init();
 	player->init();
 	goal->init();
 }
@@ -41,7 +42,17 @@ void GameTaskSystem::init()
 
 void GameTaskSystem::update()
 {
-	
+	ScreenFunc::FeedIn(deg_flag, feedcnt);
+	//ポーズへの遷移
+	if (Keyboard::key_down(KEY_INPUT_BACK)) {
+		Audio::play("decision");
+		deg_flag = true;
+	}
+	if (deg_flag) {
+		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+			ct->scene = Scene::pause;
+		}
+	}
 	map->update();
 	goal->update();
 	//☆------------------------------
@@ -50,7 +61,7 @@ void GameTaskSystem::update()
 	}
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
-	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr){
+	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
 		(*itr)->update();
 	}
 	//--------------------------------
@@ -59,8 +70,12 @@ void GameTaskSystem::update()
 		(*itr)->update();
 	}
 	player->update();
-	camera->update();
+	Camera::update();
 
+	//トランザクションの実行
+	//for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
+	//	enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
+	//}
 	//トランザクションの実行
 	//auto itr = enemy_transaction->begin();
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
@@ -71,10 +86,16 @@ void GameTaskSystem::update()
 
 void GameTaskSystem::finalize()
 {
-	Audio::stop("stage1");
+	//ステージごとに音楽を入れ替える
+	switch (ct->ssts->get_stage()) {
+	case 1:
+		Audio::stop("stage1");
+		break;
+	}
 	normalstar.clear();
 	enemys->clear();
 	item->clear();
 }
+
 
 
