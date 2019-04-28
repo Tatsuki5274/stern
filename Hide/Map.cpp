@@ -15,7 +15,7 @@
 Map::Map()
 {
 	//可変
-	//チップファイル一つの大きさと縦のマス
+	//チップファイル一つの大きさと横のマス
 	chipsize = 64;
 	chipwidth = 6;
 	//マップのサイズ
@@ -120,8 +120,8 @@ void Map::draw()
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			DrawRectGraph((x * chipsize) - Camera::get_range().x, (y * chipsize) /*- Camera::get_range().y*/,
-				data[y][x] * chipsize % chipwidth,data[y][x] * chipsize / chipwidth,
-				chipsize, chipsize ,
+				(data[y][x] % chipwidth) * chipsize ,(data[y][x] / chipwidth) * chipsize ,
+				chipsize, chipsize,
 				graph,FALSE, FALSE);
 		}
 	}
