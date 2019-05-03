@@ -1,66 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="ソース ファイル\main">
-      <UniqueIdentifier>{29168e77-7234-4a27-8c21-a64c55cd0a04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\TaskSystem">
-      <UniqueIdentifier>{1e8aec2d-f714-42fe-8164-25957ca28c46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\TaskSystem\StageSelectTask">
-      <UniqueIdentifier>{17a6a756-f80a-46ed-8ebb-bc33b9552788}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\TaskSystem\TitleTask">
-      <UniqueIdentifier>{25bbd419-8e80-4fbb-865e-ae0b313feee3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Base">
-      <UniqueIdentifier>{c8532197-5d7f-4e16-834c-e1b725bc68c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Star">
-      <UniqueIdentifier>{f12f1ca8-b0e5-49ed-b4d5-79571ce3fcf0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Map">
-      <UniqueIdentifier>{f121a0c1-848c-41f3-8a43-d9db5efc6e13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\TaskSystem">
-      <UniqueIdentifier>{db42f046-bbae-4115-8a3c-8dfc0b028a4d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\TaskSystem\StageSelect">
-      <UniqueIdentifier>{50b42b3b-6a90-46a3-a60d-8b486af1c3d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\TaskSystem\TitleTask">
-      <UniqueIdentifier>{270aa47b-4acd-48e2-925c-f9a8500c7aa3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Spawn">
-      <UniqueIdentifier>{fd39dde5-ed9b-49c6-88de-f35b12fe3229}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Spawn">
-      <UniqueIdentifier>{329d85d2-f570-4f2f-8f6b-91226b9c1f42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Star">
-      <UniqueIdentifier>{19f03915-6e16-43f9-9ef6-2a56844f0732}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\TaskSystem\PauseTask">
-      <UniqueIdentifier>{7804cc7b-9c61-4432-99ee-0af9416c7cfa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\TaskSystem\PauseTask">
-      <UniqueIdentifier>{0fad85da-3731-4a44-8827-df7fb6b303a5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="assets">
       <UniqueIdentifier>{d01150aa-2b70-46b5-83ed-22e1b1609b6a}</UniqueIdentifier>
     </Filter>
@@ -181,77 +121,46 @@
     <Filter Include="models\goal">
       <UniqueIdentifier>{3c7c894a-f92b-444f-b706-13c27aa610c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="views\clear">
-      <UniqueIdentifier>{9a7b37d7-acee-4251-afcd-a55b224ee868}</UniqueIdentifier>
+    <Filter Include="models\extend">
+      <UniqueIdentifier>{6b3d0d62-12d0-4aa9-98ab-a76994009a1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\extend\physic">
+      <UniqueIdentifier>{890636a5-80c1-4c42-896f-a039d49703e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\super">
+      <UniqueIdentifier>{3242c833-28c8-4374-b8a2-c3b38599e7a0}</UniqueIdentifier>
     </Filter>
     <Filter Include="views\game_over">
-      <UniqueIdentifier>{ea3d10f5-c22f-4d59-9651-30c1d5acba31}</UniqueIdentifier>
+      <UniqueIdentifier>{8cb7ade6-fe77-4a32-9407-ff4bf7234738}</UniqueIdentifier>
     </Filter>
     <Filter Include="views\pause">
-      <UniqueIdentifier>{6d6056ef-3ce9-4590-acbd-210539d631b4}</UniqueIdentifier>
+      <UniqueIdentifier>{d935008a-5b03-4d74-8e25-beb304c67ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\clear">
+      <UniqueIdentifier>{bbd17328-4566-4451-8a2a-bf189b0603b7}</UniqueIdentifier>
     </Filter>
     <Filter Include="views\stage_select">
-      <UniqueIdentifier>{f4cee73f-7908-4d19-889d-b59673c1b085}</UniqueIdentifier>
+      <UniqueIdentifier>{61fb2592-aa40-44dc-be56-e5ef9a6ae294}</UniqueIdentifier>
     </Filter>
     <Filter Include="views\title">
-      <UniqueIdentifier>{5944a3b4-c68e-45f1-9ab7-2c728c6ced8f}</UniqueIdentifier>
+      <UniqueIdentifier>{4bc695e6-6df0-4b3a-b616-1106520efd93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\game">
+      <UniqueIdentifier>{ec186bdf-cbdc-4561-b645-65e893fdc08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resources\json11">
+      <UniqueIdentifier>{5a2fa18e-f626-44ef-aab0-24cd07dfb2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="不明">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル\main</Filter>
-    </ClCompile>
-    <ClCompile Include="Physic.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="CoreTask.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="ClearTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="StageselectChara.cpp">
-      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
-    </ClCompile>
-    <ClCompile Include="StageSelectTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
-    </ClCompile>
-    <ClCompile Include="StageSelectTaskMass.cpp">
-      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
-    </ClCompile>
-    <ClCompile Include="StageselectTaskTextBox.cpp">
-      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
-    </ClCompile>
-    <ClCompile Include="GameOverTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleSelecter.cpp">
-      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
-    </ClCompile>
-    <ClCompile Include="json11.cpp">
-      <Filter>リソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="BasicUI.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="PauseTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem\PauseTask</Filter>
-    </ClCompile>
-    <ClCompile Include="PauseTaskSelecter.cpp">
-      <Filter>ソース ファイル\TaskSystem\PauseTask</Filter>
-    </ClCompile>
-    <ClCompile Include="PauseTaskUI.cpp">
-      <Filter>ソース ファイル\TaskSystem\PauseTask</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleUI.cpp">
-      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicResource.cpp">
       <Filter>assets\graphic</Filter>
     </ClCompile>
@@ -327,83 +236,62 @@
     <ClCompile Include="Star.cpp">
       <Filter>models\stars\super</Filter>
     </ClCompile>
+    <ClCompile Include="Physic.cpp">
+      <Filter>models\extend\physic</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicUI.cpp">
+      <Filter>views\super</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTaskSelecter.cpp">
+      <Filter>views\pause</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTaskSystem.cpp">
+      <Filter>views\pause</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTaskUI.cpp">
+      <Filter>views\pause</Filter>
+    </ClCompile>
+    <ClCompile Include="StageselectChara.cpp">
+      <Filter>views\stage_select</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelectTaskMass.cpp">
+      <Filter>views\stage_select</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelectTaskSystem.cpp">
+      <Filter>views\stage_select</Filter>
+    </ClCompile>
+    <ClCompile Include="StageselectTaskTextBox.cpp">
+      <Filter>views\stage_select</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleSelecter.cpp">
+      <Filter>views\title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleTaskSystem.cpp">
+      <Filter>views\title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleUI.cpp">
+      <Filter>views\title</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearTaskSystem.cpp">
+      <Filter>views\clear</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverTaskSystem.cpp">
+      <Filter>views\game_over</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTaskSystem.cpp">
+      <Filter>views\game</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreTask.cpp">
+      <Filter>controllers\core</Filter>
+    </ClCompile>
+    <ClCompile Include="json11.cpp">
+      <Filter>Resources\json11</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Star.h">
-      <Filter>ヘッダー ファイル\Star</Filter>
-    </ClInclude>
-    <ClInclude Include="GravityStar.h">
-      <Filter>ヘッダー ファイル\Star</Filter>
-    </ClInclude>
-    <ClInclude Include="NormalStar.h">
-      <Filter>ヘッダー ファイル\Star</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Physic.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="CoreTask.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="ClearTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="StageSelectTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="StageselectChara.h">
-      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="StageSelectTaskMass.h">
-      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="StageselectTaskTextBox.h">
-      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOverTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleSelecter.h">
-      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
-    </ClInclude>
-    <ClInclude Include="json11.hpp">
-      <Filter>リソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnEnemy.h">
-      <Filter>ヘッダー ファイル\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnItem.h">
-      <Filter>ヘッダー ファイル\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="Spawn.h">
-      <Filter>ヘッダー ファイル\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicUI.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem\PauseTask</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseTaskUI.h">
-      <Filter>ヘッダー ファイル\TaskSystem\PauseTask</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseTaskSelecter.h">
-      <Filter>ヘッダー ファイル\TaskSystem\PauseTask</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleUI.h">
-      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
-    </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicResource.h">
       <Filter>assets\graphic</Filter>
     </ClInclude>
@@ -461,9 +349,6 @@
     <ClInclude Include="BasicObject.h">
       <Filter>models\super</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>models\stars\super</Filter>
-    </ClInclude>
     <ClInclude Include="Goal.h">
       <Filter>models\goal</Filter>
     </ClInclude>
@@ -472,6 +357,84 @@
     </ClInclude>
     <ClInclude Include="Rendering.h">
       <Filter>assets\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Physic.h">
+      <Filter>models\extend\physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>models\extend</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicUI.h">
+      <Filter>views\super</Filter>
+    </ClInclude>
+    <ClInclude Include="GravityStar.h">
+      <Filter>models\stars\gravity_star</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalStar.h">
+      <Filter>models\stars\normal_star</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>models\stars\super</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>models\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawn.h">
+      <Filter>controllers\spawn\super</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnEnemy.h">
+      <Filter>controllers\spawn\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnItem.h">
+      <Filter>controllers\spawn\item</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTaskSelecter.h">
+      <Filter>views\pause</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTaskSystem.h">
+      <Filter>views\pause</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTaskUI.h">
+      <Filter>views\pause</Filter>
+    </ClInclude>
+    <ClInclude Include="StageselectChara.h">
+      <Filter>views\stage_select</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelectTaskMass.h">
+      <Filter>views\stage_select</Filter>
+    </ClInclude>
+    <ClInclude Include="StageselectTaskTextBox.h">
+      <Filter>views\stage_select</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelectTaskSystem.h">
+      <Filter>views\stage_select</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleSelecter.h">
+      <Filter>views\title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleTaskSystem.h">
+      <Filter>views\title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleUI.h">
+      <Filter>views\title</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverTaskSystem.h">
+      <Filter>views\game_over</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearTaskSystem.h">
+      <Filter>views\clear</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTaskSystem.h">
+      <Filter>views\game</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTask.h">
+      <Filter>controllers\core</Filter>
+    </ClInclude>
+    <ClInclude Include="json11.hpp">
+      <Filter>Resources\json11</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>不明</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
