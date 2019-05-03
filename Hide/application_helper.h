@@ -1,4 +1,4 @@
 #pragma once
 #include"Point.h"
 
-bool CheckHit(Point, Point);
+bool CheckHit(Point attack_, Point defense_);
