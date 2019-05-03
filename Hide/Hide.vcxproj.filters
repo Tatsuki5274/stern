@@ -12,15 +12,6 @@
     <Filter Include="ソース ファイル\main">
       <UniqueIdentifier>{29168e77-7234-4a27-8c21-a64c55cd0a04}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Chara">
-      <UniqueIdentifier>{c4448bff-90fc-4599-80b3-c956f1dc3e5f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Map">
-      <UniqueIdentifier>{3f9948e2-adf9-4002-af77-6e7388a98a5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Rendering">
-      <UniqueIdentifier>{1a15e955-2752-4421-9151-5a0e65ab883c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\TaskSystem">
       <UniqueIdentifier>{1e8aec2d-f714-42fe-8164-25957ca28c46}</UniqueIdentifier>
     </Filter>
@@ -40,26 +31,11 @@
     <Filter Include="ヘッダー ファイル\Base">
       <UniqueIdentifier>{c8532197-5d7f-4e16-834c-e1b725bc68c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Chara">
-      <UniqueIdentifier>{92c4b293-56cb-4cbe-847e-f47804cea029}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Chara\Enemy">
-      <UniqueIdentifier>{42e5447f-324b-4d6e-839c-59b2234ad6fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Chara\Player">
-      <UniqueIdentifier>{994d0b90-a9b1-4780-83a9-39b5a3f015c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Chara\Camera">
-      <UniqueIdentifier>{0e8a579f-3904-456c-b3e5-95fcd657e408}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Star">
       <UniqueIdentifier>{f12f1ca8-b0e5-49ed-b4d5-79571ce3fcf0}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\Map">
       <UniqueIdentifier>{f121a0c1-848c-41f3-8a43-d9db5efc6e13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Rendering">
-      <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\TaskSystem">
       <UniqueIdentifier>{db42f046-bbae-4115-8a3c-8dfc0b028a4d}</UniqueIdentifier>
@@ -78,15 +54,6 @@
     </Filter>
     <Filter Include="ソース ファイル\Star">
       <UniqueIdentifier>{19f03915-6e16-43f9-9ef6-2a56844f0732}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Chara\Player">
-      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Chara\Item">
-      <UniqueIdentifier>{5c4e73b8-3e36-4652-be8f-659ca4a4fea1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Chara\Item">
-      <UniqueIdentifier>{20993b8b-e178-487f-8ab3-8a0d6dee49fb}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\TaskSystem\PauseTask">
       <UniqueIdentifier>{7804cc7b-9c61-4432-99ee-0af9416c7cfa}</UniqueIdentifier>
@@ -190,42 +157,54 @@
     <Filter Include="helper\application">
       <UniqueIdentifier>{5954ba32-6e5b-460c-90e6-e7037bd2ac45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="models\player">
+      <UniqueIdentifier>{01af0f77-33eb-483e-a314-5b5d9aabda92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\stars">
+      <UniqueIdentifier>{17e4c0f2-817d-4d45-b3df-a7b83cb8f795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\stars\super">
+      <UniqueIdentifier>{a9d89151-5ef5-4a9d-8f02-b69ac75cf622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\stars\normal_star">
+      <UniqueIdentifier>{fd0f28ff-9d33-4c57-9fc3-362fdabfb82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\stars\gravity_star">
+      <UniqueIdentifier>{9ca670f5-61cc-4854-af0c-98216d49ee37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\super">
+      <UniqueIdentifier>{8eda5178-1de5-40a9-bb5c-0a6471e2a268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\rendering">
+      <UniqueIdentifier>{bb7d3ca8-9a9d-431d-b38c-8489b66a2f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\goal">
+      <UniqueIdentifier>{3c7c894a-f92b-444f-b706-13c27aa610c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\clear">
+      <UniqueIdentifier>{9a7b37d7-acee-4251-afcd-a55b224ee868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\game_over">
+      <UniqueIdentifier>{ea3d10f5-c22f-4d59-9651-30c1d5acba31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\pause">
+      <UniqueIdentifier>{6d6056ef-3ce9-4590-acbd-210539d631b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\stage_select">
+      <UniqueIdentifier>{f4cee73f-7908-4d19-889d-b59673c1b085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\title">
+      <UniqueIdentifier>{5944a3b4-c68e-45f1-9ab7-2c728c6ced8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル\main</Filter>
     </ClCompile>
-    <ClCompile Include="BasicObject.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseSwitch.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Star.cpp">
-      <Filter>ソース ファイル\Star</Filter>
-    </ClCompile>
-    <ClCompile Include="GravityStar.cpp">
-      <Filter>ソース ファイル\Star</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="NormalStar.cpp">
-      <Filter>ソース ファイル\Star</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>ソース ファイル\Chara\Player</Filter>
-    </ClCompile>
     <ClCompile Include="Physic.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Rendering.cpp">
-      <Filter>ソース ファイル\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="GameTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Resource.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
     <ClCompile Include="CoreTask.cpp">
@@ -257,18 +236,6 @@
     </ClCompile>
     <ClCompile Include="json11.cpp">
       <Filter>リソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SpawnEnemy.cpp">
-      <Filter>ソース ファイル\Spawn</Filter>
-    </ClCompile>
-    <ClCompile Include="Goal.cpp">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="SpawnItem.cpp">
-      <Filter>ソース ファイル\Spawn</Filter>
-    </ClCompile>
-    <ClCompile Include="Spawn.cpp">
-      <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
     <ClCompile Include="BasicUI.cpp">
       <Filter>ソース ファイル\Base</Filter>
@@ -327,43 +294,49 @@
     <ClCompile Include="application_helper.cpp">
       <Filter>helper\application</Filter>
     </ClCompile>
+    <ClCompile Include="BasicObject.cpp">
+      <Filter>models\super</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering.cpp">
+      <Filter>assets\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Goal.cpp">
+      <Filter>models\goal</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>models\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>controllers\map</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawn.cpp">
+      <Filter>controllers\spawn\super</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnEnemy.cpp">
+      <Filter>controllers\spawn\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnItem.cpp">
+      <Filter>controllers\spawn\item</Filter>
+    </ClCompile>
+    <ClCompile Include="GravityStar.cpp">
+      <Filter>models\stars\gravity_star</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalStar.cpp">
+      <Filter>models\stars\normal_star</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>models\stars\super</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BasicObject.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseSwitch.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="BossEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Star.h">
       <Filter>ヘッダー ファイル\Star</Filter>
     </ClInclude>
     <ClInclude Include="GravityStar.h">
       <Filter>ヘッダー ファイル\Star</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>ヘッダー ファイル\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="FlyingEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="WalkingEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="NormalStar.h">
       <Filter>ヘッダー ファイル\Star</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>ヘッダー ファイル\Chara\Player</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>ヘッダー ファイル\Base</Filter>
@@ -371,16 +344,7 @@
     <ClInclude Include="Physic.h">
       <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering.h">
-      <Filter>ヘッダー ファイル\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="ThrowingEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="GameTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
     <ClInclude Include="CoreTask.h">
@@ -416,17 +380,8 @@
     <ClInclude Include="SpawnEnemy.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
     </ClInclude>
-    <ClInclude Include="Goal.h">
-      <Filter>ヘッダー ファイル\Map</Filter>
-    </ClInclude>
     <ClInclude Include="SpawnItem.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="RecoveryItem.h">
-      <Filter>ヘッダー ファイル\Chara\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>ヘッダー ファイル\Chara\Item</Filter>
     </ClInclude>
     <ClInclude Include="Spawn.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
@@ -478,6 +433,45 @@
     </ClInclude>
     <ClInclude Include="application_helper.h">
       <Filter>helper\application</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>models\enemys\super</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEnemy.h">
+      <Filter>models\enemys\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEnemy.h">
+      <Filter>models\enemys\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyingEnemy.h">
+      <Filter>models\enemys\flying</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowingEnemy.h">
+      <Filter>models\enemys\throwing</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkingEnemy.h">
+      <Filter>models\enemys\walking</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>models\items\super</Filter>
+    </ClInclude>
+    <ClInclude Include="RecoveryItem.h">
+      <Filter>models\items\recovery</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicObject.h">
+      <Filter>models\super</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>models\stars\super</Filter>
+    </ClInclude>
+    <ClInclude Include="Goal.h">
+      <Filter>models\goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>controllers\map</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering.h">
+      <Filter>assets\rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

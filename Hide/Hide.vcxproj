@@ -146,7 +146,6 @@
     <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
-    <ClCompile Include="BaseSwitch.cpp" />
     <ClCompile Include="BasicObject.cpp" />
     <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
@@ -160,7 +159,6 @@
     <ClCompile Include="Physic.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
-    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Spawn.cpp" />
     <ClCompile Include="SpawnEnemy.cpp" />
     <ClCompile Include="SpawnItem.cpp" />
@@ -203,7 +201,6 @@
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
     <ClInclude Include="Rendering.h" />
-    <ClInclude Include="BaseSwitch.h" />
     <ClInclude Include="BasicObject.h" />
     <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="BulletEnemy.h" />
@@ -217,7 +214,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="NormalStar.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="StageSelectTaskMass.h" />
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="StageselectTaskTextBox.h" />
