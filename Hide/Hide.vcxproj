@@ -176,7 +176,7 @@
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="application_helper.cpp" />
+    <ClCompile Include="application_helper.cpp" />
     <ClInclude Include="application_init.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
