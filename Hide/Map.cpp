@@ -17,14 +17,18 @@ Map::Map()
 	//チップファイル一つの大きさと横のマス
 	chipsize = 64;
 	chipwidth = 6;
-	//マップのサイズ
-	mapsizex = 1280;
-	mapsizey = 1280;
 	//初期化
+	mapsizex = 0;
+	mapsizey = 0;
 	camera.x = 0;
 	camera.y = 0;
 	camera.w = 0;
 	camera.h = 0;
+	for (int y = 0; y < 100; ++y) {
+		for (int x = 0; x < 100; ++x) {
+			data[y][x] = 0;
+		}
+	}
 }
 
 void Map::init(char* map_)
@@ -41,6 +45,11 @@ void Map::init(char* map_)
 	std::string err;
 	mapdata = json11::Json::parse(json_str, err);	//json11で利用できる形式に変換
 	map = mapdata[map_];
+
+
+	//マップのサイズの読み込み
+	mapsizex = map["sizex"].int_value();
+	mapsizey = map["sizey"].int_value();
 
 	//画像の読み込み
 	graph = LoadGraph(map["chippath"].string_value().c_str());
