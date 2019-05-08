@@ -46,31 +46,31 @@ void Map::init(char* map_)
 	graph = LoadGraph(map["chippath"].string_value().c_str());
 
 	//txtの読み込み
-	std::ifstream fin(map["txtpath"].string_value().c_str());
+	/*std::ifstream fin(map["txtpath"].string_value().c_str());
 	if (!fin) { return; }
 	for (int y = 0; y < mapsizey / chipsize; ++y) {
 		for (int x = 0; x < mapsizex / chipsize; ++x) {
 			fin >> data[y][x];
 		}
-	}
+	}*/
 
 	//csvの読み込む
-	//chipmap = map["csvpath"].string_value().c_str();
+	chipmap = map["csvpath"].string_value().c_str();
 
-	//std::ifstream fin(chipmap);
+	std::ifstream fin(chipmap);
 
-	//for (int y = 0; y < mapsizey / chipsize; ++y) {
-	//	std::string lineText;
-	//	getline(fin, lineText);
-	//	std::istringstream ss_lt(lineText);
-	//	for (int x = 0; x < mapsizex / chipsize; ++x) {
-	//		std::string  tc;
-	//		getline(ss_lt, tc, ',');
-	//		std::stringstream ss;
-	//		ss << tc;
-	//		ss >> data[y][x]; //データを入れる
-	//	}
-	//}
+	for (int y = 0; y < mapsizey / chipsize; ++y) {
+		std::string lineText;
+		getline(fin, lineText);
+		std::istringstream ss_lt(lineText);
+		for (int x = 0; x < mapsizex / chipsize; ++x) {
+			std::string  tc;
+			getline(ss_lt, tc, ',');
+			std::stringstream ss;
+			ss << tc;
+			ss >> data[y][x]; //データを入れる
+		}
+	}
 	//ファイルを閉じる
 	mappath.close();	
 	fin.close();
