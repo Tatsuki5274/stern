@@ -57,7 +57,7 @@ void WalkingEnemy::check_left()
 	DrawBox(left.x, left.y, left.x + left.w, left.y + left.h, GetColor(0, 255, 0), TRUE);
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?
-	if (mdl::map->get_left(left) != 0) {
+	if (ctl::map->get_left(left) != 0) {
 		anglestate = AngleState::right;
 	}
 }
@@ -69,7 +69,7 @@ void WalkingEnemy::check_right()
 	DrawBox(right.x, right.y, right.x + right.w, right.y + right.h, GetColor(255, 0, 0), TRUE);
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?
-	if (mdl::map->get_right(right) != 0) {
+	if (ctl::map->get_right(right) != 0) {
 		anglestate = AngleState::left;
 	}
 }

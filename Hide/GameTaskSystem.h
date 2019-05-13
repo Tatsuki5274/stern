@@ -37,18 +37,18 @@ public:
 };
 
 namespace mdl {
-	std::shared_ptr<Player> player;
-	std::unique_ptr<Goal> goal;
+	extern std::shared_ptr<Player> player;
+	extern std::unique_ptr<Goal> goal;
 	//☆
-	std::vector<NormalStar> normalstar;
-	std::vector<GravityStar> gravityStar;
+	extern std::vector<NormalStar> normalstar;
+	extern std::vector<GravityStar> gravityStar;
 	//敵
-	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
-	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;
+	extern std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
+	extern std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;
 	//アイテム
-	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
+	extern std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
 }
 
 namespace ctl {
-	std::unique_ptr<Map> map;
+	extern std::unique_ptr<Map> map;
 }
