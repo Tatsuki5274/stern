@@ -15,7 +15,7 @@ Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state):Basi
 bool Enemy::attack()
 {
 
-	Point player_point = ct->gts->player->get_point();
+	Point player_point = mdl::player->get_point();
 	if(CheckHit(point,player_point)){
 			return true;
 	}

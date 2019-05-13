@@ -45,8 +45,8 @@ void CoreTask::init()
 	GraphicResource::init();
 	Keyboard::initialize();
 	Audio::init();
-	Item::player = gts->player;
-	Enemy::player = gts->player;
+	Item::player = mdl::player;
+	Enemy::player = mdl::player;
 	//メンバ生成
 	ssts = std::make_shared<StageSelectTaskSystem>();
 
@@ -61,7 +61,7 @@ void CoreTask::init()
 	GraphicResource::load("enemy");
 
 	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
-	gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
+	mdl::player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
 }
 
 void CoreTask::finalize()

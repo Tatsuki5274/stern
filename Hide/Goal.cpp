@@ -18,7 +18,7 @@ void Goal::init()
 
 void Goal::update()
 {
-	if (hit(ct->gts->player->get_point())) {
+	if (hit(mdl::player->get_point())) {
 		to_cleartask();
 	}
 }

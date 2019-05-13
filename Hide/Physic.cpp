@@ -21,7 +21,7 @@ int Physic::fall(Point p_)
 		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }//prevelを引いていくことでwhileを抜けられるように
 		else { p_.y += prevel; prevel = 0; }
 		Point hit = p_;//当たり判定用の矩形を用意
-		if (ct->gts->map->get_bottom(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
+		if (mdl::map->get_bottom(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 			velocity = velocity-prevel-1;//直前のprevelの計算をなかったことにし、マップとの距離を求め直接velocityに代入
 			break;
 		}
@@ -39,7 +39,7 @@ int Physic::Movement_X(Point p_,int velocity_)
 		else if (prevel <= -1) { p_.x -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }
 		Point hit = p_;//当たり判定用の矩形を用意
-		if (ct->gts->map->get_left(hit) == 1|| ct->gts->map->get_right(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
+		if (mdl::map->get_left(hit) == 1|| mdl:: map->get_right(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 			if (velocity_ > 0) {
 				velocity_ = velocity_ - prevel -1;//直前のprevelの計算をなかったことにし、マップとの距離を求め直接velocityに代入
 			}
@@ -63,7 +63,7 @@ int Physic::Movement_Y(Point p_, int velocity_)
 		else if (prevel <= -1) { p_.y -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }
 		Point hit = p_;//当たり判定用の矩形を用意
-		if (ct->gts->map->get_top(hit) == 1 || ct->gts->map->get_bottom(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
+		if (ctl::map->get_top(hit) == 1 || ctl::map->get_bottom(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 			if (velocity_ > 0) {
 				velocity_ = velocity_ - prevel-1;//直前のprevelの計算をなかったことにし、マップとの距離を求め直接velocityに代入
 			}

@@ -61,7 +61,7 @@ void Star::rebound_Y()
 bool Star::attack()
 {
 	Point enemy_point;
-	for (auto itr = ct->gts->enemys->begin(); itr != ct->gts->enemys->end(); ++itr) {
+	for (auto itr = mdl::enemys->begin(); itr != mdl::enemys->end(); ++itr) {
 		enemy_point = (*itr)->get_point();
 		if (check_hit(enemy_point)) {
 			(*itr)->damage(power);

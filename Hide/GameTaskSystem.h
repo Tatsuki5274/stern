@@ -33,8 +33,11 @@ public:
 	void update();
 	void finalize();
 	//~GameTaskSystem();
+
+};
+
+namespace mdl {
 	std::shared_ptr<Player> player;
-	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
 	//☆
 	std::vector<NormalStar> normalstar;
@@ -44,5 +47,8 @@ public:
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;
 	//アイテム
 	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
-};
+}
 
+namespace ctl {
+	std::unique_ptr<Map> map;
+}

@@ -43,7 +43,7 @@ Player::StarManager::StarManager()
 void Player::StarManager::draw(double st, int x)
 {
 	DrawFormatString(200, 100, GetColor(255, 255, 0), "Map::get_camera().y : %d", Map::get_camera().y);
-	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
+	DrawRotaGraph2(x - Map::get_camera().x+ mdl::player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
 }
 
 void Player::StarManager::update(double ang, int x_)
@@ -179,7 +179,7 @@ void Player::move()
 			if (jumpCnt > 0) {
 				
 				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
-				if (ct->gts->map->get_top(point)) {
+				if (ctl::map->get_top(point)) {
 					jumpCnt = 0;
 				}
 
