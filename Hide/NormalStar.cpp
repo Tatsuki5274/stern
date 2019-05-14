@@ -35,7 +35,11 @@ void NormalStar::update()
 
 void NormalStar::inhale()
 {
+	Point gravitypoint = {0,0,0,0};
+	for (auto itr = ct->gts->gravityStar.begin(); itr != ct->gts->gravityStar.end(); ++itr) {
+		gravitypoint = itr->gravitypoint;
+	}
 	//問題の地点　pointに赤線がひかれる
-	point.x += (GravityStar::point.x -point.x) / 100;///100は近づかせるのを減衰させるため
-	point.y += (GravityStar::point.y - point.y)/100;
+	point.x += (gravitypoint.x - point.x) / 10;///100は近づかせるのを減衰させるため
+	point.y += (gravitypoint.y - point.y)/10;
 }

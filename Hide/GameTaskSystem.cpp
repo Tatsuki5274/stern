@@ -14,6 +14,7 @@ GameTaskSystem::GameTaskSystem()
 
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
+	gravityStar = std::vector<GravityStar>();
 	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
