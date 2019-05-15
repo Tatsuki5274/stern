@@ -55,7 +55,7 @@ int BasicObject::get_height()
 	return point.h;
 }
 
-void BasicObject::get_height(int h)
+void BasicObject::set_height(int h)
 {
-	point.h;
+	point.h = h;
 }

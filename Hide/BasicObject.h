@@ -24,8 +24,7 @@ public:
 	int get_width();
 	void set_width(int);
 	int get_height();
-	void set_width(int);
-	int get_width();
+	void set_height(int);
 
 
 
