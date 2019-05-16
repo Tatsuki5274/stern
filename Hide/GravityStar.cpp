@@ -10,16 +10,18 @@ GravityStar::GravityStar(Point point_, PhysicState physic_state_, StarState star
 	shape->set("star");
 }
 
+
 void GravityStar::update()
 {
+	Point sizeup{ point.x - 1,point.y - 1,point.w + 2,point.h + 2 };
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, (int)(-sin(angle) * 20));
 		point.y += physicshape->Movement_Y(point, (int)(cos(angle) * 20));
-		if (ct->gts->map->get_bottom(point) ||
-			ct->gts->map->get_left(point) ||
-			ct->gts->map->get_right(point) ||
-			ct->gts->map->get_top(point)) {
+		if (ct->gts->map->get_bottom(sizeup) ||
+			ct->gts->map->get_left(sizeup) ||
+			ct->gts->map->get_right(sizeup) ||
+			ct->gts->map->get_top(sizeup)) {
 			gravitypoint = point;
 			contact = true;
 		}

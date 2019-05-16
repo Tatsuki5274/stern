@@ -52,7 +52,7 @@ void Player::StarManager::update(double ang, int x_)
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_Z)) {
 			starmanagercoolCnt = 180;   //クールタイム180フレーム
-			class Point point = { x_ - 15,Map::get_camera().y,30,30 };
+			class Point point = { x_,Map::get_camera().y,30,30 };
 			struct PhysicState physic_state = { 1 };//	float gravity;
 			struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
@@ -65,7 +65,8 @@ void Player::StarManager::update(double ang, int x_)
 		starmanagercoolCnt--;
 	}
 	if (Keyboard::key_down(KEY_INPUT_V)) {
-		class Point point = { x_ - 15,Map::get_camera().y,30,30 };
+		ct->gts->gravityStar.clear();
+		class Point point = { x_ ,Map::get_camera().y,30,30 };
 		struct PhysicState physic_state = { 1 };//	float gravity;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 

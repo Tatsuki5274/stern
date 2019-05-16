@@ -14,20 +14,22 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 
 void NormalStar::update()
 {
-
+	Point sizeup{ point.x - 1,point.y - 1,point.w + 2,point.h + 2 };
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, (int)(-sin(angle) * 20));
 		point.y += physicshape->Movement_Y(point, (int)(cos(angle) * 20));
-		if (ct->gts->map->get_bottom(point) ||
-			ct->gts->map->get_left(point) ||
-			ct->gts->map->get_right(point) ||
-			ct->gts->map->get_top(point)) {
+		if (ct->gts->map->get_bottom(sizeup) ||
+			ct->gts->map->get_left(sizeup) ||
+			ct->gts->map->get_right(sizeup) ||
+			ct->gts->map->get_top(sizeup)) {
 			contact = true;
 		}
 	}
 	else {
-		inhale();
+		if (gravitypoint != Point{ NULL,NULL,NULL,NULL }) {
+			inhale();
+		}
 	}
 	attack();
 	shape->draw(point);
@@ -40,6 +42,6 @@ void NormalStar::inhale()
 		gravitypoint = itr->gravitypoint;
 	}
 	//問題の地点　pointに赤線がひかれる
-	point.x += (gravitypoint.x - point.x) / 10;///100は近づかせるのを減衰させるため
-	point.y += (gravitypoint.y - point.y)/10;
+	point.x += physicshape->Movement_X(point,(gravitypoint.x - point.x) / 10);///100は近づかせるのを減衰させるため
+	point.y += physicshape->Movement_Y(point,(gravitypoint.y - point.y)/10);
 }
