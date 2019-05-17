@@ -108,12 +108,12 @@ void GameTaskSystem::finalize()
 
 void GameTaskSystem::attack_player_enemy()
 {
-	for (auto itr = enemys->begin(); itr != enemys->end(); itr++) {
-		if (CheckHit(ct->gts->player->get_point(), (*itr)->get_point())) {
-			if (!(ct->gts->player->damage())) {
+	for (auto itr = mdl::enemys->begin(); itr != mdl::enemys->end(); itr++) {
+		if (CheckHit(mdl::player->get_point(), (*itr)->get_point())) {
+			if (!(mdl::player->damage())) {
 				//PlayerのLifeが0になったら
 				//処理未定
-				enemys->erase(itr);
+				mdl::enemys->erase(itr);
 				break;
 			}
 			
@@ -123,8 +123,8 @@ void GameTaskSystem::attack_player_enemy()
 
 void GameTaskSystem::attack_player_item()
 {
-	for (auto itr = item->begin(); itr != item->end(); itr++) {
-		if (CheckHit(player->get_point(), (*itr)->get_point())) {
+	for (auto itr = mdl::item->begin(); itr != mdl:: item->end(); itr++) {
+		if (CheckHit(mdl::player->get_point(), (*itr)->get_point())) {
 			//アイテムの識別手段が未確定
 			break;
 		}
@@ -134,11 +134,11 @@ void GameTaskSystem::attack_player_item()
 void GameTaskSystem::attack_star_enemy()
 {
 	bool deleted = false;
-	for (auto enemy_itr = enemys->begin(); enemy_itr != enemys->end(); enemy_itr++) {
-		for (auto star_itr = normalstar.begin(); star_itr != normalstar.end(); star_itr++) {
+	for (auto enemy_itr = mdl::enemys->begin(); enemy_itr != mdl::enemys->end(); enemy_itr++) {
+		for (auto star_itr = mdl::normalstar.begin(); star_itr != mdl::normalstar.end(); star_itr++) {
 			if (CheckHit((*enemy_itr)->get_point(), (*star_itr).get_point())) {
-				enemys->erase(enemy_itr);
-				normalstar.erase(star_itr);
+				mdl::enemys->erase(enemy_itr);
+				mdl::normalstar.erase(star_itr);
 				deleted = true;
 				break;
 			}
