@@ -11,3 +11,18 @@ bool CheckHit(Point attack_, Point defense_) {
 		return false;
 	}
 }
+
+bool CheckHit(BasicObject& obj1, BasicObject& obj2)
+{
+	Point p1, p2;
+	p1.x = obj1.get_x();
+	p1.y = obj1.get_y();
+	p1.w = obj1.get_width();
+	p1.h = obj1.get_height();
+
+	p2.x = obj2.get_x();
+	p2.y = obj2.get_y();
+	p2.w = obj2.get_width();
+	p2.h = obj2.get_height();
+	return CheckHit(p1, p2);
+}
