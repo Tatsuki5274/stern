@@ -3,12 +3,8 @@
 #include"Map.h"
 #include<memory>
 #include"NormalStar.h"
-#include"WalkingEnemy.h"
-#include"ThrowingEnemy.h"
-#include"EnemyShot00.h"//どこにあるかわからない
-#include"BulletEnemy.h"
-#include"FlyingEnemy.h"
-#include"BossEnemy.h"
+#include "Enemy.h"
+#include "Item.h"
 #include"Goal.h"
 #include"Camera.h"
 #include"RecoveryItem.h"

@@ -3,6 +3,10 @@
 #include <memory>
 #include"CoreTask.h"
 #include"Audio.h"
+#include "RecoveryItem.h"
+#include "WalkingEnemy.h"
+#include "BulletEnemy.h"
+#include "FlyingEnemy.h"
 
 std::shared_ptr<Player> mdl::player;
 std::unique_ptr<Goal> mdl::goal;
