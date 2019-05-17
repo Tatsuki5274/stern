@@ -10,6 +10,7 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 {
 	point = point_;
 	shape->set("star");
+	gravitypoint = { 0,0,0,0 };
 }
 
 void NormalStar::update()
@@ -27,7 +28,12 @@ void NormalStar::update()
 		}
 	}
 	else {
-		if (gravitypoint != Point{ NULL,NULL,NULL,NULL }) {
+
+		for (auto itr = ct->gts->gravityStar.begin(); itr != ct->gts->gravityStar.end(); ++itr) {
+			gravitypoint = itr->gravitypoint;
+		}
+		if (((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) * ((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) +//gravitystarとの距離を測って90000以内なら引き寄せられる
+			((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) * ((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) <=90000) {//90000は大体今の画面内の範囲
 			inhale();
 		}
 	}
@@ -37,11 +43,7 @@ void NormalStar::update()
 
 void NormalStar::inhale()
 {
-	Point gravitypoint = {0,0,0,0};
-	for (auto itr = ct->gts->gravityStar.begin(); itr != ct->gts->gravityStar.end(); ++itr) {
-		gravitypoint = itr->gravitypoint;
-	}
-	//問題の地点　pointに赤線がひかれる
-	point.x += physicshape->Movement_X(point,(gravitypoint.x - point.x) / 10);///100は近づかせるのを減衰させるため
+
+	point.x += physicshape->Movement_X(point,(gravitypoint.x - point.x) / 10);///10は近づかせるのを減衰させるため
 	point.y += physicshape->Movement_Y(point,(gravitypoint.y - point.y)/10);
 }

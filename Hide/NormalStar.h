@@ -14,5 +14,5 @@ public:
 	void inhale();
 
 private:
-
+	Point gravitypoint;
 };
