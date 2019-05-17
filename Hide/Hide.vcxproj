@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AttackController.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="BasicUI.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -169,7 +170,7 @@
     <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
-    <ClCompile Include="star_helper.cpp" />
+    <ClCompile Include="StarHelper.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleUI.cpp" />
@@ -177,13 +178,14 @@
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application_helper.cpp" />
+    <ClCompile Include="ApplicationHelper.cpp" />
     <ClInclude Include="application_init.h" />
+    <ClInclude Include="AttackController.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="environments.h" />
-    <ClInclude Include="application_helper.h" />
+    <ClInclude Include="ApplicationHelper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="Goal.h" />
@@ -219,7 +221,7 @@
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
-    <ClInclude Include="star_helper.h" />
+    <ClInclude Include="StarHelper.h" />
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />

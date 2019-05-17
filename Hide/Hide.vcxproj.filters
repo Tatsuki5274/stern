@@ -155,6 +155,9 @@
     <Filter Include="helper\star">
       <UniqueIdentifier>{bb8470d5-c68a-45da-bc93-5b5ad8f1c0c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="controllers\attack">
+      <UniqueIdentifier>{c63a50fa-410c-4221-b6ab-ec0db0119594}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -195,9 +198,6 @@
     </ClCompile>
     <ClCompile Include="RecoveryItem.cpp">
       <Filter>models\items\recovery</Filter>
-    </ClCompile>
-    <ClCompile Include="application_helper.cpp">
-      <Filter>helper\application_helper</Filter>
     </ClCompile>
     <ClCompile Include="BasicObject.cpp">
       <Filter>models\super</Filter>
@@ -292,8 +292,14 @@
     <ClCompile Include="CoreTask.cpp">
       <Filter>controllers\core</Filter>
     </ClCompile>
-    <ClCompile Include="star_helper.cpp">
+    <ClCompile Include="StarHelper.cpp">
       <Filter>helper\star</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationHelper.cpp">
+      <Filter>helper\application_helper</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackController.cpp">
+      <Filter>controllers\attack</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -317,9 +323,6 @@
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>models\effect</Filter>
-    </ClInclude>
-    <ClInclude Include="application_helper.h">
-      <Filter>helper\application_helper</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>models\enemys\super</Filter>
@@ -432,8 +435,14 @@
     <ClInclude Include="GameOverTaskUI.h">
       <Filter>views\game_over</Filter>
     </ClInclude>
-    <ClInclude Include="star_helper.h">
+    <ClInclude Include="StarHelper.h">
       <Filter>helper\star</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationHelper.h">
+      <Filter>helper\application_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackController.h">
+      <Filter>controllers\attack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
