@@ -3,4 +3,4 @@
 #include "BasicObject.h"
 
 bool CheckHit(Point attack_, Point defense_);
-bool CheckHit(BasicObject, BasicObject);
+bool CheckHit(BasicObject&, BasicObject&);
