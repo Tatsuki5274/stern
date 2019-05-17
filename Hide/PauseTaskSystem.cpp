@@ -1,5 +1,7 @@
 ﻿#include "PauseTaskSystem.h"
 #include"CoreTask.h"
+//
+#include "Audio.h"
 
 PauseTask::PauseTask()
 {

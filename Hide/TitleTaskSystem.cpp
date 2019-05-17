@@ -2,6 +2,9 @@
 #include "TitleTaskSystem.h"
 #include"CoreTask.h"
 
+//
+#include "Audio.h"
+
 TitleTaskSystem::TitleTaskSystem()
 {
 	title_ui = std::make_unique<TitleUI>();

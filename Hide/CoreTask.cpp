@@ -1,5 +1,7 @@
 ﻿#include "CoreTask.h"
 #include "Rendering.h"
+//
+#include "Audio.h"
 
 GameTaskSystem *gts;
 
