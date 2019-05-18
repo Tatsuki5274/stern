@@ -21,7 +21,7 @@ int Physic::fall(Point p_)
 		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }//prevel������Ă������Ƃ�while�𔲂�����悤��
 		else { p_.y += prevel; prevel = 0; }
 		Point hit = p_;//�����蔻��p�̋�`��p��
-		if (mdl::map->get_bottom(hit) == 1) {//����1�̕����̓}�b�v�ύX���ɗv�ύX
+		if (ctl::map->get_bottom(hit) == 1) {//����1�̕����̓}�b�v�ύX���ɗv�ύX
 			velocity = velocity-prevel-1;//���O��prevel�̌v�Z��Ȃ��������Ƃɂ��A�}�b�v�Ƃ̋�����ߒ���velocity�ɑ��
 			break;
 		}
@@ -39,7 +39,7 @@ int Physic::Movement_X(Point p_,int velocity_)
 		else if (prevel <= -1) { p_.x -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }
 		Point hit = p_;//�����蔻��p�̋�`��p��
-		if (mdl::map->get_left(hit) == 1|| mdl:: map->get_right(hit) == 1) {//����1�̕����̓}�b�v�ύX���ɗv�ύX
+		if (ctl::map->get_left(hit) == 1|| ctl:: map->get_right(hit) == 1) {//����1�̕����̓}�b�v�ύX���ɗv�ύX
 			if (velocity_ > 0) {
 				velocity_ = velocity_ - prevel -1;//���O��prevel�̌v�Z��Ȃ��������Ƃɂ��A�}�b�v�Ƃ̋�����ߒ���velocity�ɑ��
 			}

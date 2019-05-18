@@ -65,12 +65,12 @@ void Player::StarManager::update(double ang, int x_)
 		starmanagercoolCnt--;
 	}
 	if (Keyboard::key_down(KEY_INPUT_V)) {
-		ct->gts->gravityStar.clear();
+		mdl::gravityStar.clear();
 		class Point point = { x_ ,Map::get_camera().y,30,30 };
 		struct PhysicState physic_state = { 1 };//	float gravity;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
-		ct->gts->gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
+		mdl::gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
 
 	}
 }

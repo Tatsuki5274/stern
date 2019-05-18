@@ -11,6 +11,7 @@
 std::shared_ptr<Player> mdl::player;
 std::unique_ptr<Goal> mdl::goal;
 std::vector<NormalStar> mdl::normalstar;
+std::vector<GravityStar> mdl::gravityStar;
 std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> mdl::enemys;
 std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> mdl::enemy_transaction;
 std::shared_ptr<std::vector<std::shared_ptr<Item>>> mdl::item;
@@ -25,7 +26,7 @@ GameTaskSystem::GameTaskSystem()
 	struct PlayerState player_state = { 3,2 };//life,hp
 
 	mdl::goal = std::make_unique<Goal>(g_point);
-	mdl::map = std::make_unique<Map>();
+	ctl::map = std::make_unique<Map>();
 	mdl::gravityStar = std::vector<GravityStar>();
 	mdl::player = std::make_shared<Player>(p_point, p_physic_state, player_state);
 	mdl::enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
@@ -72,7 +73,7 @@ void GameTaskSystem::update()
 	for (auto itr = mdl::normalstar.begin(); itr != mdl::normalstar.end(); itr++) {
 		itr->update();
 	}
-	for (auto itr = gravityStar.begin(); itr != gravityStar.end(); itr++) {
+	for (auto itr = mdl::gravityStar.begin(); itr != mdl:: gravityStar.end(); itr++) {
 		itr->update();
 	}
 	//--------------------------------
