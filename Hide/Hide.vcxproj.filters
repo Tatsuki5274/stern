@@ -238,9 +238,6 @@
     <ClCompile Include="BasicUI.cpp">
       <Filter>views\super</Filter>
     </ClCompile>
-    <ClCompile Include="PauseTaskSelecter.cpp">
-      <Filter>views\pause</Filter>
-    </ClCompile>
     <ClCompile Include="PauseTaskSystem.cpp">
       <Filter>views\pause</Filter>
     </ClCompile>
@@ -258,9 +255,6 @@
     </ClCompile>
     <ClCompile Include="StageselectTaskTextBox.cpp">
       <Filter>views\stage_select</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleSelecter.cpp">
-      <Filter>views\title</Filter>
     </ClCompile>
     <ClCompile Include="TitleTaskSystem.cpp">
       <Filter>views\title</Filter>
@@ -387,9 +381,6 @@
     <ClInclude Include="SpawnItem.h">
       <Filter>controllers\spawn\item</Filter>
     </ClInclude>
-    <ClInclude Include="PauseTaskSelecter.h">
-      <Filter>views\pause</Filter>
-    </ClInclude>
     <ClInclude Include="PauseTaskSystem.h">
       <Filter>views\pause</Filter>
     </ClInclude>
@@ -407,9 +398,6 @@
     </ClInclude>
     <ClInclude Include="StageSelectTaskSystem.h">
       <Filter>views\stage_select</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleSelecter.h">
-      <Filter>views\title</Filter>
     </ClInclude>
     <ClInclude Include="TitleTaskSystem.h">
       <Filter>views\title</Filter>

@@ -23,17 +23,7 @@ void GameOverTaskSystem::update()
 	ScreenFunc::FeedIn(deg_flag, feedcnt);
 	if (deg_flag) {
 		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
-			switch (gameover_ui->getter()) {
-			case SelectMode::Continue:
-				ct->scene = Scene::game;
-				break;
-			case SelectMode::StageSelect:
-				ct->scene = Scene::stageselect;
-				break;
-			case SelectMode::Title:
-				ct->scene = Scene::title;
-				break;
-			}
+			change_scene();
 		}
 	}
 	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
@@ -88,6 +78,20 @@ void GameOverTaskSystem::selecter_upmove()
 		break;
 	case SelectMode::Title:
 		gameover_ui->change_Select(SelectMode::StageSelect);
+		break;
+	}
+}
+void GameOverTaskSystem::change_scene()
+{
+	switch (gameover_ui->getter()) {
+	case SelectMode::Continue:
+		ct->scene = Scene::game;
+		break;
+	case SelectMode::StageSelect:
+		ct->scene = Scene::stageselect;
+		break;
+	case SelectMode::Title:
+		ct->scene = Scene::title;
 		break;
 	}
 }

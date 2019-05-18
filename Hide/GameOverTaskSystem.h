@@ -15,6 +15,7 @@ private:
 	void selecter_move();
 	void selecter_undermove();
 	void selecter_upmove();
+	void change_scene();
 public:
 	GameOverTaskSystem();
 	void init();

@@ -38,7 +38,7 @@ void GameOverUI::update()
 		update_txt(text[i]);
 	}
 	//------------------------------------------------
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, ui_brend);		//ブレンドモードをα(128/255)に設定
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, ui_brend);		//ブレンドモードをαに設定
 	//セレクターの描画
 	draw_selecter();
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ブレンドモードをオフ
