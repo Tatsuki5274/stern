@@ -1,6 +1,8 @@
 ﻿#include"NormalStar.h"
 #include"DxLib.h"
-#include"CoreTask.h"
+//
+#include "Controller.h"
+#include "Model.h"
 
 //--------------------------------
 //

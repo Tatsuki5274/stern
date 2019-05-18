@@ -2,6 +2,8 @@
 #include "CoreTask.h"
 #include "Audio.h"
 #include "Keyboard.h"
+#include "model.h"
+
 
 GameTaskSystem *gts;
 

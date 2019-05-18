@@ -1,5 +1,7 @@
 ﻿#include "Camera.h"
 #include "CoreTask.h"
+//
+#include "Model.h"
 
 Point Camera::range;
 bool Camera::mode;//enumで用意する可能性あり

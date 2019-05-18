@@ -1,23 +1,17 @@
 ﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
-#include"CoreTask.h"
 #include"Audio.h"
 #include "RecoveryItem.h"
 #include "WalkingEnemy.h"
 #include "BulletEnemy.h"
 #include "FlyingEnemy.h"
+#include "CoreTask.h"
 //
 #include "Keyboard.h"
+#include "model.h"
+#include "Controller.h"
 
-std::shared_ptr<Player> mdl::player;
-std::unique_ptr<Goal> mdl::goal;
-std::vector<NormalStar> mdl::normalstar;
-std::vector<GravityStar> mdl::gravityStar;
-std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> mdl::enemys;
-std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> mdl::enemy_transaction;
-std::shared_ptr<std::vector<std::shared_ptr<Item>>> mdl::item;
-std::unique_ptr<Map> ctl::map;
 
 GameTaskSystem::GameTaskSystem()
 {

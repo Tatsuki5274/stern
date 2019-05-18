@@ -1,5 +1,7 @@
 ﻿#include "WalkingEnemy.h"
-#include"CoreTask.h"
+//#include"CoreTask.h"
+//
+#include "Controller.h"
 
 WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_) : Enemy(point_, physic_state_, enemy_state_)
 {

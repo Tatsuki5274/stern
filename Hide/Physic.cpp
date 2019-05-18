@@ -1,5 +1,9 @@
 ﻿#include "Physic.h"
-#include "CoreTask.h"
+//#include "CoreTask.h"
+//
+#include "Controller.h"
+
+
 //----------------------------------
 //物理運動
 //----------------------------------

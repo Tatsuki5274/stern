@@ -1,5 +1,8 @@
 ﻿#include "FlyingEnemy.h"
-#include "CoreTask.h"
+//#include "CoreTask.h"
+//
+#include "Controller.h"
+
 
 //----------------------------------
 //雑魚敵(飛行)

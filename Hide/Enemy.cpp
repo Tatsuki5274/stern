@@ -1,7 +1,11 @@
 ﻿#include "Enemy.h"
-#include "CoreTask.h"
-std::shared_ptr<Player> Enemy::player;	//静的メンバの実体化
+//#include "CoreTask.h"
 
+//
+#include "Model.h"
+
+
+std::shared_ptr<Player> Enemy::player;	//静的メンバの実体化
 //----------------------------------
 //敵全般
 //----------------------------------

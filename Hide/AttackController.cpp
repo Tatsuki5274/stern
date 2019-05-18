@@ -1,4 +1,6 @@
 #include "AttackController.h" 
+//
+#include "Model.h"
 
 void AttackController::attack_player_enemy()
 {

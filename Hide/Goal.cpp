@@ -1,6 +1,8 @@
 ﻿#include"Goal.h"
 #include"CoreTask.h"
 #include "BasicObject.h"
+//
+#include "model.h"
 
 Goal::Goal(Point point_):  BasicObject(point)
 {

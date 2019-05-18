@@ -1,5 +1,7 @@
 #include"GravityStar.h"
-#include"CoreTask.h"
+//
+#include "DxLib.h"
+#include "Controller.h"
 //---------------------------------
 //‘æ‚R‚Ì¯iˆø—Í‚Ì‚ ‚é¯j
 //---------------------------------

@@ -1,6 +1,9 @@
-﻿//
+﻿#include "CoreTask.h" //更新により削除予定
+//
 #include "Keyboard.h"
-#include"CoreTask.h"
+#include "StageSelectTaskSystem.h"
+#include "model.h"
+#include "Controller.h"
 
 StageSelectTaskSystem::StageSelectTaskSystem()
 {

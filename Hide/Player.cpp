@@ -2,6 +2,10 @@
 #include"Point.h"
 #include"CoreTask.h"
 #include"Keyboard.h"
+//
+#include "model.h"
+#include "Controller.h"
+
 
 //----------------------------------
 //プレイヤー
