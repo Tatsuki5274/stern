@@ -35,8 +35,8 @@ void TitleTaskSystem::update()
 	title_ui->update();
 	//カーソルの大きさが40のため余裕をもってあけておく
 
-	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50,
-		title_ui->get_lextx(title_ui->text[1]) - 50,
+	selecter->update(title_ui->get_left(title_ui->text[0],600) - 50,
+		title_ui->get_left(title_ui->text[1],600) - 50,
 		deg_flag);
 
 }

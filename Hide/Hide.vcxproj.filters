@@ -274,9 +274,6 @@
     <ClCompile Include="GameOverTaskSystem.cpp">
       <Filter>views\game_over</Filter>
     </ClCompile>
-    <ClCompile Include="CoreTask.cpp">
-      <Filter>controllers\core</Filter>
-    </ClCompile>
     <ClCompile Include="json11.cpp">
       <Filter>Resources\json11</Filter>
     </ClCompile>
@@ -291,6 +288,12 @@
     </ClCompile>
     <ClCompile Include="GameTaskSystem.cpp">
       <Filter>controllers\game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverTaskUI.cpp">
+      <Filter>views\game_over</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreTask.cpp">
+      <Filter>controllers\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -431,6 +434,9 @@
     </ClInclude>
     <ClInclude Include="screen_helper.h">
       <Filter>helper</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverTaskUI.h">
+      <Filter>views\game_over</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

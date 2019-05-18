@@ -137,6 +137,7 @@
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
+    <ClCompile Include="GameOverTaskUI.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="GraphicResource.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
+    <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="Item.h" />

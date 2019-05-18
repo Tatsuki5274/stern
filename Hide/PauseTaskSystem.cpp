@@ -23,9 +23,9 @@ void PauseTask::update()
 		}
 	}
 	draw();
-	p_selecter->update(p_ui->get_lextx(p_ui->text[0]) - 50,
-					   p_ui->get_lextx(p_ui->text[1]) - 50,
-					   p_ui->get_lextx(p_ui->text[2]) - 50,
+	p_selecter->update(p_ui->get_left(p_ui->text[0],600) - 50,
+					   p_ui->get_left(p_ui->text[1],600) - 50,
+					   p_ui->get_left(p_ui->text[2],600) - 50,
 					   deg_flag);
 	p_ui->update();
 }
