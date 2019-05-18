@@ -1,11 +1,11 @@
-#include "GameOverTaskUI.h"
+ï»¿#include "GameOverTaskUI.h"
 #include"DxLib.h"
 
 GameOverUI::GameOverUI()
 {
-	text[0].str = "ƒRƒ“ƒeƒjƒ…[";
-	text[1].str = "ƒXƒe[ƒWƒZƒŒƒNƒg";
-	text[2].str = "ƒ^ƒCƒgƒ‹";
+	text[0].str = "ã‚³ãƒ³ãƒ†ãƒ‹ãƒ¥ãƒ¼";
+	text[1].str = "ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆ";
+	text[2].str = "ã‚¿ã‚¤ãƒˆãƒ«";
 	for (int i = 0; i < 3; ++i) {
 		text[i].color = GetColor(255, 255,0);
 		text[i].text_width = get_width(text[i]);
@@ -19,7 +19,7 @@ GameOverUI::GameOverUI()
 
 void GameOverUI::update()
 {
-	//ƒZƒŒƒNƒ^[‚ğ“_–Å‚³‚¹‚é‚½‚ß‚Ìˆ—--------------
+	//ã‚»ãƒ¬ã‚¯ã‚¿ãƒ¼ã‚’ç‚¹æ»…ã•ã›ã‚‹ãŸã‚ã®å‡¦ç†--------------
 	if (deg_flag) {
 		ui_brend -= 2;
 		if (ui_brend < 0) {
@@ -33,22 +33,22 @@ void GameOverUI::update()
 		}
 	}
 	//-------------------------------------------------
-	//ƒeƒLƒXƒg‚Ì•`‰æ
+	//ãƒ†ã‚­ã‚¹ãƒˆã®æç”»
 	for (int i = 0; i < 3; ++i) {
 		update_txt(text[i]);
 	}
 	//------------------------------------------------
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, ui_brend);		//ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğƒ¿(128/255)‚Éİ’è
-	//ƒZƒŒƒNƒ^[‚Ì•`‰æ
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, ui_brend);		//ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’Î±(128/255)ã«è¨­å®š
+	//ã‚»ãƒ¬ã‚¯ã‚¿ãƒ¼ã®æç”»
 	draw_selecter();
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğƒIƒt
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ã‚ªãƒ•
 }
 
 void GameOverUI::draw_selecter()
 {
 	switch (select) {
 	case SelectMode::Continue:
-		// + 16‚ÍƒtƒHƒ“ƒgƒTƒCƒY
+		// + 16ã¯ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 		DrawBox(text[0].x - 1, text[0].y - 1, text[0].x + text[0].text_width + 1, text[0].y + 16 + 1, GetColor(255, 255, 255), TRUE);
 		break;
 	case SelectMode::StageSelect:
