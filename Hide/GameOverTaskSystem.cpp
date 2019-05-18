@@ -1,6 +1,7 @@
 ﻿#include "CoreTask.h"
 #include "GameOverTaskSystem.h"
 #include"Keyboard.h"
+#include "Audio.h"
 
 GameOverTaskSystem::GameOverTaskSystem()
 {

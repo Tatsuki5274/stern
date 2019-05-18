@@ -29,16 +29,16 @@ void StageSelectTaskSystem::update()
 			switch (stage)
 			{
 			case 1:
-				ct->gts->map->init((char*)"1");
-				ct->gts->player->spawn(600, 30, 30, 30);
-				ct->gts->goal->spawn(30, 510, 30, 30);
+				ctl::map->init((char*)"1");
+				mdl::player->spawn(600, 30, 30, 30);
+				mdl::goal->spawn(30, 510, 30, 30);
 				spawnenemy->create("1");
 				spawnitem->create("1");
 				break;
 			case 2:
-				ct->gts->map->init((char*)"2");
-				ct->gts->player->spawn(30, 1826, 30, 30);
-				ct->gts->goal->spawn( 4416, 1796, 30, 60);
+				ctl::map->init((char*)"2");
+				mdl::player->spawn(30, 1826, 30, 30);
+				mdl::goal->spawn( 4416, 1796, 30, 60);
 				spawnenemy->create("2");
 				spawnitem->create("1");
 				break;
