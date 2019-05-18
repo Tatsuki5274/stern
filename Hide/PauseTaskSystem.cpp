@@ -2,6 +2,7 @@
 #include"CoreTask.h"
 //
 #include "Audio.h"
+#include "Keyboard.h"
 
 PauseTask::PauseTask()
 {

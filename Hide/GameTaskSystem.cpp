@@ -7,6 +7,8 @@
 #include "WalkingEnemy.h"
 #include "BulletEnemy.h"
 #include "FlyingEnemy.h"
+//
+#include "Keyboard.h"
 
 std::shared_ptr<Player> mdl::player;
 std::unique_ptr<Goal> mdl::goal;

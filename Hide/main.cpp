@@ -1,6 +1,8 @@
 ﻿#include "DxLib.h"
 #include"CoreTask.h"
 #include"Player.h"
+//
+#include "Keyboard.h"
 
 //----------------------------------
 //クラス作成の際、関数（メソッド）はpublic

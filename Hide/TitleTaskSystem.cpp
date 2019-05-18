@@ -4,6 +4,7 @@
 
 //
 #include "Audio.h"
+#include "Keyboard.h"
 
 TitleTaskSystem::TitleTaskSystem()
 {
