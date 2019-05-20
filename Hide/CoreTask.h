@@ -10,14 +10,7 @@
 #include"Audio.h"
 #include"PauseTaskSystem.h"
 
-enum class Scene {
-	title,
-	stageselect,
-	game,
-	gameover,
-	clear,
-	pause
-};
+
 
 class CoreTask {
 private:
