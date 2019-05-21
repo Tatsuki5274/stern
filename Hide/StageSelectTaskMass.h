@@ -12,5 +12,8 @@ public:
 	StageSelectTaskMass();
 	void update();
 	void draw();
-	int get_massX(int massnum_);
+	int* get_masspos();
+	int get_massX(int);
+	int get_massY();
+	int get_massline();
 };

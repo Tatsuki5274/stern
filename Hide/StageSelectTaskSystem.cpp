@@ -22,7 +22,7 @@ std::unique_ptr<SpawnItem> StageSelectTaskSystem::spawnitem;
 StageSelectTaskSystem::StageSelectTaskSystem()
 {
 	mass = std::make_unique<StageSelectTaskMass>();
-	class Point point = { 30,100,30,30 };
+	class Point point = { mass->get_massX(0),200,30,30 };
 	chara = std::make_unique<StageSelectChara>(point);
 	txtbox = std::make_unique<StageSelectTextBox>();
 
@@ -36,6 +36,15 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 		state[i] = false;
 	}
 	backgraph = LoadGraph("img/stageselect/back.png");
+}
+
+void StageSelectTaskSystem::initialize()
+{
+	class Point point = { mass->get_massX(0),200,30,30 };
+	chara->initialize(point);
+	feedcnt = 0;
+	deg_flag = false;
+	//stage = 1;
 }
 
 void StageSelectTaskSystem::update()
@@ -78,7 +87,7 @@ void StageSelectTaskSystem::update()
 	draw();
 	
 	mass->update();
-	chara->update(stage,deg_flag);
+	chara->update(stage,deg_flag,mass->get_masspos());
 	txtbox->update();
 }
 
