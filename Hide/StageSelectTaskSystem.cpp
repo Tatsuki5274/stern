@@ -87,7 +87,7 @@ void StageSelectTaskSystem::update()
 	draw();
 	
 	mass->update();
-	chara->update(stage,deg_flag,mass->get_masspos());
+	chara->update(stage,deg_flag,mass->get_massline());
 	txtbox->update();
 }
 

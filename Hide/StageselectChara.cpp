@@ -16,9 +16,9 @@ void StageSelectChara::initialize(Point point_)
 	point = point_;
 }
 
-void StageSelectChara::update(int& stage_, bool deg,int* massX)
+void StageSelectChara::update(int& stage_, bool deg, int massline)
 {
-	select_stage(stage_, deg,massX);
+	select_stage(stage_, deg, massline);
 	move();
 	draw();
 	//DrawFormatString(0, 50, GetColor(255, 0, 0), "x座標 : %d", point.x);
@@ -29,29 +29,31 @@ void StageSelectChara::draw()
 	DrawGraph(point.x, point.y, graph, TRUE);
 }
 
-void StageSelectChara::select_stage(int& stage_, bool deg,int* massX)
+void StageSelectChara::select_stage(int& stage_, bool deg, int massline)
 {
 	if (!deg) {
 		if (Keyboard::key_down(KEY_INPUT_RIGHT) && stage_ < 4 && velocityX == 0) {
-			velocityX = 1;
+			velocityX = massline;
 			stage_++;
 		}
 		if (Keyboard::key_down(KEY_INPUT_LEFT) && stage_ > 1 && velocityX == 0) {
-			velocityX = -1;
+			velocityX = -massline;
 			stage_--;
 		}
-		if (massX[stage_ - 1] > point.x) {//次のマスと１つ前のマス
-			move();//次のマスに移ったら移動を停止したい
-		}
-		else {
-			velocityX = 0;
-		}
+		move();//次のマスに移ったら移動を停止したい
 	}
 }
 
 void StageSelectChara::move()
 {
-	point.x += (int)velocityX;
+	if (velocityX > 0) {
+		point.x += 2;
+		velocityX -= 2;
+	}
+	if (velocityX < 0) {
+		point.x -= 2;
+		velocityX += 2;
+	}
 }
 
 int StageSelectChara::get_velocity()
