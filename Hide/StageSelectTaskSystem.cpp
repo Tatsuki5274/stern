@@ -36,8 +36,8 @@ void StageSelectTaskSystem::update()
 				break;
 			case 2:
 				ct->gts->map->init((char*)"2");
-				ct->gts->player->spawn(30, 1826, 30, 30);
-				ct->gts->goal->spawn( 4416, 1796, 30, 60);
+				ct->gts->player->spawn(256, 1728, 64, 128);
+				ct->gts->goal->spawn( 7488, 1728, 128, 128);
 				spawnenemy->create("2");
 				spawnitem->create("2");
 				break;

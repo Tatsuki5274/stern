@@ -36,19 +36,19 @@ void FlyingEnemy::change_state()
 {
 	//   
 	movecnt++;// 
-	if (movecnt <= 120) {
+	if (movecnt <= 192) {
 		flyingstate = FlyingState::down;
 		if (ct->gts->map->get_bottom(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}
-	else if (movecnt <= 240) {
+	else if (movecnt <= 384) {
 		flyingstate = FlyingState::up;
 		if (ct->gts->map->get_top(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}
-	if (movecnt >= 240) {
+	if (movecnt >= 384) {
 		movecnt = 0;
 	}
 }
