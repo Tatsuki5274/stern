@@ -76,9 +76,8 @@ void StageSelectTaskSystem::update()
 
 	}
 	draw();
-	for (int i = 0; i < sizeof(mass); ++i) {
-		mass->update();
-	}
+	
+	mass->update();
 	chara->update(stage,deg_flag);
 	txtbox->update();
 }
