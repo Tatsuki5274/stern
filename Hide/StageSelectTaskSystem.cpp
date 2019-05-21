@@ -1,5 +1,23 @@
 ﻿#include "StageSelectTaskSystem.h"
+#include"Screen_helper.h"
 #include"CoreTask.h"
+#include"System.h"
+
+//静的定義----------------------------------------------------------------
+int StageSelectTaskSystem::stage;//ステージ識別番号
+bool StageSelectTaskSystem::state[4];//クリアフラグ（ステージ総数によって変える）
+
+bool StageSelectTaskSystem::deg_flag;
+int StageSelectTaskSystem::feedcnt;
+int StageSelectTaskSystem::backgraph;//背景画像
+std::unique_ptr<StageSelectTaskMass> StageSelectTaskSystem::mass;
+std::unique_ptr<StageSelectChara> StageSelectTaskSystem::chara;
+std::unique_ptr<StageSelectTextBox> StageSelectTaskSystem::txtbox;
+
+std::unique_ptr<SpawnEnemy> StageSelectTaskSystem::spawnenemy;//敵の生成
+std::unique_ptr<SpawnItem> StageSelectTaskSystem::spawnitem;
+
+//------------------------------------------------------------------------
 
 StageSelectTaskSystem::StageSelectTaskSystem()
 {
@@ -22,9 +40,9 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
+	ScreenFunc::FeedIn_Black(deg_flag, feedcnt);
 	if (deg_flag) {
-		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+		if (ScreenFunc::FeedOut_Black(deg_flag, feedcnt)) {
 			switch (stage)
 			{
 			case 1:
@@ -50,7 +68,7 @@ void StageSelectTaskSystem::update()
 			}
 			ct->gts->init();
 			ct->cts->init();
-			ct->scene = Scene::game;//ゲームシーンに遷移
+			ct->change_scene(Scene::game);
 		}
 	}
 	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0 && !deg_flag) {
@@ -62,17 +80,23 @@ void StageSelectTaskSystem::update()
 		mass->update();
 	}
 	chara->update(stage,deg_flag);
-	txtbox->update(stage);
+	txtbox->update();
 }
 
 void StageSelectTaskSystem::draw()
 {
-	DrawGraph(0, 0, backgraph, FALSE);
+	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
+	//DrawGraph(0, 0, backgraph, FALSE);
 }
 
 int StageSelectTaskSystem::get_stage()
 {
 	return stage;
+}
+
+void StageSelectTaskSystem::finalize()
+{
+	DeleteGraph(backgraph);
 }
 
 void StageSelectTaskSystem::clear(int num_)
