@@ -40,9 +40,9 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-	ScreenFunc::FeedIn_Black(deg_flag, feedcnt);
+	ScreenFunc::FeedIn(deg_flag, feedcnt);
 	if (deg_flag) {
-		if (ScreenFunc::FeedOut_Black(deg_flag, feedcnt)) {
+		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
 			switch (stage)
 			{
 			case 1:
