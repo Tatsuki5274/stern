@@ -182,7 +182,7 @@ void Player::move()
 
 
 			if (Keyboard::key_down(KEY_INPUT_X)) {
-				jumpCnt = 18;
+				jumpCnt = PLAYER_MAX_JUMP;
 			}
 			if (jumpCnt > 0) {
 				

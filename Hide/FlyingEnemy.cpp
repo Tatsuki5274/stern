@@ -1,5 +1,6 @@
 ﻿#include "FlyingEnemy.h"
 #include "CoreTask.h"
+#include "FlyingEnemyConfig.h"
 
 //----------------------------------
 //雑魚敵(飛行)
@@ -36,13 +37,13 @@ void FlyingEnemy::change_state()
 {
 	//   
 	movecnt++;// 
-	if (movecnt <= 192) {
+	if (movecnt <= FlyingDown) {
 		flyingstate = FlyingState::down;
 		if (ct->gts->map->get_bottom(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}
-	else if (movecnt <= 384) {
+	else if (movecnt <= FlyingUp) {
 		flyingstate = FlyingState::up;
 		if (ct->gts->map->get_top(point)) {
 			flyingstate = FlyingState::stay;
