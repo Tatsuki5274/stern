@@ -14,6 +14,7 @@ private:
 	static std::unique_ptr<TitleUI> title_ui;
 public:
 	static void init();
+	static void init_member();
 	static void update();
 	static void finalize();
 	static void draw();

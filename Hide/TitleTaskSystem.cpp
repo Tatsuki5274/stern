@@ -17,10 +17,19 @@ void TitleTaskSystem::init()
 	title_ui->init();
 }
 
+void TitleTaskSystem::init_member()
+{
+	feed_flag = false;
+	title_ui->init();
+}
+
 void TitleTaskSystem::update()
 {
 	draw();
-	selecter_move();
+	//フェードアウト開始していないなら動かせる
+	if (feed_flag == false) {
+		selecter_move();
+	}
 	title_ui->update();
 
 	if (feed_flag) {//フェードアウトの指示が来たら

@@ -16,6 +16,7 @@ private:
 	static int backgraph;//背景画像
 public:
 	StageSelectTaskSystem();
+	static void init_member();
 	static void initialize();
 	static void update();//Map_Initをステージ番号に基づき中身を変えて呼ぶ
 	static void draw();

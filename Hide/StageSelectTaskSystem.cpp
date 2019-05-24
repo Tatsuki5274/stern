@@ -39,6 +39,11 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	backgraph = LoadGraph("img/stageselect/back.png");
 }
 
+void StageSelectTaskSystem::init_member()
+{
+	feed_flag = false;
+}
+
 void StageSelectTaskSystem::initialize()
 {
 	class Point point = { mass->get_massX(0),200,30,30 };
