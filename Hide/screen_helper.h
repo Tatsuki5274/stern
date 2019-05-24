@@ -1,18 +1,18 @@
-#pragma once
+ï»¿#pragma once
 #include"DxLib.h"
 
 class ScreenFunc {
 private:
-	//ƒtƒB[ƒ‹ƒh
-	static int brendcnt;//‰æ‘œ‚Ì“§–¾“x‚ğ¦‚·
-	//ƒuƒŒƒ“ƒhƒJƒEƒ“ƒg‚Ìƒ`ƒFƒbƒNƒƒ\ƒbƒh
-	static bool check_brend_max();//255‚É‚È‚Á‚½‚çtrue‚ğ•Ô‚·
-	static bool check_brend_min();//0‚É‚È‚Á‚½‚çtrue‚ğ•Ô‚·
+	//ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
+	static int brendcnt;//ç”»åƒã®é€æ˜åº¦ã‚’ç¤ºã™
+	//ãƒ–ãƒ¬ãƒ³ãƒ‰ã‚«ã‚¦ãƒ³ãƒˆã®ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰
+	static bool check_brend_max();//255ã«ãªã£ãŸã‚‰trueã‚’è¿”ã™
+	static bool check_brend_min();//0ã«ãªã£ãŸã‚‰trueã‚’è¿”ã™
 public:
-	static void initialize();//‰æ‘œ‚Ìƒ[ƒh‚È‚Ç
+	static void initialize();//ç”»åƒã®ãƒ­ãƒ¼ãƒ‰ãªã©
 
-	//‚Ç‚¤‚¢‚¤‚Æ‚«‚ÉŒÄ‚Ô‚©‚È‚Ç‚ÍƒV[ƒ“‚ªŒˆ‚ß‚é
-	static bool FeedOut(int screen_graph);//ˆÃ‚­‚·‚éˆ—(true : ƒV[ƒ“Ø‚è‘Ö‚¦‚ğs‚¤, false : ‘±s‚È‚Ç)
-	static void FeedIn(int screen_graph);//–¾‚é‚­‚·‚éˆ—
+	//ã©ã†ã„ã†ã¨ãã«å‘¼ã¶ã‹ãªã©ã¯ã‚·ãƒ¼ãƒ³ãŒæ±ºã‚ã‚‹
+	static bool FeedOut(int screen_graph);//æš—ãã™ã‚‹å‡¦ç†(true : ã‚·ãƒ¼ãƒ³åˆ‡ã‚Šæ›¿ãˆã‚’è¡Œã†, false : ç¶šè¡Œãªã©)
+	static void FeedIn(int screen_graph);//æ˜ã‚‹ãã™ã‚‹å‡¦ç†
 
 };

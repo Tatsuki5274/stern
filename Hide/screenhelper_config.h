@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 namespace ScreenHelperGraph {
 	extern int white_graph;

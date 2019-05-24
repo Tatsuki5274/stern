@@ -1,4 +1,4 @@
-#include "screen_helper.h"
+ï»¿#include "screen_helper.h"
 #include"screenhelper_config.h"
 #include"DxLib.h"
 #include"System.h"
@@ -7,46 +7,46 @@ int ScreenFunc::brendcnt;
 
 void ScreenFunc::initialize()
 {
-	//ƒtƒF[ƒhƒAƒEƒgAƒCƒ“—p‚Ì‰æ‘œ‚ğƒ[ƒh
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã€ã‚¤ãƒ³ç”¨ã®ç”»åƒã‚’ãƒ­ãƒ¼ãƒ‰
 	ScreenHelperGraph::black_graph = LoadGraph("./img/screen/black_screen.png");
 	ScreenHelperGraph::white_graph = LoadGraph("./img/screen/white_screen.png");
-	brendcnt = 0;//‰Šú‚Í“§–¾‚É‚µ‚Ä‚¨‚­
+	brendcnt = 0;//åˆæœŸã¯é€æ˜ã«ã—ã¦ãŠã
 }
 
 bool ScreenFunc::FeedOut(int screen_graph)
 {
 	bool check = false;
-	//‰æ‘œ‚ğ”Z‚­‚µ‚Ä‚¢‚­i^‚Á•A^‚Á”’‚É‚È‚éj
-	if (check_brend_max()) {//Š®‘S‚É^‚Á•A^‚Á”’‚É‚È‚Á‚½‚ç
+	//ç”»åƒã‚’æ¿ƒãã—ã¦ã„ãï¼ˆçœŸã£é»’ã€çœŸã£ç™½ã«ãªã‚‹ï¼‰
+	if (check_brend_max()) {//å®Œå…¨ã«çœŸã£é»’ã€çœŸã£ç™½ã«ãªã£ãŸã‚‰
 		check = true;
 	}
-	else {//255–¢–‚È‚ç
+	else {//255æœªæº€ãªã‚‰
 		brendcnt++;
 	}
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, brendcnt);		//ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğƒ¿‚Éİ’è
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, brendcnt);		//ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’Î±ã«è¨­å®š
 	DrawExtendGraph(0, 0, System::width, System::height, screen_graph, FALSE);
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğƒIƒt
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ã‚ªãƒ•
 
 	return check;
 }
 
 void ScreenFunc::FeedIn(int screen_graph)
 {
-	//‰æ‘œ‚ğ”–‚­‚µ‚Ä‚¢‚­i“§–¾‚É‚È‚éj
-	if (!check_brend_min()) {//0’´‰ß‚È‚ç
+	//ç”»åƒã‚’è–„ãã—ã¦ã„ãï¼ˆé€æ˜ã«ãªã‚‹ï¼‰
+	if (!check_brend_min()) {//0è¶…éãªã‚‰
 		brendcnt--;
 	}
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, brendcnt);		//ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğƒ¿‚Éİ’è
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, brendcnt);		//ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’Î±ã«è¨­å®š
 	DrawExtendGraph(0, 0, System::width, System::height, screen_graph, FALSE);
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğƒIƒt
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ã‚ªãƒ•
 }
 
 bool ScreenFunc::check_brend_max()
 {
-	return brendcnt >= 255;//255‚æ‚è‘å‚«‚¢‚È‚çtrue
+	return brendcnt >= 255;//255ã‚ˆã‚Šå¤§ãã„ãªã‚‰true
 }
 
 bool ScreenFunc::check_brend_min()
 {
-	return brendcnt <= 0;//0‚æ‚è¬‚³‚¢‚È‚çtrue
+	return brendcnt <= 0;//0ã‚ˆã‚Šå°ã•ã„ãªã‚‰true
 }

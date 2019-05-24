@@ -1,4 +1,4 @@
-#include "screenhelper_config.h"
+﻿#include "screenhelper_config.h"
 
 
 int ScreenHelperGraph::black_graph;
