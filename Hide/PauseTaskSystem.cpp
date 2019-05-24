@@ -21,7 +21,7 @@ void PauseTask::initialize()
 
 void PauseTask::update()
 {
-	ScreenFunc::FeedIn(deg_flag,feedcnt);
+	/*ScreenFunc::FeedIn(deg_flag,feedcnt);
 	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
 		Audio::play("decision");
 		deg_flag = true;
@@ -33,7 +33,7 @@ void PauseTask::update()
 	}
 	draw();
 	selecter_move();
-	p_ui->update();
+	p_ui->update();*/
 }
 
 void PauseTask::finalize()

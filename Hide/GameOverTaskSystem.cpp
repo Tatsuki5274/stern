@@ -21,21 +21,21 @@ void GameOverTaskSystem::initialize()
 
 void GameOverTaskSystem::update()
 {
-	//コンテニュー時敵の生成、アイテムの生成、ステージセレクトのupdateで行っている処理のほとんどを行うため
-	//spawnをCoreに移す必要がある？
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
-	if (deg_flag) {
-		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
-			change_scene();
-		}
-	}
-	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
-		deg_flag = true;
-		Audio::play("decision");
-	}
-	draw();
-	selecter_move();
-	gameover_ui->update();
+	////コンテニュー時敵の生成、アイテムの生成、ステージセレクトのupdateで行っている処理のほとんどを行うため
+	////spawnをCoreに移す必要がある？
+	//ScreenFunc::FeedIn(deg_flag, feedcnt);
+	//if (deg_flag) {
+	//	if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+	//		change_scene();
+	//	}
+	//}
+	//if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
+	//	deg_flag = true;
+	//	Audio::play("decision");
+	//}
+	//draw();
+	//selecter_move();
+	//gameover_ui->update();
 }
 
 void GameOverTaskSystem::finalize()

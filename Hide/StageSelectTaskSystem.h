@@ -11,8 +11,8 @@ protected:
 	static int stage;//ステージ識別番号
 	static bool state[4];//クリアフラグ（ステージ総数によって変える）
 private:
-	static bool deg_flag;
-	static int feedcnt;
+	static bool feed_flag;
+
 	static int backgraph;//背景画像
 public:
 	StageSelectTaskSystem();

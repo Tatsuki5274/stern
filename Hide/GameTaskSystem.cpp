@@ -44,17 +44,17 @@ void GameTaskSystem::init()
 
 void GameTaskSystem::update()
 {
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
+	//ScreenFunc::FeedIn(deg_flag, feedcnt);
 	//ポーズへの遷移
-	if (Keyboard::key_down(KEY_INPUT_BACK)) {
-		Audio::play("decision");
-		deg_flag = true;
-	}
-	if (deg_flag) {
-		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
-			ct->change_scene(Scene::pause);
-		}
-	}
+	//if (Keyboard::key_down(KEY_INPUT_BACK)) {
+	//	Audio::play("decision");
+	//	deg_flag = true;
+	//}
+	//if (deg_flag) {
+	//	if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+	//		ct->change_scene(Scene::pause);
+	//	}
+	//}
 	map->update();
 	goal->update();
 	//☆------------------------------

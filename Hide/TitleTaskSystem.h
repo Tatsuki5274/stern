@@ -6,8 +6,7 @@
 class TitleTaskSystem {
 private:
 	static int backgraph;
-	static bool deg_flag;
-	static int feedcnt;
+	static bool feed_flag;
 
 	TitleTaskSystem();
 	static void selecter_move();

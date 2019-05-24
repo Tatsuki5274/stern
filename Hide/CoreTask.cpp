@@ -1,5 +1,6 @@
 ﻿#include "CoreTask.h"
 #include "Rendering.h"
+#include"screen_helper.h"
 
 GameTaskSystem *gts;
 
@@ -66,6 +67,8 @@ void CoreTask::init()
 	GraphicResource::init();
 	Keyboard::initialize();
 	Audio::init();
+	ScreenFunc::initialize();
+
 	Item::player = gts->player;
 	Enemy::player = gts->player;
 	//メンバ生成

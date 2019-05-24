@@ -21,7 +21,7 @@ bool ScreenFunc::FeedOut(int screen_graph)
 		check = true;
 	}
 	else {//255未満なら
-		brendcnt++;
+		brendcnt += FeedSpeed;
 	}
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, brendcnt);		//ブレンドモードをαに設定
 	DrawExtendGraph(0, 0, System::width, System::height, screen_graph, FALSE);
@@ -34,7 +34,7 @@ void ScreenFunc::FeedIn(int screen_graph)
 {
 	//画像を薄くしていく（透明になる）
 	if (!check_brend_min()) {//0超過なら
-		brendcnt--;
+		brendcnt -= FeedSpeed;
 	}
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, brendcnt);		//ブレンドモードをαに設定
 	DrawExtendGraph(0, 0, System::width, System::height, screen_graph, FALSE);
