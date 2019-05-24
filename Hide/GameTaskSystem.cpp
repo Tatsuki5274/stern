@@ -91,12 +91,19 @@ void GameTaskSystem::update()
 		Audio::play("decision");
 		feed_flag = true;
 	}
-	if (feed_flag) {
+	if (goal->get_clear_flag()) {//ゴール時
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
+			ct->change_scene(Scene::clear);
+		}
+	}
+	else if (feed_flag) {//ゴールしてなくてフェードフラグが起動したら
+		//ポーズ遷移
+		//プレイヤーの死亡フラグ分が追加になるかもしれない
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
 			ct->change_scene(Scene::pause);
 		}
 	}
-	else {
+	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu
 		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 	}
 	//------------------------------------------------------------
