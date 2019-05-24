@@ -3,8 +3,10 @@
 #include <memory>
 #include"CoreTask.h"
 #include"Audio.h"
+#include "Keyboard.h"
 #include"screen_helper.h"
 #include"screenhelper_config.h"
+#include "Scene.h"
 
 GameTaskSystem::GameTaskSystem()
 {

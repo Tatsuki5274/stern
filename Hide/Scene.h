@@ -11,7 +11,7 @@ enum class SceneType {
 
 class Scene {
 	static SceneType scene;
-	void set_scene(SceneType type);
-	SceneType get_scene();
-
+public:
+	static void set_scene(SceneType type);
+	static SceneType get_scene();
 };

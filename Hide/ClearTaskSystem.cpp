@@ -2,6 +2,7 @@
 #include "CoreTask.h"
 #include"screen_helper.h"
 #include"screenhelper_config.h"
+#include "Scene.h"
 
 ClearTaskSystem::ClearTaskSystem()
 {
