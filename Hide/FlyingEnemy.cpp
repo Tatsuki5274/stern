@@ -49,7 +49,7 @@ void FlyingEnemy::change_state()
 			flyingstate = FlyingState::stay;
 		}
 	}
-	if (movecnt >= 384) {
+	if (movecnt >= FlyingUp) {
 		movecnt = 0;
 	}
 }
