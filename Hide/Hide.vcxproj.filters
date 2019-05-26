@@ -459,14 +459,14 @@
     <ClInclude Include="screen_helper.h">
       <Filter>helper\screen_helper</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>interfaces\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="FlyingEnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
     <ClInclude Include="WalkingEnemyConfig.h">
       <Filter>config</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>interfaces\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
