@@ -7,7 +7,7 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
 	//必要か判断ができない初期化処理
 	anglestate = AngleState::right;
 	walkingstate = WalkingState::walk;
-	shape->set("walking");
+	shape->set("rightwalking");
 }
 
 void WalkingEnemy::move()
@@ -46,7 +46,7 @@ void WalkingEnemy::check_left()
 	//MapのGet_leftを呼ぶ?
 	if (ct->gts->map->get_left(left) != 0) {
 		anglestate = AngleState::right;
-		shape->set("walking");
+		shape->set("rightwalking");
 	}
 }
 
@@ -58,6 +58,6 @@ void WalkingEnemy::check_right()
 	//MapのGet_leftを呼ぶ?
 	if (ct->gts->map->get_right(right) != 0) {
 		anglestate = AngleState::left;
-		shape->set("walking");
+		shape->set("leftwalking");
 	}
 }

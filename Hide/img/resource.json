@@ -1,7 +1,7 @@
 {
   "graph": [
     {
-      "name" :  "player",
+      "name": "player",
       "path": "./img/graphics/player.png",
       "width": 64,
       "height": 128,
@@ -24,8 +24,22 @@
       ]
     },
     {
-      "name": "walking",
+      "name": "leftwalking",
       "path": "./img/graphics/slime_walk_Left.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "column": 4,
+      "scope": [
+        "walking",
+        "enemy"
+      ],
+      "loop": true,
+      "interval": 30
+    },
+    {
+      "name": "rightwalking",
+      "path": "./img/graphics/slime_walk_Right.png",
       "width": 64,
       "height": 64,
       "line": 1,
@@ -88,7 +102,7 @@
         "recovery"
       ]
     },
-	{
+    {
       "name": "goal",
       "path": "./img/graphics/goal.png",
       "width": 128,
@@ -96,7 +110,7 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"goal"
+        "goal"
       ]
     }
   ]
