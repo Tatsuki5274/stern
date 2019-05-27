@@ -25,15 +25,17 @@
     },
     {
       "name": "walking",
-      "path": "./img/graphics/walking.png",
+      "path": "./img/graphics/slime_walk_Left.png",
       "width": 64,
       "height": 64,
       "line": 1,
-      "column": 1,
+      "column": 4,
       "scope": [
         "walking",
         "enemy"
-      ]
+      ],
+      "loop": true,
+      "interval": 30
     },
     {
       "name": "flying",

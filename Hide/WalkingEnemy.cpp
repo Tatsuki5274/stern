@@ -46,6 +46,7 @@ void WalkingEnemy::check_left()
 	//MapのGet_leftを呼ぶ?
 	if (ct->gts->map->get_left(left) != 0) {
 		anglestate = AngleState::right;
+		shape->set("walking");
 	}
 }
 
@@ -57,5 +58,6 @@ void WalkingEnemy::check_right()
 	//MapのGet_leftを呼ぶ?
 	if (ct->gts->map->get_right(right) != 0) {
 		anglestate = AngleState::left;
+		shape->set("walking");
 	}
 }
