@@ -3,6 +3,7 @@
 #include"CoreTask.h"
 #include"Keyboard.h"
 #include "PlayerConfig.h"
+#include"System.h"
 
 //----------------------------------
 //プレイヤー
@@ -18,8 +19,8 @@ Player::PlayerInterface::PlayerInterface()
 void Player::PlayerInterface::draw()
 {
 	//残機
-	DrawGraph(500, 0, lifegraph, FALSE);
-	DrawFormatString(540, 0, GetColor(255, 255, 255), " × %d",life);
+	DrawGraph(System::width-100, 0, lifegraph, FALSE);
+	DrawFormatString(System::width - 60, 0, GetColor(255, 255, 255), " × %d",life);
 	//HP
 	for (int i = 0; i < 3; ++i) {
 		DrawGraph(40 * i, 0, hpfreamgraph, FALSE);
@@ -51,7 +52,7 @@ void Player::StarManager::update(double ang, int x_)
 	draw(ang, x_);
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_Z)) {
-			starmanagercoolCnt = 180;   //クールタイム180フレーム
+			starmanagercoolCnt = 60;   //クールタイム60フレーム
 			class Point point = { x_,Map::get_camera().y,32,32 };
 			struct PhysicState physic_state = { 1 };//	float gravity;
 			struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
@@ -61,17 +62,21 @@ void Player::StarManager::update(double ang, int x_)
 			//Point point_, PhysicState physic_state_, StarState star_state
 		}
 	}
+
+	if (starmanagercoolCnt <= 0) {
+		if (Keyboard::key_down(KEY_INPUT_V)) {
+			starmanagercoolCnt = 60;   //クールタイム60フレーム
+			ct->gts->gravityStar.clear();
+			class Point point = { x_ ,Map::get_camera().y,32,32 };
+			struct PhysicState physic_state = { 1 };//	float gravity;
+			struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
+
+			ct->gts->gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
+
+		}
+	}
 	if (starmanagercoolCnt > 0) {
 		starmanagercoolCnt--;
-	}
-	if (Keyboard::key_down(KEY_INPUT_V)) {
-		ct->gts->gravityStar.clear();
-		class Point point = { x_ ,Map::get_camera().y,32,32 };
-		struct PhysicState physic_state = { 1 };//	float gravity;
-		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
-
-		ct->gts->gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
-
 	}
 }
 

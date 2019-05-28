@@ -6,10 +6,10 @@ BulletEnemy::BulletEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 	shape->set("bullet");
 	switch (enemy_state_.anglestate) {
 	case AngleState::left:
-		angle = 1;
+		angle = 2;
 		break;
 	case AngleState::right:
-		angle = -1;
+		angle = -2;
 		break;
 	}
 }

@@ -48,12 +48,12 @@ void StageSelectChara::select_stage(int& stage_, bool deg, int massline)
 void StageSelectChara::move()
 {
 	if (velocityX > 0) {
-		point.x += 2;
-		velocityX -= 2;
+		point.x += 5;
+		velocityX -= 5;
 	}
 	if (velocityX < 0) {
-		point.x -= 2;
-		velocityX += 2;
+		point.x -= 5;
+		velocityX += 5;
 	}
 }
 
