@@ -461,6 +461,7 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
+<<<<<<< master
     </ClInclude>
     <ClInclude Include="MapConfig.h">
       <Filter>config</Filter>
@@ -469,6 +470,11 @@
       <Filter>config</Filter>
     </ClInclude>
     <ClInclude Include="FlyingEnemyConfig.h">
+      <Filter>config</Filter>
+=======
+>>>>>>> bulletの死亡判定
+    </ClInclude>
+    <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
   </ItemGroup>
