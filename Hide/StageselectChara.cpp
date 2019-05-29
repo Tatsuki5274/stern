@@ -3,6 +3,7 @@
 #include"Dxlib.h"
 #include"System.h"
 #include "Keyboard.h"
+#include"environments.h"
 
 StageSelectChara::StageSelectChara(Point point_)
 {
@@ -48,12 +49,12 @@ void StageSelectChara::select_stage(int& stage_, bool deg, int massline)
 void StageSelectChara::move()
 {
 	if (velocityX > 0) {
-		point.x += 5;
-		velocityX -= 5;
+		point.x += environment::select_chara_velocity;
+		velocityX -= environment::select_chara_velocity;
 	}
 	if (velocityX < 0) {
-		point.x -= 5;
-		velocityX += 5;
+		point.x -= environment::select_chara_velocity;
+		velocityX += environment::select_chara_velocity;
 	}
 }
 

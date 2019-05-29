@@ -1,5 +1,6 @@
 ﻿#include "ThrowingEnemy.h"
 #include "CoreTask.h"
+#include"environments.h"
 
 ThrowingEnemy::ThrowingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_) : Enemy(point_, physic_state_, enemy_state_)
 {
@@ -20,7 +21,7 @@ void ThrowingEnemy::move()
 
 void ThrowingEnemy::appear_shot()
 {
-	if (cnt > 300) {
+	if (cnt > environment::throwing_interbal) {
 		class Point b_point = { point.x,point.y + 32,32,32 };
 		struct PhysicState physic_state = { 0};//	float gravity; float repulsion;int weight;
 		struct EnemyState Enemy_state = { 1,1,anglestate };//	int life, int damage, int power, int life, double angle;

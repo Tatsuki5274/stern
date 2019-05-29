@@ -4,6 +4,7 @@
 #include"Keyboard.h"
 #include "PlayerConfig.h"
 #include"System.h"
+#include"environments.h"
 
 //----------------------------------
 //プレイヤー
@@ -52,7 +53,7 @@ void Player::StarManager::update(double ang, int x_)
 	draw(ang, x_);
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_Z)) {
-			starmanagercoolCnt = 60;   //クールタイム60フレーム
+			starmanagercoolCnt = environment::star_cooltime;   //クールタイム60フレーム
 			class Point point = { x_,Map::get_camera().y,32,32 };
 			struct PhysicState physic_state = { 1 };//	float gravity;
 			struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
@@ -65,7 +66,7 @@ void Player::StarManager::update(double ang, int x_)
 
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_V)) {
-			starmanagercoolCnt = 60;   //クールタイム60フレーム
+			starmanagercoolCnt = environment::star_cooltime;   //クールタイム60フレーム
 			ct->gts->gravityStar.clear();
 			class Point point = { x_ ,Map::get_camera().y,32,32 };
 			struct PhysicState physic_state = { 1 };//	float gravity;
@@ -123,10 +124,10 @@ void Player::update()
 	//仮の移動とカーソル角度調整-------------
 	move();
 	if (Keyboard::key_press(KEY_INPUT_Q)) {
-		angle += 0.05;
+		angle += environment::cursol_speed;
 	}
 	if (Keyboard::key_press(KEY_INPUT_E)) {
-		angle -= 0.05;
+		angle -= environment::cursol_speed;
 	}
 	//---------------------------------------
 	starmanager->update(angle, point.x);
@@ -145,7 +146,7 @@ void Player::update()
 bool Player::damage()
 {
 	if (invincible <= 0) {
-		invincible = 180;
+		invincible = environment::player_invincible;
 		hp -= 1;
 		if (hp <= 0) {
 			return true;

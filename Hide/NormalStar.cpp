@@ -1,6 +1,7 @@
 ﻿#include"NormalStar.h"
 #include"DxLib.h"
 #include"CoreTask.h"
+#include"environments.h"
 
 //--------------------------------
 //
@@ -33,7 +34,7 @@ void NormalStar::update()
 			gravitypoint = itr->gravitypoint;
 		}
 		if (((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) * ((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) +//gravitystarとの距離を測って90000以内なら引き寄せられる
-			((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) * ((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) <=360000) {//90000は大体今の画面内の範囲
+			((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) * ((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) <=environment::star_inhale_able) {//90000は大体今の画面内の範囲
 			inhale();
 		}
 	}
