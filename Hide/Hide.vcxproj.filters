@@ -471,14 +471,11 @@
     <ClInclude Include="MapConfig.h">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="WalkingEnemyConfig.h">
-      <Filter>config</Filter>
-    </ClInclude>
-    <ClInclude Include="FlyingEnemyConfig.h">
-      <Filter>config</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerController.h">
       <Filter>controllers\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkingEnemyConfig.h">
+      <Filter>config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
