@@ -12,17 +12,12 @@
 //プレイヤー
 //---------------------------------
 
-struct PlayerState {
-	int life;
-	int hp;
-};
-
 class Player :public BasicObject {
 
 	friend class RecoveryItem;
 	friend class Enemy;
 public:
-	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
+	Player(Point point_, PhysicState physic_state_);
 	void init();
 	//メソッド
 	void update();//更新処理

@@ -3,3 +3,4 @@
 #define PLAYER_MAX_JUMP 18	//playerの最大ジャンプ力
 #define PLAYER_SPEED 6
 #define PLAYER_MAX_SPEED 9
+#define PLAYER_MAX_HP 2
