@@ -25,7 +25,6 @@ public:
 	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();
 	//メソッド
-	double get_angle();//星の移動のために角度情報が必要
 	void update();//更新処理
 	bool damage();//ダメージを受ける処理
 	bool recover();
@@ -35,6 +34,17 @@ public:
 	bool knockback(int);//ノックバック
 	void jump(int);
 	void spawn(int, int, int, int);
+
+public:	//アクセサメソッド
+	void set_hp(int);
+	int get_hp();
+	void set_angle(double);
+	double get_angle();
+	void set_invincible(int);
+	int get_invincible();
+	void set_life(int);
+	int get_life();
+
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {

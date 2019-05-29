@@ -108,10 +108,7 @@ bool Player::recover()
 	return ret;
 }
 
-double Player::get_angle()
-{
-	return angle;
-}
+
 
 void Player::update()
 {
@@ -216,3 +213,31 @@ void Player::jump(int pow) {
 }
 
 
+//アクセサメソッド
+
+void Player::set_hp(int hp) {
+	if (hp < 0) hp = 0;
+	this->hp = hp;
+}
+int Player::get_hp() {
+	return this->hp;
+}
+void Player::set_angle(double angle) {
+	this->angle = angle;
+}
+double Player::get_angle()
+{
+	return this->angle;
+}
+void Player::set_invincible(int invincible) {
+	this->invincible = invincible;
+}
+int Player::get_invincible() {
+	return this->invincible;
+}
+void Player::set_life(int life) {
+	this->life = life;
+}
+int Player::get_life() {
+	return this->life;
+}
