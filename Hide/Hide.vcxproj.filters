@@ -461,6 +461,7 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
+<<<<<<< HEAD
 <<<<<<< master
     </ClInclude>
     <ClInclude Include="MapConfig.h">
@@ -473,6 +474,11 @@
       <Filter>config</Filter>
 =======
 >>>>>>> bulletの死亡判定
+    </ClInclude>
+    <ClInclude Include="EnemyConfig.h">
+      <Filter>config</Filter>
+=======
+>>>>>>> update_bullet
     </ClInclude>
     <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
