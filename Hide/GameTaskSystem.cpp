@@ -96,8 +96,9 @@ void GameTaskSystem::update()
 		feed_flag = true;
 	}
 	if (goal->get_clear_flag()) {//ゴール時
-		finalize();//コアタスクに追加すると最後のフェードが気持ち悪くなるためここに処理
+
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
+			finalize();
 			Scene::set_scene(SceneType::clear);
 		}
 	}
