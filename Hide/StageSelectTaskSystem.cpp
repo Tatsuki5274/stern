@@ -5,10 +5,11 @@
 #include"screenhelper_config.h"
 #include "Keyboard.h"
 #include "Scene.h"
+#include"SelectTaskConfig.h"
 
 //静的定義----------------------------------------------------------------
 int StageSelectTaskSystem::stage;//ステージ識別番号
-bool StageSelectTaskSystem::state[4];//クリアフラグ（ステージ総数によって変える）
+bool StageSelectTaskSystem::state[MAX_STAGE];//クリアフラグ（ステージ総数によって変える）
 
 bool StageSelectTaskSystem::feed_flag;
 

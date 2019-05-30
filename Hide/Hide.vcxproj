@@ -191,6 +191,8 @@
     <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
+    <ClInclude Include="SelectTaskConfig.h" />
+    <ClInclude Include="StarConfig.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
     <ClInclude Include="PauseTaskSystem.h" />
@@ -227,6 +229,7 @@
     <ClInclude Include="Star.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="ThrowingEnemy.h" />
+    <ClInclude Include="ThrowingEnemyConfig.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />
