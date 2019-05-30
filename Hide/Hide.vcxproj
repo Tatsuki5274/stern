@@ -145,6 +145,7 @@
     <ClCompile Include="json11.cpp" />
     <ClCompile Include="PauseTaskSystem.cpp" />
     <ClCompile Include="PauseTaskUI.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="production.cpp" />
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="EnemyConfig.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
@@ -195,9 +197,11 @@
     <ClInclude Include="StarConfig.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="MapConfig.h" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="PlayerConfig.h" />
+    <ClInclude Include="PlayerController.h" />
     <ClInclude Include="RecoveryItem.h" />
     <ClInclude Include="screenhelper_config.h" />
     <ClInclude Include="Scene.h" />
@@ -233,6 +237,7 @@
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />
+    <ClInclude Include="WalkingEnemyConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
