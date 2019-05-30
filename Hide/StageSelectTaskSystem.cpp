@@ -96,7 +96,7 @@ void StageSelectTaskSystem::update()
 				break;
 			case 4:
 				ct->gts->map->init((char*)"4");
-				ct->gts->player->spawn(64, 768, 64, 128);
+				ct->gts->player->spawn(128, 1728, 64, 128);
 				ct->gts->goal->spawn(7488, 1728, 128, 128);
 				spawnenemy->create("4");
 				spawnitem->create("4");
