@@ -10,9 +10,9 @@
 
 Player::PlayerInterface::PlayerInterface()
 {
-	hpgraph = LoadGraph("img/hp.png");
-	hpfreamgraph = LoadGraph("img/hpfream.png");
-	lifegraph = LoadGraph("img/life.png");
+	hpgraph = LoadGraph("img/graphics/UI/hp.png");
+	hpfreamgraph = LoadGraph("img/graphics/UI/hpfream.png");
+	lifegraph = LoadGraph("img/graphics/UI/life.png");
 }
 
 void Player::PlayerInterface::draw()
@@ -38,7 +38,7 @@ void Player::PlayerInterface::update(int hp_,int life_)
 
 Player::StarManager::StarManager()
 {
-	graph = LoadGraph("img/cursor.png");
+	graph = LoadGraph("img/graphics/UI/cursor.png");
 }
 
 void Player::StarManager::draw(double st, int x)
@@ -95,7 +95,7 @@ void Player::spawn(int x_, int y_, int w_, int h_)
 void Player::init()
 {
 	point = p_point;
-	shape->set("player");//resource.jsonのnameが"player"のものをセットする
+	shape->set("player_idol_Right");//resource.jsonのnameが"player"のものをセットする
 }
 
 bool Player::recover()
@@ -115,6 +115,7 @@ double Player::get_angle()
 
 void Player::update()
 {
+
 	//仮の移動とカーソル角度調整-------------
 	move();
 	if (Keyboard::key_press(KEY_INPUT_Q)) {
@@ -156,6 +157,9 @@ void Player::draw_interface(int)
 void Player::move()
 {
 	//左右移動
+	if (Keyboard::key_down(KEY_INPUT_LEFT) && Keyboard::key_down(KEY_INPUT_X) == false) {	//仮の処理
+		shape->set("player_walk_Left");
+	}
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
@@ -164,6 +168,12 @@ void Player::move()
 		else {
 			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
 		}
+	}
+	if (Keyboard::key_up(KEY_INPUT_LEFT) && Keyboard::key_down(KEY_INPUT_X) == false) {		//仮の処理
+		shape->set("player_idol_Left");
+	}
+	if (Keyboard::key_down(KEY_INPUT_RIGHT) && Keyboard::key_down(KEY_INPUT_X) == false) {		//仮の処理
+		shape->set("player_walk_Right");
 	}
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
 		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
@@ -176,8 +186,14 @@ void Player::move()
 			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
 		}
 	}
+	if (Keyboard::key_up(KEY_INPUT_RIGHT) && Keyboard::key_down(KEY_INPUT_X) == false) {		//仮の処理
+		shape->set("player_idol_Right");
+	}
 	//ジャンプ
 	if (point.y==preY) {
+		//if (Keyboard::key_down(KEY_INPUT_X)) {		//仮の処理
+		//	shape->set("player_jump_Right");
+		//}
 		if (Keyboard::key_press(KEY_INPUT_X)) {
 
 
