@@ -122,7 +122,7 @@
   ],
   "3": [
     {
-      "x": 832,
+      "x": 1344,
       "y": 1792,
       "w": 64,
       "h": 64,
@@ -135,7 +135,7 @@
       "kind": "walk"
     },
     {
-      "x": 1472,
+      "x": 2880,
       "y": 1792,
       "w": 64,
       "h": 64,
@@ -148,7 +148,7 @@
       "kind": "walk"
     },
     {
-      "x": 3200,
+      "x": 2880,
       "y": 512,
       "w": 64,
       "h": 64,
@@ -161,47 +161,8 @@
       "kind": "walk"
     },
     {
-      "x": 5440,
-      "y": 1792,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "NCNC",
-      "kind": "walk"
-    },
-    {
-      "x": 5952,
-      "y": 1792,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "NCNC",
-      "kind": "walk"
-    },
-    {
-      "x": 6464,
-      "y": 1792,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "NCNC",
-      "kind": "walk"
-    },
-    {
-      "x": 704,
-      "y": 960,
+      "x": 1856,
+      "y": 320,
       "w": 64,
       "h": 64,
       "gravity": 0.1,
@@ -213,20 +174,7 @@
       "kind": "fly"
     },
     {
-      "x": 896,
-      "y": 576,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "PTPT",
-      "kind": "fly"
-    },
-    {
-      "x": 1664,
+      "x": 7232,
       "y": 1600,
       "w": 64,
       "h": 64,
@@ -239,72 +187,7 @@
       "kind": "fly"
     },
     {
-      "x": 2048,
-      "y": 1152,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "PTPT",
-      "kind": "fly"
-    },
-    {
-      "x": 2240,
-      "y": 192,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "PTPT",
-      "kind": "fly"
-    },
-    {
-      "x": 2560,
-      "y": 384,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "PTPT",
-      "kind": "fly"
-    },
-    {
-      "x": 3072,
-      "y": 1472,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "PTPT",
-      "kind": "fly"
-    },
-    {
-      "x": 3648,
-      "y": 1472,
-      "w": 64,
-      "h": 64,
-      "gravity": 0.1,
-      "repulsion": 0,
-      "weight": 0,
-      "life": 1,
-      "damage": 0,
-      "name": "PTPT",
-      "kind": "fly"
-    },
-    {
-      "x": 6016,
+      "x": 7360,
       "y": 1536,
       "w": 64,
       "h": 64,
@@ -317,21 +200,34 @@
       "kind": "fly"
     },
     {
-      "x": 6080,
-      "y": 576,
+      "x": 3200,
+      "y": 1728,
       "w": 64,
-      "h": 64,
+      "h": 96,
       "gravity": 0.1,
       "repulsion": 0,
       "weight": 0,
       "life": 1,
       "damage": 0,
       "name": "PTPT",
-      "kind": "fly"
+      "kind": "throw"
     },
     {
-      "x": 5632,
+      "x": 3200,
       "y": 1728,
+      "w": 64,
+      "h": 96,
+      "gravity": 0.1,
+      "repulsion": 0,
+      "weight": 0,
+      "life": 1,
+      "damage": 0,
+      "name": "PTPT",
+      "kind": "throw"
+    },
+    {
+      "x": 5568,
+      "y": 762,
       "w": 64,
       "h": 96,
       "gravity": 0.1,
