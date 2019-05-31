@@ -34,6 +34,15 @@ void ThrowingEnemy::appear_shot()
 			shape->set("flower_throw_Left");
 		}
 	}
+	if (beforeangle != anglestate) {
+		if (anglestate == AngleState::left) {
+			shape->set("flower_idol_Left");
+		}
+		else {
+			shape->set("flower_idol_Right");
+		}
+	}
+	beforeangle = anglestate;
 }
 
 void ThrowingEnemy::change_angle()
@@ -42,11 +51,9 @@ void ThrowingEnemy::change_angle()
 	if (ct->gts->player->get_point().x < point.x) {
 		anglestate = AngleState::right;
 		//右向きアニメに変える
-		shape->set("flower_idol_Left");
 	}
 	else {
 		anglestate = AngleState::left;
-		shape->set("flower_idol_Right");
 	}
 }
 
