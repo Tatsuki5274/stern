@@ -52,7 +52,7 @@ void Player::StarManager::update(double ang, int x_)
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_Z)) {
 			starmanagercoolCnt = 180;   //クールタイム180フレーム
-			class Point point = { x_,Map::get_camera().y,32,32 };
+			class Point point = { x_,Map::get_camera().y,96,96 };
 			struct PhysicState physic_state = { 1 };//	float gravity;
 			struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
@@ -66,7 +66,7 @@ void Player::StarManager::update(double ang, int x_)
 	}
 	if (Keyboard::key_down(KEY_INPUT_V)) {
 		ct->gts->gravityStar.clear();
-		class Point point = { x_ ,Map::get_camera().y,32,32 };
+		class Point point = { x_ ,Map::get_camera().y,96,96 };
 		struct PhysicState physic_state = { 1 };//	float gravity;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
@@ -81,6 +81,7 @@ Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state
 	hp = player_state.life;
 	angle = 0;
 	invincible = 0;
+	damageanim=false;
 	jumpCnt = 0;
 	interval = 0;
 	angle_LR = Right;
@@ -119,6 +120,7 @@ void Player::update()
 
 	//仮の移動とカーソル角度調整-------------
 	move();
+	anim();
 	if (Keyboard::key_press(KEY_INPUT_Q)) {
 		angle += 0.05;
 	}
@@ -144,6 +146,7 @@ bool Player::damage()
 	if (invincible <= 0) {
 		invincible = 180;
 		hp -= 1;
+		damageanim = true;
 		if (hp <= 0) {
 			return true;
 		}
@@ -157,25 +160,11 @@ void Player::draw_interface(int)
 
 void Player::move()
 {
-	bool anim_called=true;
+
 	//ジャンプ
 	if (point.y == preY) {
 
-		if (Keyboard::key_down(KEY_INPUT_X)) {		//仮の処理
-			if (angle_LR == Right) {
-				if (anim_called) {
-					anim_called = false;
-					shape->set("player_jump_Right");
-				}
-			}
-			else {
-				if (anim_called) {
-					anim_called = false;
-					shape->set("player_jump_Left");
-				}
-			}
 
-		}
 		if (Keyboard::key_press(KEY_INPUT_X)) {
 
 
@@ -201,12 +190,7 @@ void Player::move()
 	//左右移動
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
 		angle_LR = Left;
-		if (Keyboard::key_down(KEY_INPUT_LEFT)) {
-			if (anim_called) {
-				anim_called = false;
-				shape->set("player_walk_Left");
-			}
-		}
+
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 
 			point.x += physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
@@ -218,12 +202,7 @@ void Player::move()
 
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
 		angle_LR = Right;
-		if (Keyboard::key_down(KEY_INPUT_RIGHT)) {
-			if (anim_called) {
-				anim_called = false;
-				shape->set("player_walk_Right");
-			}
-		}
+
 		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
 
 			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
@@ -232,15 +211,41 @@ void Player::move()
 			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
 		}
 	}
-	if ((!(Keyboard::key_press(KEY_INPUT_RIGHT)) && Keyboard::key_up(KEY_INPUT_LEFT))||
-		((Keyboard::key_up(KEY_INPUT_RIGHT)) &&!( Keyboard::key_press(KEY_INPUT_LEFT)))) {		//仮の処理
+
+
+
+
+
+	preY = point.y;
+}
+
+void Player::anim() {
+	bool anim_called = true;
+	if (damageanim == true) {//ダメージを受けた時
+		damageanim = false;
+		if (angle_LR == Right) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_damage_Right");
+			}
+		}
+		else {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_damage_Left");
+			}
+
+		}
+	}
+	if ((Keyboard::key_press(KEY_INPUT_RIGHT) && Keyboard::key_down(KEY_INPUT_LEFT)) ||
+		(Keyboard::key_down(KEY_INPUT_RIGHT) && Keyboard::key_press(KEY_INPUT_LEFT))) {		//キーが両方押された瞬間
 		if (angle_LR == Right) {
 			if (anim_called) {
 				anim_called = false;
 				shape->set("player_idol_Right");
 			}
 		}
-		else{
+		else {
 			if (anim_called) {
 				anim_called = false;
 				shape->set("player_idol_Left");
@@ -248,10 +253,79 @@ void Player::move()
 
 		}
 	}
+	if (Keyboard::key_press(KEY_INPUT_RIGHT) && Keyboard::key_up(KEY_INPUT_LEFT)) {		//キーが両方押された状態から左キーが離された瞬間
+
+		if (anim_called) {
+			anim_called = false;
+			shape->set("player_walk_Right");
+		}
 
 
+	}
+	if (Keyboard::key_up(KEY_INPUT_RIGHT) && Keyboard::key_press(KEY_INPUT_LEFT)) {//キーが両方押された状態から右キーが離された瞬間
+		if (anim_called) {
+			anim_called = false;
+			shape->set("player_walk_Left");
+		}
+	}
+	if (Keyboard::key_down(KEY_INPUT_X)) {		//Xキーを押した処理
+		if (angle_LR == Right) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_jump_Right");
+			}
+		}
+		else {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_jump_Left");
+			}
+		}
 
-	preY = point.y;
+	}
+	if (Keyboard::key_down(KEY_INPUT_Z)|| Keyboard::key_down(KEY_INPUT_V)) {		//Z、Vキーを押した処理
+		if (angle_LR == Right) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_attack_Right");
+			}
+		}
+		else {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_attack_Left");
+			}
+		}
+
+	}
+	if (Keyboard::key_down(KEY_INPUT_LEFT)) {//左キーを押した処理
+		if (anim_called) {
+			anim_called = false;
+			shape->set("player_walk_Left");
+		}
+	}
+	if (Keyboard::key_down(KEY_INPUT_RIGHT)) {//右キーを押した処理
+		if (anim_called) {
+			anim_called = false;
+			shape->set("player_walk_Right");
+		}
+	}
+	if ((!(Keyboard::key_press(KEY_INPUT_RIGHT)) && Keyboard::key_up(KEY_INPUT_LEFT)) ||
+		((Keyboard::key_up(KEY_INPUT_RIGHT)) && !(Keyboard::key_press(KEY_INPUT_LEFT)))) {		//キーが両方離された瞬間
+		if (angle_LR == Right) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_idol_Right");
+			}
+		}
+		else {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_idol_Left");
+			}
+
+		}
+	}
 }
 
 bool Player::knockback(int)
