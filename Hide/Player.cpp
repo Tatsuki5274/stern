@@ -131,7 +131,7 @@ void Player::spawn(int x_, int y_, int w_, int h_)
 void Player::init()
 {
 	point = p_point;
-	shape->set("player_idol_Left");//resource.jsonのnameが"player"のものをセットする
+	shape->set("player_idol_Right");//resource.jsonのnameが"player"のものをセットする
 }
 
 bool Player::recover()
