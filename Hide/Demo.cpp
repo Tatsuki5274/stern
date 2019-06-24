@@ -1,4 +1,4 @@
-#include "Demo.h"
+ï»¿#include "Demo.h"
 #include"DxLib.h"
 #include"System.h"
 #include"screen_helper.h"
@@ -11,42 +11,51 @@ int Demo::movie_handle;
 
 bool Demo::check_state()
 {
-	//@‚à‚µ‚O‚ª•Ô‚Á‚Ä‚«‚½‚ç’â~’†A‚P‚È‚çÄ¶’†‚Æ‚È‚è‚Ü‚·B
-	//	ˆö‚İ‚É“®‰æ‚ÌÄ¶‚ªI—¹‚·‚é‚© PauseMovieGraph ŠÖ”‚ÅÄ¶‚É ƒ|[ƒY‚ğŠ|‚¯‚é‚Æ’â~’†‚Æ‚È‚è‚Ü‚·B
-	bool check = false;//ƒfƒtƒHƒ‹ƒg‚Å–¢Ä¶ó‘Ô‚Æ‚·‚é
-	//Ä¶’†‚È‚ç
+	//ã€€ã‚‚ã—ï¼ãŒè¿”ã£ã¦ããŸã‚‰åœæ­¢ä¸­ã€ï¼‘ãªã‚‰å†ç”Ÿä¸­ã¨ãªã‚Šã¾ã™ã€‚
+	//	å› ã¿ã«å‹•ç”»ã®å†ç”ŸãŒçµ‚äº†ã™ã‚‹ã‹ PauseMovieGraph é–¢æ•°ã§å†ç”Ÿã« ãƒãƒ¼ã‚ºã‚’æ›ã‘ã‚‹ã¨åœæ­¢ä¸­ã¨ãªã‚Šã¾ã™ã€‚
+	bool check = false;//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§æœªå†ç”ŸçŠ¶æ…‹ã¨ã™ã‚‹
+	//å†ç”Ÿä¸­ãªã‚‰
 	if (GetMovieStateToGraph(movie_handle) == 1){
 		check = true;
 	}
-	//ƒGƒ‰[‚ª”­¶‚µ‚½‚ç—áŠOˆ—
-	else if (GetMovieStateToGraph(movie_handle) == -1) throw "mp4 file is not found";
+	//ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ä¾‹å¤–å‡¦ç†(å¼·åˆ¶çš„ã«ã‚¹ãƒˆãƒƒãƒ—ã•ã›ã‚‹ã¨ã“ã“ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹ãŸã‚ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ)
+	//ä»£æ›¿ãˆæ¡ˆãŒã‚ã‚Œã°è‡³æ€¥é€£çµ¡ãã‚Œã‚„
+	//else if (GetMovieStateToGraph(movie_handle) == -1) throw "mp4 file is not found";
 	return check;
+}
+
+void Demo::stop_movie()
+{
+	//å†ç”Ÿä¸­ãªã‚‰
+	if (GetMovieStateToGraph(movie_handle) == 1) {
+		DeleteGraph(movie_handle);
+	}
 }
 
 void Demo::initialize()
 {
-	//“Ç‚İ‚Ş
+	//èª­ã¿è¾¼ã‚€
 	movie_handle = LoadGraph("./movie/demo.mp4");
 	PlayMovieToGraph(movie_handle);
 }
 
 void Demo::finalize()
 {
-	//ƒƒ‚ƒŠíœ
+	//ãƒ¡ãƒ¢ãƒªå‰Šé™¤
 	DeleteGraph(movie_handle);
 }
 
 void Demo::update()
 {
-	//Ä¶’†
+	//å†ç”Ÿä¸­
 	if (check_state() == 1) {
 		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 		draw();
-		if (Keyboard::key_down(KEY_INPUT_Q)) {
-		
+		if (Keyboard::key_down(KEY_INPUT_Z)) {
+			stop_movie();
 		}
 	}
-	//Ä¶I—¹
+	//å†ç”Ÿçµ‚äº†
 	else {
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
 			Scene::set_scene(SceneType::title);
@@ -57,7 +66,7 @@ void Demo::update()
 
 void Demo::draw()
 {
-	//“®‰æÄ¶
+	//å‹•ç”»å†ç”Ÿ
 	DrawExtendGraph(0, 0, System::width, System::height, movie_handle, FALSE);
-	//Push to Z key’Ç‰Á—\’è
+	//Push to Z keyè¿½åŠ äºˆå®š
 }

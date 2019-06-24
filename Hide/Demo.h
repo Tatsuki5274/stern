@@ -1,10 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 class Demo {
 private:
-	static int movie_handle;//‰f‘œ‚ğŠi”[‚·‚é
+	static int movie_handle;//æ˜ åƒã‚’æ ¼ç´ã™ã‚‹
 
-	static bool check_state();//Ä¶ó‘Ô‚ğ’²‚×‚é(1 Ä¶’†,0 ’â~’† -1 ƒGƒ‰[)
+	static bool check_state();//å†ç”ŸçŠ¶æ…‹ã‚’èª¿ã¹ã‚‹(1 å†ç”Ÿä¸­,0 åœæ­¢ä¸­ -1 ã‚¨ãƒ©ãƒ¼)
+	static void stop_movie();//æ˜ åƒã‚’é€”ä¸­ã ã‚ã†ãŒåœæ­¢ã•ã›ã‚‹
 public:
 	static void initialize();
 	static void finalize();
