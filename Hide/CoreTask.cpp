@@ -7,6 +7,7 @@
 #include "Audio.h"
 #include "Scene.h"
 #include"screen_helper.h"
+#include"Demo.h"
 
 GameTaskSystem *gts;
 
@@ -39,6 +40,9 @@ void CoreTask::update()
 		break;
 	case SceneType::pause:
 		PauseTask::update();
+		break;
+	case SceneType::demo:
+		Demo::update();
 		break;
 	}
 }

@@ -1,36 +1,63 @@
 #include "Demo.h"
 #include"DxLib.h"
 #include"System.h"
+#include"screen_helper.h"
+#include"screenhelper_config.h"
+#include"Scene.h"
+#include"Keyboard.h"
+#include"Audio.h"
+
+int Demo::movie_handle;
 
 bool Demo::check_state()
 {
+	//　もし０が返ってきたら停止中、１なら再生中となります。
+	//	因みに動画の再生が終了するか PauseMovieGraph 関数で再生に ポーズを掛けると停止中となります。
 	bool check = false;//デフォルトで未再生状態とする
 	//再生中なら
-	if (GetMovieStateToGraph(this->movie_handle) == 1){
+	if (GetMovieStateToGraph(movie_handle) == 1){
 		check = true;
 	}
 	//エラーが発生したら例外処理
-	else if (GetMovieStateToGraph(this->movie_handle) == -1) throw "mp4 file is not found";
+	else if (GetMovieStateToGraph(movie_handle) == -1) throw "mp4 file is not found";
 	return check;
 }
 
 void Demo::initialize()
 {
-	this->movie_handle = LoadGraph("./img/PV.mp4");
-	PlayMovieToGraph(this->movie_handle);
+	//読み込む
+	movie_handle = LoadGraph("./movie/demo.mp4");
+	PlayMovieToGraph(movie_handle);
 }
 
 void Demo::finalize()
 {
-	DeleteGraph(this->movie_handle);
+	//メモリ削除
+	DeleteGraph(movie_handle);
 }
 
 void Demo::update()
 {
-	draw();
+	//再生中
+	if (check_state() == 1) {
+		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
+		draw();
+		if (Keyboard::key_down(KEY_INPUT_Q)) {
+		
+		}
+	}
+	//再生終了
+	else {
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
+			Scene::set_scene(SceneType::title);
+			finalize();
+		}
+	}
 }
 
 void Demo::draw()
 {
-	DrawExtendGraph(0, 0, System::width, System::height, this->movie_handle, FALSE);
+	//動画再生
+	DrawExtendGraph(0, 0, System::width, System::height, movie_handle, FALSE);
+	//Push to Z key追加予定
 }

@@ -10,6 +10,7 @@
 
 int TitleTaskSystem::backgraph;
 bool TitleTaskSystem::feed_flag;
+int TitleTaskSystem::demo_cnt;
 std::unique_ptr<TitleUI> TitleTaskSystem::title_ui;
 
 void TitleTaskSystem::init()
@@ -17,18 +18,24 @@ void TitleTaskSystem::init()
 	title_ui = std::make_unique<TitleUI>();
 	backgraph = LoadGraph("img/title/title.png");
 	feed_flag = false;
+	demo_cnt = 0;
 	title_ui->init();
 }
 
 void TitleTaskSystem::init_member()
 {
 	feed_flag = false;
+	demo_cnt = 0;
 	//title_ui->init();
 }
 
 void TitleTaskSystem::update()
 {
 	draw();
+	//デモへの遷移
+	demo_cnt++;//デモカウント増加
+	if (demo_cnt > 60 * 20) { Scene::set_scene(SceneType::demo); };//20秒経過したらデモ映像を流す
+
 	//フェードアウト開始していないなら動かせる
 	if (feed_flag == false) {
 		selecter_move();
@@ -50,6 +57,8 @@ void TitleTaskSystem::update()
 		feed_flag = true;
 		Audio::play("decision");
 	}
+	//デバッグ分
+	DrawFormatString(0, 0, GetColor(255, 0, 0), "ddemo_cnt : %d", demo_cnt);
 }
 
 void TitleTaskSystem::finalize()
