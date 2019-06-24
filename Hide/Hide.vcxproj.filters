@@ -173,6 +173,9 @@
     <Filter Include="config\ClearConfig">
       <UniqueIdentifier>{96ae2f67-f70f-42ea-9cbf-5865a31128f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="views\demo">
+      <UniqueIdentifier>{1ddc7e5d-184b-4bc4-afb2-49a9a5f44992}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -330,6 +333,9 @@
     </ClCompile>
     <ClCompile Include="ClearUI.cpp">
       <Filter>views\clear</Filter>
+    </ClCompile>
+    <ClCompile Include="Demo.cpp">
+      <Filter>views\demo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -509,8 +515,8 @@
     <ClInclude Include="ClearConfig.h">
       <Filter>config\ClearConfig</Filter>
     </ClInclude>
-    <ClInclude Include="FlyingEnemyConfig.h">
-      <Filter>config</Filter>
+    <ClInclude Include="Demo.h">
+      <Filter>views\demo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
