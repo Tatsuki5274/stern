@@ -33,7 +33,7 @@ void Scene::set_scene(SceneType type)
 		PauseTask::init_member();
 		break;
 	case SceneType::demo:
-		Demo::initialize();
+		ct->demo->initialize();
 		break;
 	}
 }

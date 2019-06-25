@@ -15,6 +15,7 @@ GameTaskSystem *gts;
 CoreTask::CoreTask()
 {
 	gts = std::make_shared<GameTaskSystem>();
+	demo = std::make_unique<Demo>();
 	Scene::set_scene(SceneType::title);
 }
 
@@ -42,7 +43,7 @@ void CoreTask::update()
 		PauseTask::update();
 		break;
 	case SceneType::demo:
-		Demo::update();
+		demo->update();
 		break;
 	}
 }

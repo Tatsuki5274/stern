@@ -7,8 +7,6 @@
 #include"Keyboard.h"
 #include"Audio.h"
 
-int Demo::movie_handle;
-
 bool Demo::check_state()
 {
 	//　もし０が返ってきたら停止中、１なら再生中となります。
